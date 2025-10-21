@@ -2,7 +2,6 @@ import { routing } from "./routing";
 
 import { Formats, hasLocale } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
-
 export const formats = {
   number: {
     euro: {
