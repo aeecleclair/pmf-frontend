@@ -1,15 +1,20 @@
 import { routing } from "@/i18n/routing";
 import { Suspense } from "react";
 import { Locale, NextIntlClientProvider, hasLocale } from "next-intl";
-import { QueryProvider } from "./queryProvider";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+const queryClient = new QueryClient({});
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: Locale }>;
@@ -40,11 +45,11 @@ export default async function LocaleLayout({
     <html lang={locale}>
         <body>
           <Suspense>
-            <QueryProvider>
+            <QueryClientProvider client={queryClient}>
               <NextIntlClientProvider>
                 {children}
               </NextIntlClientProvider>
-            </QueryProvider>
+            </QueryClientProvider>
           </Suspense>
         </body>
       </html>
