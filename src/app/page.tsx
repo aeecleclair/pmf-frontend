@@ -1,3 +1,14 @@
+import { useTranslations } from "next-intl";
+
 export default function Home() {
-  return <p>pmfffffffffffffffffff</p>
+  const year = new Date().getFullYear(); 
+  const t = useTranslations("page");
+
+  return(
+    <>
+      <div>
+        <p>pmfffffffffffffffffff</p>
+      </div>
+    </>
+  ); 
 }

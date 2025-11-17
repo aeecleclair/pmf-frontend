@@ -1,0 +1,6 @@
+node_modules
+.next
+
+# Shadcn components
+src/components/ui
+src/api
