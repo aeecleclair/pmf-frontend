@@ -1,5 +1,8 @@
 {
     "TestPage":{
-    "Sample" : "English"
+        "Sample" : "English"
+    },
+    "Test2":{
+        "Sample" : "igirisu"
     }
 }

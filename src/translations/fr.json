@@ -1,5 +1,8 @@
 {
     "TestPage":{
-    "Sample" : "Français"
+        "Sample" : "Français"
+    },
+    "Test2":{
+        "Sample" : "test"
     }
 }

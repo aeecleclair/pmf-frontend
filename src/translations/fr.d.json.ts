@@ -3,7 +3,10 @@
 
 declare const messages: {
     "TestPage":{
-    "Sample" : "Français"
+        "Sample" : "Français"
+    },
+    "Test2":{
+        "Sample" : "test"
     }
 };
 export default messages;
