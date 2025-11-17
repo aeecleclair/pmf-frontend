@@ -7,6 +7,10 @@ declare const messages: {
     },
     "Test2":{
         "Sample" : "test"
+    },
+    "metadata": {
+        "description": "Plateforme de PMF de Centrale Lyon",
+        "title": "PMFFFF"
     }
 };
 export default messages;
