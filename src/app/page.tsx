@@ -1,3 +1,3 @@
-export default function Home() {
-  return <p>pmfffffffffffffffffff</p>
-}
+import RedirectPage from "./redirect";
+
+export default RedirectPage;
