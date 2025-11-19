@@ -11,6 +11,12 @@ declare const messages: {
     "metadata": {
         "description": "Plateforme de PMF de Centrale Lyon",
         "title": "PMFFFF"
+    },
+    "MyECLButton": {
+    "authenticate": "Se connecter avec MyECL"
+    },
+    "login": {
+    "title": "Connexion"
     }
 };
 export default messages;
