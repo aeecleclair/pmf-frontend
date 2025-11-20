@@ -10,9 +10,9 @@
         "title": "PMFFFF"
     },
     "MyECLButton": {
-    "authenticate": "Se connecter avec MyECL"
+        "authenticate": "Se connecter avec MyECL"
     },
     "login": {
-    "title": "Connexion"
+        "title": "Connexion"
     }
 }
