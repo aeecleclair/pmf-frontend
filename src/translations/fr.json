@@ -13,6 +13,9 @@
         "authenticate": "Se connecter avec MyECL"
     },
     "login": {
-        "title": "Connexion"
+        "title": "Connexion",
+        "student": "Élève",
+        "alumni": "Alumni",
+        "register": "Pas encore de compte ? S'inscrire :"
     }
 }

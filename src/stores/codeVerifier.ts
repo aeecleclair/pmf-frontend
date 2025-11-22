@@ -22,7 +22,7 @@ export const useCodeVerifierStore = create<codeVerifierStore>()(
         isLoading: false,
       }),
       {
-        name: "raid-code-verifier-storage",
+        name: "pmf-code-verifier-storage",
       },
     ),
   ),
