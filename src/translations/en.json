@@ -8,5 +8,14 @@
     "metadata": {
         "description": "Plateform of PMF of Centrale Lyon",
         "title": "PMFFFF"
+    },
+    "MyECLButton": {
+        "authenticate": "Log in with MyECL"
+    },
+    "login": {
+        "title": "Login",
+        "student": "Student",
+        "alumni": "Alumni",
+        "register": "Don't have an account yet? Register:"
     }
 }

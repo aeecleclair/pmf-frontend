@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import QueryProvider from "./QueryProvider";
 
 import type { Metadata } from "next";
+import Provider from "./provider";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -41,9 +42,11 @@ export default async function LocaleLayout({
         <body>
           <Suspense>
             <QueryProvider>
-              <NextIntlClientProvider>
-                {children}
-              </NextIntlClientProvider>
+              <Provider>
+                <NextIntlClientProvider>
+                  {children}
+                </NextIntlClientProvider>
+              </Provider>
             </QueryProvider>
           </Suspense>
         </body>
