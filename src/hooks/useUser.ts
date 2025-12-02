@@ -1,16 +1,13 @@
-import { useToken } from "./useToken";
+import { useAuth } from "./useToken";
 
-import { getUsersUserIdOptions } from "@/api/@tanstack/react-query.gen";
+import { getUsersMeOptions } from "@/api/@tanstack/react-query.gen";
 
 import { useQuery } from "@tanstack/react-query";
 
 export const useUser = (userId: string | null) => {
-  const { isTokenExpired } = useToken();
-
+  const { isTokenExpired } = useAuth();
   const query = useQuery({
-    ...getUsersUserIdOptions({
-      path: { user_id: userId ?? "" },
-    }),
+    ...getUsersMeOptions(),
     enabled: !!userId && !isTokenExpired(),
   });
 

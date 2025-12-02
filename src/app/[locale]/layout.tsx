@@ -6,7 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import QueryProvider from "./QueryProvider";
 
 import type { Metadata } from "next";
-import Provider from "./provider";
+import { ApiInterceptor } from "./provider";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -24,14 +24,13 @@ export async function generateMetadata(props: {
   };
 }
 
-
 export default async function LocaleLayout({
   children,
   params,
-  }: {
-    children: React.ReactNode;
-    params: Promise<{ locale: Locale }>;
-  }) {
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: Locale }>;
+}) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -39,18 +38,15 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   return (
     <html lang={locale}>
-        <body>
+      <body>
+        <ApiInterceptor>
           <Suspense>
             <QueryProvider>
-              <Provider>
-                <NextIntlClientProvider>
-                  {children}
-                </NextIntlClientProvider>
-              </Provider>
+              <NextIntlClientProvider>{children}</NextIntlClientProvider>
             </QueryProvider>
           </Suspense>
-        </body>
-      </html>
+        </ApiInterceptor>
+      </body>
+    </html>
   );
 }
-

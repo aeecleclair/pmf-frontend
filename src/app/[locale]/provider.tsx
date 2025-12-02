@@ -1,31 +1,26 @@
 "use client";
 
-import { useToken } from "@/hooks/useToken";
+import { client } from "@/api/client.gen";
 import { useTokenStore } from "@/stores/token";
 
-import { createClient } from "@/api/client/client.gen";
-
-export default function Provider({ children }: { children: React.ReactNode }) {
-  const { token } = useTokenStore();
-  const { refetch } = useToken();
-
-  const client = createClient({
-    // set default base url for requests
-    baseUrl: process.env.NEXT_PUBLIC_BACKEND_URL || "https://hyperion.myecl.fr",
+if (process.env.NEXT_PUBLIC_BACKEND_URL) {
+  client.setConfig({
+    baseUrl: process.env.NEXT_PUBLIC_BACKEND_URL,
   });
+}
 
-  client.interceptors.request.use(async (request) => {
-    console.log(request.baseUrl);
-    console.log(useTokenStore.getState().token);
-    if (!token) {
-      await refetch();
+client.interceptors.request.use((options) => {
+  const token = useTokenStore.getState().token;
+  if (token) {
+    if (options.headers instanceof Headers) {
+      options.headers.set("Authorization", `Bearer ${token}`);
     }
-    request.headers = {
-      ...(request.headers as Record<string, string>),
-      Authorization: `Bearer ${token}`,
-    };
-    return;
-  });
-
-  return children;
+  }
+});
+/**
+ * Ce composant n'a pour seul but que de garantir l'initialisation de l'intercepteur
+ * sur le client. Il ne rend rien et enveloppe les enfants.
+ */
+export function ApiInterceptor({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
 }

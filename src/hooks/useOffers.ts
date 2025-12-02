@@ -1,19 +1,19 @@
 import { getPmfOffers } from "@/api";
-import { useToken } from '@/hooks/useToken'
+import { useAuth } from "@/hooks/useToken";
 
-import { useQuery } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query";
 
 export const useOffers = () => {
-    const { isTokenExpired } = useToken();
-    const { data, isLoading, refetch } = useQuery({
-        queryKey: ["offers"],
-        queryFn: getPmfOffers,
-        retry: 3,
-        enabled: !isTokenExpired(),
-    })
-    return {
-        offers: data?.data || [],
-        isLoading,
-        refetch,
-    };
-}
+  const { isTokenExpired } = useAuth();
+  const { data, isLoading, refetch } = useQuery({
+    queryKey: ["offers"],
+    queryFn: getPmfOffers,
+    retry: 3,
+    enabled: !isTokenExpired(),
+  });
+  return {
+    offers: data?.data || [],
+    isLoading,
+    refetch,
+  };
+};
