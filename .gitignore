@@ -43,3 +43,6 @@ next-env.d.ts
 
 # next-intl
 /src/translations/*.d.json.ts
+
+# API codegen
+# /src/api/*
