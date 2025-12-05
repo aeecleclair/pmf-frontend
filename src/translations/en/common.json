@@ -1,0 +1,30 @@
+{
+  "HelloAssoButton": {
+    "payWithHA": "Pay with <ha>HelloAsso</ha>"
+  },
+  "MyECLButton": {
+    "authenticate": "Login with MyECL"
+  },
+  "datePicker": {
+    "select": "Select a date"
+  },
+  "multiselect": {
+    "deselect": "Deselect all",
+    "noItemFound": "No item found.",
+    "search": "Search...",
+    "selectAll": "Select all"
+  },
+  "pageIndicator": {
+    "nextPage": "Go to next page",
+    "previousPage": "Go to previous page"
+  },
+  "statusDialog": {
+    "continue": "Continue"
+  },
+  "toast": {
+    "error": "Error"
+  },
+  "warningDialog": {
+    "cancel": "Cancel"
+  }
+}
