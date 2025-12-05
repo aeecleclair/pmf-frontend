@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { Locale, NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import QueryProvider from "./QueryProvider";
+import QueryProvider from "../../QueryProvider";
 
 import type { Metadata } from "next";
 import { AuthInterceptor } from "@/app/provider";
@@ -19,8 +19,8 @@ export async function generateMetadata(props: {
   const t = await getTranslations({ locale, namespace: "pmf" });
 
   return {
-    title: t("title"),
-    description: t("description"),
+    title: t("metadata.title"),
+    description: t("metadata.description"),
   };
 }
 

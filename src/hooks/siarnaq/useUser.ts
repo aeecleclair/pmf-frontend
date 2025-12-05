@@ -1,11 +1,11 @@
-import { useToken } from "./useToken";
+import { useAuth } from "../useToken";
 
 import { getCdrUsersUserIdOptions } from "@/api/@tanstack/react-query.gen";
 
 import { useQuery } from "@tanstack/react-query";
 
 export const useCdrUser = (userId: string | null) => {
-  const { isTokenExpired } = useToken();
+  const { isTokenExpired } = useAuth();
   const { data, isLoading, refetch } = useQuery({
     ...getCdrUsersUserIdOptions({
       path: { user_id: userId! },

@@ -26,7 +26,7 @@ import {
 import MyECLButton from "@/components/login/MyEclButton";
 
 const Login = () => {
-  const t = useTranslations("login");
+  const t = useTranslations("siarnaq");
   const router = useRouter();
   const { year } = useYear();
   const possiblePromos = Array.from({ length: 5 }).map((_, index) => {
@@ -40,26 +40,26 @@ const Login = () => {
     <div className="flex [&>div]:w-full h-[--custom-vh] bg-muted/40">
       <Card className="rounded-xl border bg-card text-muted-foreground shadow max-w-[700px] m-auto">
         <CardHeader>
-          <CardTitle>{t("title", { year: year.toString() })}</CardTitle>
+          <CardTitle>{t("login.title", { year: year.toString() })}</CardTitle>
           <CardDescription className="flex flex-col gap-2">
-            <span>{t("description")}</span>
+            <span>{t("login.description")}</span>
             <span>
-              {t("contact")}{" "}
+              {t("login.contact")}{" "}
               <a href="mailto://bde@ec-lyon.fr">bde@ec-lyon.fr</a>
             </span>
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
-          <span className="m-auto">{t("alreadyHaveMyECLAccount")}</span>
+          <span className="m-auto">{t("login.alreadyHaveMyECLAccount")}</span>
           <form>
             <div className="grid w-full items-center gap-4">
               <MyECLButton />
             </div>
           </form>
-          <TextSeparator text={t("or")} />
-          <span className="m-auto">{t("selectPromotion")}</span>
+          <TextSeparator text={t("login.or")} />
+          <span className="m-auto">{t("login.selectPromotion")}</span>
           <span className=" text-center text-sm text-orange-500">
-            {t("usePersonalEmail")}
+            {t("login.usePersonalEmail")}
           </span>
           <div key="curriculum" className="h-full gap-4 flex flex-col">
             <Select
@@ -73,7 +73,7 @@ const Login = () => {
                 <SelectGroup>
                   {possiblePromos.map((promo) => (
                     <SelectItem key={promo} value={promo.toString()}>
-                      {t("promotion", { year: promo })}
+                      {t("login.promotion", { year: promo })}
                     </SelectItem>
                   ))}
                 </SelectGroup>
@@ -94,7 +94,7 @@ const Login = () => {
                 router.push(redirectUri);
               }}
             >
-              {t("register")}
+              {t("login.register")}
             </Button>
           )}
         </CardContent>

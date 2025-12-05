@@ -1,9 +1,7 @@
 import tailwindAnimate from "tailwindcss-animate";
 
 const config = {
-  darkMode: "class", // v4 accepte la string "class"
-
-  // Rien d'autre ici : plus de "content", plus de "prefix"
+  darkMode: "class",
 
   theme: {
     container: {
@@ -13,7 +11,6 @@ const config = {
         "2xl": "1400px",
       },
     },
-
     extend: {
       colors: {
         border: "hsl(var(--border))",

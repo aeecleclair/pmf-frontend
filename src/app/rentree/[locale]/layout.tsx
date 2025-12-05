@@ -1,5 +1,4 @@
 import { AuthInterceptor } from "../../provider";
-import { QueryProvider } from "./queryProvider";
 import { ThemeProvider } from "./theme-provider";
 import TopBar from "./topbar";
 
@@ -14,6 +13,7 @@ import Script from "next/script";
 import { Suspense } from "react";
 
 import { Toaster } from "@/components/ui/toaster";
+import QueryProvider from "@/app/QueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 

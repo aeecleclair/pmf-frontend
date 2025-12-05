@@ -1,6 +1,5 @@
-@import "tailwindcss/preflight";
+@import "tailwindcss";
 @tailwind utilities;
-
 /* ---------------------------
    Variables CSS (light/dark)
 ---------------------------- */
@@ -75,7 +74,7 @@
 /* ---------------------------
    Styles globaux appliqués
 ---------------------------- */
-@layer base {
+/* @layer base {
   * {
     @apply border-border;
   }
@@ -83,4 +82,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
+} */

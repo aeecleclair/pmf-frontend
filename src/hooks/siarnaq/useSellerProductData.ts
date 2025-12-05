@@ -1,4 +1,4 @@
-import { useToken } from "./useToken";
+import { useAuth } from "../useToken";
 
 import { getCdrSellersSellerIdProductsProductIdDataOptions } from "@/api/@tanstack/react-query.gen";
 
@@ -8,7 +8,7 @@ export const useSellerProductData = (
   sellerId: string | null,
   productId: string | null
 ) => {
-  const { isTokenExpired } = useToken();
+  const { isTokenExpired } = useAuth();
   const { data, isLoading, refetch } = useQuery({
     ...getCdrSellersSellerIdProductsProductIdDataOptions({
       path: { seller_id: sellerId!, product_id: productId! },

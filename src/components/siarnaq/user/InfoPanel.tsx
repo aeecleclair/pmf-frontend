@@ -23,7 +23,7 @@ import {
 } from "../../ui/card";
 
 export const InfoPanel = () => {
-  const t = useTranslations("info");
+  const t = useTranslations("siarnaq");
   const { onlineSellers } = useOnlineSellers();
   const { year } = useYear();
   const yearString = year.toString();
@@ -31,20 +31,20 @@ export const InfoPanel = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{t("information")}</CardTitle>
+        <CardTitle>{t("info.information")}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-2">
         <h3 className="text-lg font-semibold flex flex-row items-center pt-5">
           <HiOutlineCalendar className="h-4 w-4 mr-2" />
-          {t("cdrOnsiteTitle")}
+          {t("info.cdrOnsiteTitle")}
         </h3>
         <div>
           {t.rich("cdrOnsiteSubtitle", {
             mandatory: (c: string) => <span className="font-bold">{c}</span>,
           })}
         </div>
-        <div>{t("cdrOnsiteDescription")}</div>
-        <div className="font-bold">{t("cdrOnsiteMandatoryWarning")}</div>
+        <div>{t("info.cdrOnsiteDescription")}</div>
+        <div className="font-bold">{t("info.cdrOnsiteMandatoryWarning")}</div>
 
         <div className="pl-10">
           <a
@@ -59,7 +59,7 @@ export const InfoPanel = () => {
         {/* */}
         <h3 className="text-lg font-semibold flex flex-row items-center pt-5">
           <HiOutlineBanknotes className="h-4 w-4 mr-2" />
-          {t("cautionTitle")}
+          {t("info.cautionTitle")}
         </h3>
         <div>
           {t.rich("cautionDescription", {
@@ -89,7 +89,7 @@ export const InfoPanel = () => {
         {/* */}
         <h3 className="text-lg font-semibold flex flex-row items-center pt-5">
           <HiOutlineNewspaper className="h-4 w-4 mr-2" />
-          {t("facebookTitle")}
+          {t("info.facebookTitle")}
         </h3>
         <div>{t("facebook", { year: yearString })}</div>
         <div className="pl-10">
@@ -105,32 +105,32 @@ export const InfoPanel = () => {
         {/* */}
         <h3 className="text-lg font-semibold flex flex-row items-center pt-5">
           <HiOutlineDevicePhoneMobile className="h-4 w-4 mr-2" />
-          {t("myECLTitle")}
+          {t("info.myECLTitle")}
         </h3>
-        <div>{t("myECL")}</div>
+        <div>{t("info.myECL")}</div>
         <div className="pl-10">
           <a
             href="https://apps.apple.com/fr/app/myecl/id6444443430"
             className="font-medium hover:underline underline-offset-4 flex flex-row items-center"
           >
             <HiOutlineLink className="h-4 w-4 mr-2" />
-            {t("downloadMyECLiOS")}
+            {t("info.downloadMyECLiOS")}
           </a>
           <a
             href="https://play.google.com/store/apps/details?id=fr.myecl.titan"
             className="font-medium hover:underline underline-offset-4 flex flex-row items-center"
           >
             <HiOutlineLink className="h-4 w-4 mr-2" />
-            {t("downloadMyECLAndroid")}
+            {t("info.downloadMyECLAndroid")}
           </a>
         </div>
         {/* */}
         {/* I'm so sorry Jho...
         <h3 className="text-lg font-semibold flex flex-row items-center pt-5">
           <HiOutlineUserGroup className="h-4 w-4 mr-2" />
-          {t("elementTitle")}
+          {t("info.elementTitle")}
         </h3>
-        <div>{t("element")}</div>
+        <div>{t("info.element")}</div>
         <div className="pl-10">
           <ol className="list-decimal">
             <li>
@@ -139,14 +139,14 @@ export const InfoPanel = () => {
                 className="font-medium hover:underline underline-offset-4 flex flex-row items-center"
               >
                 <HiOutlineLink className="h-4 w-4 mr-1" />
-                {t("elementStep1")}
+                {t("info.elementStep1")}
               </a>
             </li>
-            <li>{t("elementStep2")}</li>
+            <li>{t("info.elementStep2")}</li>
             <li>
-              {t("elementStep3")} <code>myecl.fr</code>
+              {t("info.elementStep3")} <code>myecl.fr</code>
             </li>
-            <li>{t("elementStep4")}</li>
+            <li>{t("info.elementStep4")}</li>
           </ol>
         </div>
         */}

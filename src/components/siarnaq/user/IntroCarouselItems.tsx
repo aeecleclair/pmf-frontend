@@ -41,13 +41,13 @@ export const IntroCarouselItems = ({
     null
   );
   const { toast } = useToast();
-  const t = useTranslations("introCarouselItem");
+  const t = useTranslations("siarnaq");
   const { curriculums } = useCurriculums();
   const { onlineSellers } = useOnlineSellers();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(0);
-  const buttonLabels = [t("begin"), t("validate")];
+  const buttonLabels = [t("introCarouselItem.begin"), t("introPanel.validate")];
   const [selectedCurriculum, setSelectedCurriculum] = useState<
     string | undefined
   >(user.curriculum?.id);
@@ -59,17 +59,17 @@ export const IntroCarouselItems = ({
       selectedCurriculum !== user.curriculum?.id);
   const content: React.ReactNode[] = [
     <div key="intro" className="flex flex-col gap-2">
-      <span>{t("welcome")}</span>
-      <span className="text-justify">{t("description")}</span>
+      <span>{t("introCarouselItem.welcome")}</span>
+      <span className="text-justify">{t("introCarouselItem.description")}</span>
       <span>
-        {t("contact")}
+        {t("introCarouselItem.contact")}
         <a href="mailto://bde@ec-lyon.fr" className="whitespace-pre">
           bde@ec-lyon.fr
         </a>
       </span>
     </div>,
     <div key="curriculum" className="h-full gap-4 flex flex-col">
-      <span>{t("selectCurriculum")}</span>
+      <span>{t("introCarouselItem.selectCurriculum")}</span>
       <Select value={selectedCurriculum} onValueChange={setSelectedCurriculum}>
         <SelectTrigger className="w-[300px] m-auto">
           <SelectValue />

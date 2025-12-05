@@ -23,7 +23,7 @@ export default function Home() {
   const { onlineSellers } = useOnlineSellers();
   const { year } = useYear();
   const [isEndDialogOpened, setIsEndDialogOpened] = useState(true);
-  const t = useTranslations("page");
+  const t = useTranslations("siarnaq");
 
   return (
     <div className="flex min-h-[--custom-vh] w-full flex-col">
@@ -31,8 +31,8 @@ export default function Home() {
         <StatusDialog
           isOpened={isEndDialogOpened}
           setIsOpened={setIsEndDialogOpened}
-          title={t("succeededTitle")}
-          description={t("succeededDescription")}
+          title={t("page.succeededTitle")}
+          description={t("page.succeededDescription")}
           status="SUCCESS"
           callback={() => {
             refetch();
@@ -45,8 +45,8 @@ export default function Home() {
         <StatusDialog
           isOpened={isEndDialogOpened}
           setIsOpened={setIsEndDialogOpened}
-          title={t("refusedTitle")}
-          description={t("refusedDescription")}
+          title={t("page.refusedTitle")}
+          description={t("page.refusedDescription")}
           status="ERROR"
           callback={() => {
             setIsEndDialogOpened(false);
@@ -72,10 +72,10 @@ export default function Home() {
         <div className="w-full max-w-7xl mx-auto p-4 md:py-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <p className="text-balance text-sm leading-loose text-muted-foreground">
-              {t("madeByECLAIR")}
+              {t("page.madeByECLAIR")}
             </p>
             <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              {t.rich("license", {
+              {t.rich("page.license", {
                 date: () => year,
                 eclair: (c: string) => (
                   <a

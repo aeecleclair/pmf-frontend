@@ -1,11 +1,11 @@
-import { useToken } from "./useToken";
+import { useAuth } from "../useToken";
 
 import { getMembershipsOptions } from "@/api/@tanstack/react-query.gen";
 
 import { useQuery } from "@tanstack/react-query";
 
 export const useMemberships = () => {
-  const { isTokenExpired } = useToken();
+  const { isTokenExpired } = useAuth();
   const { data, isLoading, refetch } = useQuery({
     ...getMembershipsOptions(),
     retry: 3,

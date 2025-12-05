@@ -1,11 +1,11 @@
-import { useToken } from "./useToken";
+import { useAuth } from "../useToken";
 
 import { getCdrCurriculumsOptions } from "@/api/@tanstack/react-query.gen";
 
 import { useQuery } from "@tanstack/react-query";
 
 export const useCurriculums = () => {
-  const { isTokenExpired } = useToken();
+  const { isTokenExpired } = useAuth();
   const { data, isLoading, refetch } = useQuery({
     ...getCdrCurriculumsOptions(),
     retry: 3,

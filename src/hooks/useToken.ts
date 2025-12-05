@@ -8,15 +8,17 @@ import { useTokenStore } from "@/stores/token";
 import { BodyTokenAuthTokenPost, TokenResponse } from "@/api/types.gen";
 import { stringify } from "querystring";
 import axios from "axios";
+import { useLocale } from "next-intl";
 
 const clientId: string = process.env.NEXT_PUBLIC_CLIENT_ID || "Challenger";
-const redirectUrlHost: string = `${process.env.NEXT_PUBLIC_FRONTEND_URL}/login`;
 const backUrl: string =
   process.env.NEXT_PUBLIC_BACKEND_URL || "https://hyperion.myecl.fr";
 const scopes: string[] = ["API"];
 
 export const useAuth = () => {
   const pathname = usePathname();
+  const website = pathname.split("/")[1];
+  const locale = useLocale();
   const [isLoading, setIsLoading] = useState(false);
   const { token, setToken, refreshToken, setRefreshToken, userId } =
     useTokenStore();
@@ -26,6 +28,7 @@ export const useAuth = () => {
     useCodeVerifierStore();
   const timer = useRef<NodeJS.Timeout | null>(null);
   const REFRESH_TOKEN_BUFFER = 60;
+  const redirectUrlHost: string = `${process.env.NEXT_PUBLIC_FRONTEND_URL}/${website}/fr/login`;
 
   function generateRandomString(length: number): string {
     let result = "";
@@ -138,7 +141,7 @@ export const useAuth = () => {
     setToken(null);
     setRefreshToken(null);
     setIsTokenQueried(false);
-    router.replace("/login");
+    router.replace(`/${pathname.split("/")[1]}/login`);
   }
 
   async function getTokenFromStorage(): Promise<string | null> {
@@ -148,8 +151,9 @@ export const useAuth = () => {
     if (token !== null) {
       setIsTokenQueried(true);
     } else {
-      if (pathname != "/fr/login") {
-        router.replace(`/fr/login?redirect=${pathname}`);
+      if (pathname != `/${website}/${locale}/login`) {
+        console.log("redirect to login", website);
+        router.replace(`/${website}/fr/login?redirect=${pathname}`);
       }
     }
     setIsLoading(false);

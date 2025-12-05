@@ -4,7 +4,7 @@ import { useCoreUser } from "@/hooks/siarnaq/useCoreUser";
 import { useSellers } from "@/hooks/siarnaq/useSellers";
 import { useStatus } from "@/hooks/siarnaq/useStatus";
 import { useYear } from "@/hooks/siarnaq/useYear";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useLocaleStore } from "@/stores/locale";
 import { useTokenStore } from "@/stores/token";
@@ -13,7 +13,7 @@ import { CaretSortIcon, ExitIcon } from "@radix-ui/react-icons";
 import { useTranslations } from "next-intl";
 import { Locale, useLocale } from "next-intl";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { HiOutlineLibrary } from "react-icons/hi";
 import { HiShoppingCart } from "react-icons/hi2";
 
@@ -30,7 +30,7 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 export default function TopBar() {
-  const t = useTranslations("topbar");
+  const t = useTranslations("siarnaq");
   const { setToken, setRefreshToken } = useTokenStore();
   const pathname = usePathname();
   const router = useRouter();
@@ -59,13 +59,13 @@ export default function TopBar() {
         {pathname === "/" && (isAdmin || isInASellerGroup) && (
           <Button variant="secondary" onClick={() => router.push("/admin")}>
             <HiOutlineLibrary className="mr-2" />
-            {t("admin")}
+            {t("topbar.admin")}
           </Button>
         )}
         {pathname === "/admin" && (
           <Button variant="secondary" onClick={() => router.push("/")}>
             <HiShoppingCart className="mr-2" />
-            {t("user")}
+            {t("topbar.user")}
           </Button>
         )}
         {["/", "/admin"].includes(pathname) && (
@@ -77,7 +77,7 @@ export default function TopBar() {
             }}
           >
             <ExitIcon className="mr-2" />
-            {t("logout")}
+            {t("topbar.logout")}
           </Button>
         )}
       </div>
@@ -90,6 +90,7 @@ function LocaleDropdown() {
   const { localeStore, setLocaleStore } = useLocaleStore();
   const router = useRouter();
   const pathname = usePathname();
+  const website = pathname.split("/")[1];
   const searchParams = useSearchParams();
   const sellerId = searchParams.get("sellerId") ?? "";
   if (!localeStore) setLocaleStore(locale);
@@ -101,7 +102,7 @@ function LocaleDropdown() {
 
   const onSetLocale = (l: string) => {
     if (l !== locale) {
-      router.push({ pathname, query: { sellerId } }, { locale: l as Locale });
+      router.push(`/${website}/${l}${sellerId ? `?sellerId=${sellerId}` : ""}`);
       setLocaleStore(l as Locale);
     }
   };
@@ -110,7 +111,7 @@ function LocaleDropdown() {
     <DropdownMenu>
       <DropdownMenuTrigger className="flex flex-row p-1">
         <Image
-          src={`/${locale}.svg`}
+          src={`${website}/${locale}.svg`}
           alt={localeName[locale]}
           width={30}
           height={30}

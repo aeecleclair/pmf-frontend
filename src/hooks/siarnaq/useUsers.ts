@@ -1,4 +1,4 @@
-import { useToken } from "./useToken";
+import { useAuth } from "../useToken";
 
 import { CdrUser, CdrUserPreview, getCdrUsers } from "@/api";
 import { useTokenStore } from "@/stores/token";
@@ -15,7 +15,7 @@ interface UserStreamMessage {
 }
 
 export const useUsers = () => {
-  const { isTokenExpired } = useToken();
+  const { isTokenExpired } = useAuth();
   const [returnedUsers, setReturnedUsers] = useState<CdrUserPreview[]>([]);
   const { isLoading, refetch } = useQuery({
     queryKey: ["users"],
@@ -31,7 +31,7 @@ export const useUsers = () => {
               ...user,
               nickname: user.nickname ?? "",
             };
-          }),
+          })
         );
       }
       return data;
@@ -67,7 +67,7 @@ export const useUsers = () => {
             } else {
               // This case can occur when a user is updated but we don't know if he already had an account before
               setReturnedUsers(
-                returnedUsers.map((u) => (u.id === user.id ? user : u)),
+                returnedUsers.map((u) => (u.id === user.id ? user : u))
               );
             }
             break;
@@ -75,8 +75,8 @@ export const useUsers = () => {
             const updatedUser = message.data as CdrUser;
             setReturnedUsers(
               returnedUsers.map((user) =>
-                user.id === updatedUser.id ? updatedUser : user,
-              ),
+                user.id === updatedUser.id ? updatedUser : user
+              )
             );
             break;
           case "WSStatus":

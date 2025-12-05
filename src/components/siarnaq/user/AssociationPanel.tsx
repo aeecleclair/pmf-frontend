@@ -24,7 +24,7 @@ export const AssociationPanel = ({
   canClick,
   showSellerFeatureFlag,
 }: AssociationPanelProps) => {
-  const t = useTranslations("associationPanel");
+  const t = useTranslations("siarnaq");
   const { userId } = useTokenStore();
   const searchParams = useSearchParams();
   const firstSellerId = searchParams.get("sellerId") || onlineSellers.at(0)?.id;
@@ -47,7 +47,9 @@ export const AssociationPanel = ({
   return (
     <div>
       <div className="mx-auto grid w-full max-w-6xl gap-2 mb-6">
-        <h1 className="text-3xl font-semibold">{t("associations")}</h1>
+        <h1 className="text-3xl font-semibold">
+          {t("associationPanel.associations")}
+        </h1>
       </div>
       <nav className="grid gap-4 text-sm text-muted-foreground">
         <Link
@@ -58,7 +60,7 @@ export const AssociationPanel = ({
         >
           <div className="flex flex-row items-center">
             <HiOutlineSparkles className="h-4 w-4 mr-2" />
-            {t("presentation")}
+            {t("associationPanel.presentation")}
           </div>
         </Link>
         {showSellerFeatureFlag &&
@@ -101,7 +103,7 @@ export const AssociationPanel = ({
         >
           <div className="flex flex-row items-center">
             <HiOutlineCalendar className="h-4 w-4 mr-2" />
-            {t("information")}
+            {t("associationPanel.information")}
           </div>
         </Link>
         <Link
@@ -112,7 +114,7 @@ export const AssociationPanel = ({
         >
           <div className="flex flex-row items-center">
             <HiOutlineClipboardList className="h-4 w-4 mr-2" />
-            {t("summary")}
+            {t("associationPanel.summary")}
             {totalPurchases > 0 && (
               <>
                 <span className="ml-2">·</span>

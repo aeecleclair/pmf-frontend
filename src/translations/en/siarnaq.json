@@ -163,7 +163,8 @@
     "welcome": "Welcome to Centrale Lyon's associative Chaîne De Rentrée. "
   },
   "introPanel": {
-    "presentation": "Presentation"
+    "presentation": "Presentation",
+    "validate": "Validate"
   },
   "login": {
     "alreadyHaveMyECLAccount": "Already have a MyECL account?",

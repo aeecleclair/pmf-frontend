@@ -9,13 +9,13 @@ import { Carousel } from "../../ui/carousel";
 import { useCdrUser } from "@/hooks/siarnaq/useUser";
 
 export const IntroPanel = () => {
-  const t = useTranslations("introPanel");
+  const t = useTranslations("siarnaq");
   const { userId } = useTokenStore();
   const { user, refetch } = useCdrUser(userId);
   return (
     <Card className="max-md:w-auto">
       <CardHeader>
-        <CardTitle>{t("presentation")}</CardTitle>
+        <CardTitle>{t("introPanel.presentation")}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-2">
         <Carousel

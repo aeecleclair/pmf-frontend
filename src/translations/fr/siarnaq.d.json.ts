@@ -165,7 +165,8 @@ declare const messages: {
     "welcome": "Bienvenue à la chaîne de rentrée associative de Centrale Lyon."
   },
   "introPanel": {
-    "presentation": "Présentation"
+    "presentation": "Présentation",
+    "validate": "Valider"
   },
   "login": {
     "alreadyHaveMyECLAccount": "Vous avez déjà un compte MyECL ?",
