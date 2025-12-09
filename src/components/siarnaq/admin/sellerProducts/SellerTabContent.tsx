@@ -36,7 +36,7 @@ export const SellerTabContent = ({
   refetchProducts,
 }: SellerTabContentProps) => {
   const { toast } = useToast();
-  const t = useTranslations("sellerTabContent");
+  const t = useTranslations("siarnaq");
   const searchParams = useSearchParams();
   const activeSellerId = searchParams.get("sellerId");
   const userId = searchParams.get("userId");
@@ -118,11 +118,11 @@ export const SellerTabContent = ({
       <CustomDialog
         isOpened={isOpened}
         setIsOpened={setIsOpened}
-        title={t("exportData")}
+        title={t("sellerTabContent.exportData")}
         description={
           <div className="grid gap-6 mt-4">
             <div className="grid gap-2 text-justify">
-              {t("exportDataExplanation")}
+              {t("sellerTabContent.exportDataExplanation")}
             </div>
             <div className="flex justify-end mt-2 space-x-4">
               <Button
@@ -130,14 +130,14 @@ export const SellerTabContent = ({
                 onClick={closeDialog}
                 className="w-[100px]"
               >
-                {t("cancel")}
+                {t("sellerTabContent.cancel")}
               </Button>
               <Button
                 className="w-[100px]"
                 type="button"
                 onClick={exportResult}
               >
-                {t("export")}
+                {t("sellerTabContent.export")}
               </Button>
             </div>
           </div>
@@ -149,7 +149,7 @@ export const SellerTabContent = ({
           refreshProduct={refetchProducts}
         />
         <Button className="w-[100px] m-4" onClick={() => setIsOpened(true)}>
-          {t("export")}
+          {t("sellerTabContent.export")}
         </Button>
       </div>
 
@@ -177,7 +177,9 @@ export const SellerTabContent = ({
         </Accordion>
       ) : (
         <div className="p-4 border border-border rounded-md">
-          <h3 className="text-lg font-semibold">{t("noProductFound")}</h3>
+          <h3 className="text-lg font-semibold">
+            {t("sellerTabContent.noProductFound")}
+          </h3>
         </div>
       )}
     </TabsContent>

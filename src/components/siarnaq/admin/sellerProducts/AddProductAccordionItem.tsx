@@ -33,7 +33,7 @@ export const AddProductAccordionItem = ({
 }: AddProductAccordionItemProps) => {
   const tZod = useTranslations("productFormSchema");
   const productFormSchema = _productFormSchema(tZod);
-  const t = useTranslations("addProductAccordionItem");
+  const t = useTranslations("siarnaq");
   const { toast } = useToast();
   const [isAddDialogOpened, setIsAddDialogOpened] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -152,12 +152,14 @@ export const AddProductAccordionItem = ({
           onClick={onSubmitInterestProduct}
         >
           <HiPlus className="w-4 h-4 mr-6" />
-          <h3 className="text-lg font-semibold">{t("interest")}</h3>
+          <h3 className="text-lg font-semibold">
+            {t("addProductAccordionItem.interest")}
+          </h3>
           <div className="flex grow"></div>
         </button>
       )}
       <CustomDialog
-        title={t("newProduct")}
+        title={t("addProductAccordionItem.newProduct")}
         isFullWidth
         description={
           <Form {...form}>
@@ -176,7 +178,9 @@ export const AddProductAccordionItem = ({
       >
         <div className="flex flex-1 items-center pt-4">
           <HiPlus className="w-4 h-4 mr-6" />
-          <h3 className="text-lg font-semibold">{t("newProduct")}</h3>
+          <h3 className="text-lg font-semibold">
+            {t("addProductAccordionItem.newProduct")}
+          </h3>
           <div className="flex grow"></div>
         </div>
       </CustomDialog>

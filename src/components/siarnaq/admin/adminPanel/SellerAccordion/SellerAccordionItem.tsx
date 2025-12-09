@@ -16,14 +16,16 @@ interface SellerAccordionItemProps {
 }
 
 export const SellerAccordionItem = ({ sellers }: SellerAccordionItemProps) => {
-  const t = useTranslations("sellerAccordionItem");
+  const t = useTranslations("siarnaq");
   const { groups } = useGroups();
 
   return (
     <AccordionItem value="association">
       <AccordionTrigger>
         <div className="flex flex-col items-start justify-between">
-          <h3 className="text-lg font-semibold">{t("association")}</h3>
+          <h3 className="text-lg font-semibold">
+            {t("sellerAccordionItem.association")}
+          </h3>
         </div>
       </AccordionTrigger>
       <AccordionContent className="space-y-2">

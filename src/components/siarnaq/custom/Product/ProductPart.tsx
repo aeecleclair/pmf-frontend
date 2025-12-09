@@ -25,7 +25,7 @@ interface ProductPartProps {
 
 export const ProductPart = ({ user, isAdmin }: ProductPartProps) => {
   const tOnValidate = useTranslations("onValidate");
-  const t = useTranslations("productPart");
+  const t = useTranslations("siarnaq");
   const format = useFormatter();
   const pathname = usePathname();
   const { toast } = useToast();
@@ -74,7 +74,7 @@ export const ProductPart = ({ user, isAdmin }: ProductPartProps) => {
       );
     } catch {
       toast({
-        description: t("toastErrorDescription"),
+        description: t("productPart.toastErrorDescription"),
         variant: "destructive",
       });
     } finally {
@@ -84,8 +84,8 @@ export const ProductPart = ({ user, isAdmin }: ProductPartProps) => {
             (purchase) =>
               purchase.product.needs_validation && !purchase.validated
           )
-            ? t("unvalidated")
-            : t("validated"),
+            ? t("productPart.unvalidated")
+            : t("productPart.validated"),
           variant: "default",
         });
       });
@@ -98,10 +98,10 @@ export const ProductPart = ({ user, isAdmin }: ProductPartProps) => {
     <div className="grid gap-10 -mt-4">
       <div className="grid gap-6 -mt-4">
         <div className="justify-between flex flex-row">
-          <CardTitle>{t("summary")}</CardTitle>
+          <CardTitle>{t("productPart.summary")}</CardTitle>
           {isAdmin && pathname.startsWith(`/admin`) ? (
             <LoadingButton onClick={handleValidateAll} isLoading={isLoading}>
-              {t("validateAll")}
+              {t("productPart.validateAll")}
             </LoadingButton>
           ) : null}
         </div>
@@ -132,20 +132,22 @@ export const ProductPart = ({ user, isAdmin }: ProductPartProps) => {
                 ))}
               <Separator className="my-2" />
               <div className="flex flex-row w-full">
-                <span className="font-bold w-1/6">{t("total")}</span>
+                <span className="font-bold w-1/6">
+                  {t("productPart.total")}
+                </span>
                 <span className="ml-auto font-semibold">
                   {totalToPay && format.number(totalToPay, "euro")}
                 </span>
               </div>
             </>
           ) : (
-            <div>{t("noProduct")}</div>
+            <div>{t("productPart.noProduct")}</div>
           )}
         </div>
       </div>
       <div className="grid gap-6 -mt-4">
         <div className="justify-between flex flex-row">
-          <CardTitle>{t("interestSummary")}</CardTitle>
+          <CardTitle>{t("productPart.interestSummary")}</CardTitle>
         </div>
         <div className="space-y-2">
           {purchases?.filter(
@@ -175,7 +177,7 @@ export const ProductPart = ({ user, isAdmin }: ProductPartProps) => {
                 ))}
             </>
           ) : (
-            <div>{t("noProduct")}</div>
+            <div>{t("productPart.noProduct")}</div>
           )}
         </div>
       </div>

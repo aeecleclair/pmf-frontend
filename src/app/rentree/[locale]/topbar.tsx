@@ -28,12 +28,15 @@ import {
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useWebsite } from "@/hooks/useWebsite";
+import { useCustomRouter } from "@/hooks/useRouter";
 
 export default function TopBar() {
   const t = useTranslations("siarnaq");
   const { setToken, setRefreshToken } = useTokenStore();
   const pathname = usePathname();
-  const router = useRouter();
+  const { websiteWithLocale } = useWebsite();
+  const router = useCustomRouter();
   const { user, isAdmin } = useCoreUser();
   const { sellers } = useSellers();
   const { year } = useYear();
@@ -42,6 +45,10 @@ export default function TopBar() {
   const isInASellerGroup = user?.groups?.some((group) =>
     sellers.some((seller) => seller.group_id === group.id)
   );
+  console.log(pathname);
+  console.log(websiteWithLocale);
+  console.log(user);
+  console.log(isAdmin);
 
   return (
     <div className="p-6 bg-muted/40 flex flex-row flex-nowrap gap-x-4 justify-between">
@@ -49,26 +56,29 @@ export default function TopBar() {
         <LocaleDropdown />
         <ThemeToggle />
       </div>
-      {pathname === "/admin" && (
+      {pathname === `/${websiteWithLocale}/admin` && (
         <div className="flex flex-col text-sm text-nowrap">
-          <span>{t("year", { year: year.toString() })}</span>
-          <span>{t("status", { status: status?.status ?? "" })}</span>
+          <span>{t("topbar.year", { year: year.toString() })}</span>
+          <span>{t("topbar.status", { status: status?.status ?? "" })}</span>
         </div>
       )}
       <div className="flex gap-x-4">
-        {pathname === "/" && (isAdmin || isInASellerGroup) && (
-          <Button variant="secondary" onClick={() => router.push("/admin")}>
-            <HiOutlineLibrary className="mr-2" />
-            {t("topbar.admin")}
-          </Button>
-        )}
-        {pathname === "/admin" && (
+        {pathname === `/${websiteWithLocale}` &&
+          (isAdmin || isInASellerGroup) && (
+            <Button variant="secondary" onClick={() => router.push("/admin")}>
+              <HiOutlineLibrary className="mr-2" />
+              {t("topbar.admin")}
+            </Button>
+          )}
+        {pathname === `/${websiteWithLocale}/admin` && (
           <Button variant="secondary" onClick={() => router.push("/")}>
             <HiShoppingCart className="mr-2" />
             {t("topbar.user")}
           </Button>
         )}
-        {["/", "/admin"].includes(pathname) && (
+        {[`/${websiteWithLocale}`, `/${websiteWithLocale}/admin`].includes(
+          pathname
+        ) && (
           <Button
             variant="secondary"
             onClick={() => {
@@ -89,8 +99,7 @@ function LocaleDropdown() {
   const locale = useLocale();
   const { localeStore, setLocaleStore } = useLocaleStore();
   const router = useRouter();
-  const pathname = usePathname();
-  const website = pathname.split("/")[1];
+  const { website } = useWebsite();
   const searchParams = useSearchParams();
   const sellerId = searchParams.get("sellerId") ?? "";
   if (!localeStore) setLocaleStore(locale);
@@ -111,7 +120,7 @@ function LocaleDropdown() {
     <DropdownMenu>
       <DropdownMenuTrigger className="flex flex-row p-1">
         <Image
-          src={`${website}/${locale}.svg`}
+          src={`/${locale}.svg`}
           alt={localeName[locale]}
           width={30}
           height={30}

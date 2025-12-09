@@ -51,7 +51,7 @@ export const ProductAccordion = ({
   isSelectable = false,
   isAdmin = false,
 }: ProductAccordionProps) => {
-  const t = useTranslations("productAccordion");
+  const t = useTranslations("siarnaq");
   const { selectTranslation } = useTranslation();
   const { size } = useSizeStore();
   const numberOfCard = Math.round(size / 20);
@@ -162,7 +162,7 @@ export const ProductAccordion = ({
           <div className="hidden grid-cols-1" />
           {displayWarning && (
             <p className="text-red-500 font-semibold mb-2">
-              {t("mustBuy", {
+              {t("productAccordion.mustBuy", {
                 products:
                   missingConstraintProducts
                     ?.map((product) =>
@@ -174,7 +174,7 @@ export const ProductAccordion = ({
           )}
           {product.related_membership && isMembershipAlreadyTaken && (
             <p className="text-green-700 my-2 font-semibold">
-              {t("membershipAlreadyTaken", {
+              {t("productAccordion.membershipAlreadyTaken", {
                 membership: takenMembershipName ?? "",
                 date: format(
                   new Date(takenMembership?.end_date),

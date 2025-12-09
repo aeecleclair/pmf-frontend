@@ -24,7 +24,7 @@ interface DataTableRowActionsProps<TData> {
 export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {
-  const t = useTranslations("dataTableRowActions");
+  const t = useTranslations("siarnaq");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -33,7 +33,7 @@ export function DataTableRowActions<TData>({
           className="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
         >
           <DotsHorizontalIcon className="h-4 w-4" />
-          <span className="sr-only">{t("openMenu")}</span>
+          <span className="sr-only">{t("dataTableRowActions.openMenu")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[180px]">
@@ -44,7 +44,9 @@ export function DataTableRowActions<TData>({
               row.toggleSelected(!row.getIsSelected());
             }}
           >
-            {row.getIsSelected() ? t("cancelMerge") : t("mergeWithTeam")}
+            {row.getIsSelected()
+              ? t("dataTableRowActions.cancelMerge")
+              : t("mergeWithTeam")}
             <DropdownMenuShortcut>
               <MergeIcon className="h-4 w-4" />
             </DropdownMenuShortcut>
@@ -55,7 +57,7 @@ export function DataTableRowActions<TData>({
               e.stopPropagation();
             }}
           >
-            {t("removeMember")}
+            {t("dataTableRowActions.removeMember")}
             <DropdownMenuShortcut>
               <UserRoundMinusIcon className="h-4 w-4" />
             </DropdownMenuShortcut>
@@ -68,7 +70,7 @@ export function DataTableRowActions<TData>({
             e.stopPropagation();
           }}
         >
-          {t("deleteTeam")}
+          {t("dataTableRowActions.deleteTeam")}
           <DropdownMenuShortcut>
             <HiTrash className="h-4 w-4" />
           </DropdownMenuShortcut>

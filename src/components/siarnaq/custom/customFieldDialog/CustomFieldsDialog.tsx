@@ -78,7 +78,7 @@ export const CustomFieldsDialog = ({
                 disabled={isLoading}
                 className="w-[100px]"
               >
-                {t("cancel")}
+                {t("customFieldsDialog.cancel")}
               </Button>
               <LoadingButton
                 isLoading={isLoading}

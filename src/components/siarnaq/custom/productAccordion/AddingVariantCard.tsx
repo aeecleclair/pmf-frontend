@@ -35,7 +35,7 @@ export const AddingVariantCard = ({
 }: AddingVariantCardProps) => {
   const tZod = useTranslations("variantFormSchema");
   const variantFormSchema = _variantFormSchema(tZod);
-  const t = useTranslations("addingVariantCard");
+  const t = useTranslations("siarnaq");
   const { toast } = useToast();
   const [isAddDialogOpened, setIsAddDialogOpened] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -90,7 +90,7 @@ export const AddingVariantCard = ({
     <CustomDialog
       isOpened={isAddDialogOpened}
       setIsOpened={setIsAddDialogOpened}
-      title={t("addingVariant")}
+      title={t("addingVariantCard.addingVariant")}
       description={
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>

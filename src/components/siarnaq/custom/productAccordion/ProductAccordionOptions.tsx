@@ -45,7 +45,7 @@ export const ProductAccordionOptions = ({
 }: ProductAccordionOptionsProps) => {
   const tZod = useTranslations("productFormSchema");
   const productFormSchema = _productFormSchema(tZod);
-  const t = useTranslations("productAccordionOptions");
+  const t = useTranslations("siarnaq");
   const { toast } = useToast();
   const [isEditDialogOpened, setIsEditDialogOpened] = useState(false);
   const [isRemoveDialogOpened, setIsRemoveDialogOpened] = useState(false);
@@ -124,7 +124,7 @@ export const ProductAccordionOptions = ({
 
     if (Object.keys(diff).length === 0) {
       toast({
-        description: t("noEdition"),
+        description: t("productAccordionOptions.noEdition"),
       });
       setIsLoading(false);
       setIsEditDialogOpened(false);
@@ -158,7 +158,7 @@ export const ProductAccordionOptions = ({
       setIsLoading(false);
       setIsRemoveDialogOpened(false);
       toast({
-        title: t("customToast"),
+        title: t("productAccordionOptions.customToast"),
         description: error.toString(),
       });
       return;
@@ -174,7 +174,7 @@ export const ProductAccordionOptions = ({
           <CustomDialog
             isOpened={isEditDialogOpened}
             setIsOpened={setIsEditDialogOpened}
-            title={t("editProduct")}
+            title={t("productAccordionOptions.editProduct")}
             isFullWidth
             description={
               <Form {...form}>
@@ -192,7 +192,7 @@ export const ProductAccordionOptions = ({
             }
           >
             <Button className="w-full" variant="ghost">
-              {t("edit")}
+              {t("productAccordionOptions.edit")}
               <ContextMenuShortcut>
                 <PencilIcon className="w-4 h-4" />
               </ContextMenuShortcut>
@@ -203,11 +203,11 @@ export const ProductAccordionOptions = ({
           <CustomDialog
             isOpened={isRemoveDialogOpened}
             setIsOpened={setIsRemoveDialogOpened}
-            title={t("deleteProduct")}
+            title={t("productAccordionOptions.deleteProduct")}
             isFullWidth
             description={
               <>
-                <div>{t("areYouSure")}</div>
+                <div>{t("productAccordionOptions.areYouSure")}</div>
                 <div className="flex justify-end mt-2 space-x-4">
                   <Button
                     variant="outline"
@@ -215,7 +215,7 @@ export const ProductAccordionOptions = ({
                     disabled={isLoading}
                     className="w-[100px]"
                   >
-                    {t("cancel")}
+                    {t("productAccordionOptions.cancel")}
                   </Button>
                   <LoadingButton
                     isLoading={isLoading}
@@ -223,7 +223,7 @@ export const ProductAccordionOptions = ({
                     variant="destructive"
                     onClick={removeProduct}
                   >
-                    {t("delete")}
+                    {t("productAccordionOptions.delete")}
                   </LoadingButton>
                 </div>
               </>
@@ -233,7 +233,7 @@ export const ProductAccordionOptions = ({
               className="w-full text-destructive hover:text-destructive"
               variant="ghost"
             >
-              {t("delete")}
+              {t("productAccordionOptions.delete")}
               <ContextMenuShortcut>
                 <TrashIcon className="w-4 h-4 text-destructive" />
               </ContextMenuShortcut>

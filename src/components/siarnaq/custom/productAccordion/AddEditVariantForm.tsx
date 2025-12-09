@@ -33,7 +33,7 @@ export const AddEditVariantForm = ({
   isInterestProduct = false,
   isMembershipProduct = false,
 }: AddEditVariantFormProps) => {
-  const t = useTranslations("addEditVariantForm");
+  const t = useTranslations("siarnaq");
   const { curriculums } = useCurriculums();
 
   function closeDialog(event: React.MouseEvent<HTMLButtonElement>) {
@@ -45,13 +45,13 @@ export const AddEditVariantForm = ({
       <div className="flex flex-row gap-2 w-full">
         <StyledFormField
           form={form}
-          label={t("name_fr")}
+          label={t("addEditVariantForm.name_fr")}
           id="name_fr"
           input={(field) => <Input {...field} />}
         />
         <StyledFormField
           form={form}
-          label={t("name_en")}
+          label={t("addEditVariantForm.name_en")}
           id="name_en"
           input={(field) => <Input {...field} />}
         />
@@ -59,13 +59,13 @@ export const AddEditVariantForm = ({
       <div className="flex flex-row gap-2">
         <StyledFormField
           form={form}
-          label={t("description_fr")}
+          label={t("addEditVariantForm.description_fr")}
           id="description_fr"
           input={(field) => <Textarea {...field} />}
         />
         <StyledFormField
           form={form}
-          label={t("description_en")}
+          label={t("addEditVariantForm.description_en")}
           id="description_en"
           input={(field) => <Textarea {...field} />}
         />
@@ -74,14 +74,14 @@ export const AddEditVariantForm = ({
         {!isInterestProduct && (
           <StyledFormField
             form={form}
-            label={t("price")}
+            label={t("addEditVariantForm.price")}
             id="price"
             input={(field) => <CurrencyInput id="price" {...field} />}
           />
         )}
         <StyledFormField
           form={form}
-          label={t("allowed_curriculum")}
+          label={t("addEditVariantForm.allowed_curriculum")}
           id="allowed_curriculum"
           input={(field) => (
             <MultiSelect
@@ -100,7 +100,7 @@ export const AddEditVariantForm = ({
         <div className="grid gap-2">
           <StyledFormField
             form={form}
-            label={t("related_membership_added_duration")}
+            label={t("addEditVariantForm.related_membership_added_duration")}
             id="related_membership_added_duration"
             input={(field) => <Input {...field} />}
           />
@@ -110,7 +110,7 @@ export const AddEditVariantForm = ({
         <div className="grid gap-2">
           <StyledFormField
             form={form}
-            label={t("purchase")}
+            label={t("addEditVariantForm.purchase")}
             id="unique"
             input={(field) => (
               <RadioGroup
@@ -119,11 +119,15 @@ export const AddEditVariantForm = ({
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="unique" id="unique" />
-                  <Label htmlFor="unique">{t("unique")}</Label>
+                  <Label htmlFor="unique">
+                    {t("addEditVariantForm.unique")}
+                  </Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="multiple" id="multiple" />
-                  <Label htmlFor="multiple">{t("multiple")}</Label>
+                  <Label htmlFor="multiple">
+                    {t("addEditVariantForm.multiple")}
+                  </Label>
                 </div>
               </RadioGroup>
             )}
@@ -137,14 +141,14 @@ export const AddEditVariantForm = ({
           disabled={isLoading}
           className="w-[100px]"
         >
-          {t("cancel")}
+          {t("addEditVariantForm.cancel")}
         </Button>
         <LoadingButton
           isLoading={isLoading}
           className="w-[100px]"
           type="submit"
         >
-          {isEdit ? t("edit") : t("add")}
+          {isEdit ? t("addEditVariantForm.edit") : t("addEditVariantForm.add")}
         </LoadingButton>
       </div>
     </div>

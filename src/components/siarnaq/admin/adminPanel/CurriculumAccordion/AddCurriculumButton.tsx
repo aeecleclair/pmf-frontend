@@ -16,7 +16,7 @@ import { useToast } from "@/components/ui/use-toast";
 export const AddCurriculumButton = () => {
   const tZod = useTranslations("curriculumFormSchema");
   const curriculumFormSchema = _curriculumFormSchema(tZod);
-  const t = useTranslations("addCurriculumButton");
+  const t = useTranslations("siarnaq");
   const { toast } = useToast();
   const { refetch: refetchCurriculums } = useCurriculums();
   const [isLoading, setIsLoading] = useState(false);
@@ -62,7 +62,7 @@ export const AddCurriculumButton = () => {
                   <Input
                     {...field}
                     type="text"
-                    placeholder={t("curriculumName")}
+                    placeholder={t("addCurriculumButton.curriculumName")}
                   />
                 </FormControl>
               </FormItem>
@@ -74,7 +74,7 @@ export const AddCurriculumButton = () => {
             isLoading={isLoading}
             className="w-[100px]"
           >
-            {t("add")}
+            {t("addCurriculumButton.add")}
           </LoadingButton>
         </div>
       </form>

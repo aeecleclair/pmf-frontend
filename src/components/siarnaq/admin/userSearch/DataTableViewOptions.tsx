@@ -21,23 +21,25 @@ interface DataTableViewOptionsProps<TData> {
 export function DataTableViewOptions<TData>({
   table,
 }: DataTableViewOptionsProps<TData>) {
-  const t = useTranslations("dataTableViewOptions");
+  const t = useTranslations("siarnaq");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Button variant="outline" size="sm" className="hidden h-8 lg:flex">
           <MixerHorizontalIcon className="mr-2 h-4 w-4" />
-          {t("columns")}
+          {t("dataTableViewOptions.columns")}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[180px]">
-        <DropdownMenuLabel>{t("activateColumns")}</DropdownMenuLabel>
+        <DropdownMenuLabel>
+          {t("dataTableViewOptions.activateColumns")}
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
         {table
           .getAllColumns()
           .filter(
             (column) =>
-              typeof column.accessorFn !== "undefined" && column.getCanHide(),
+              typeof column.accessorFn !== "undefined" && column.getCanHide()
           )
           .map((column) => {
             return (
@@ -47,12 +49,14 @@ export function DataTableViewOptions<TData>({
                 onCheckedChange={(value) => column.toggleVisibility(!!value)}
               >
                 {t(
-                  column.id as
-                    | "name"
-                    | "firstname"
-                    | "nickname"
-                    | "curriculum"
-                    | "promo",
+                  `dataTableViewOptions.${
+                    column.id as
+                      | "name"
+                      | "firstname"
+                      | "nickname"
+                      | "curriculum"
+                      | "promo"
+                  }`
                 )}
               </DropdownMenuCheckboxItem>
             );

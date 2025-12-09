@@ -9,6 +9,7 @@ import { BodyTokenAuthTokenPost, TokenResponse } from "@/api/types.gen";
 import { stringify } from "querystring";
 import axios from "axios";
 import { useLocale } from "next-intl";
+import { useWebsite } from "./useWebsite";
 
 const clientId: string = process.env.NEXT_PUBLIC_CLIENT_ID || "Challenger";
 const backUrl: string =
@@ -17,7 +18,7 @@ const scopes: string[] = ["API"];
 
 export const useAuth = () => {
   const pathname = usePathname();
-  const website = pathname.split("/")[1];
+  const { website } = useWebsite();
   const locale = useLocale();
   const [isLoading, setIsLoading] = useState(false);
   const { token, setToken, refreshToken, setRefreshToken, userId } =

@@ -47,7 +47,7 @@ interface RecapPanelProps {
 export const RecapPanel = ({ user, refetch }: RecapPanelProps) => {
   const tZod = useTranslations("migrateUserFormSchema");
   const migrateUserFormSchema = _migrateUserFormSchema(tZod);
-  const t = useTranslations("recapPanel");
+  const t = useTranslations("siarnaq");
   const format = useFormatter();
   const { toast } = useToast();
   const { total: totalPaid } = useUserPayments(user.id);
@@ -180,16 +180,16 @@ export const RecapPanel = ({ user, refetch }: RecapPanelProps) => {
           </div>
           <div className="flex gap-4 items-center">
             <span className="font-semibold text-base">
-              {user.curriculum?.name ?? t("noCurriculum")}
+              {user.curriculum?.name ?? t("recapPanel.noCurriculum")}
             </span>
             <CustomDialog
               isOpened={isOpened}
               setIsOpened={setIsOpened}
-              title={t("editCurriculum")}
+              title={t("recapPanel.editCurriculum")}
               description={
                 <div className="grid gap-6 mt-4">
                   <div className="grid gap-2">
-                    <Label>{t("curriculum")}</Label>
+                    <Label>{t("recapPanel.curriculum")}</Label>
                     <Select
                       onValueChange={setSelectedCurriculum}
                       defaultValue={selectedCurriculum}
@@ -215,7 +215,7 @@ export const RecapPanel = ({ user, refetch }: RecapPanelProps) => {
                       disabled={isLoading}
                       className="w-[100px]"
                     >
-                      {t("cancel")}
+                      {t("recapPanel.cancel")}
                     </Button>
                     <LoadingButton
                       isLoading={isLoading}
@@ -223,10 +223,10 @@ export const RecapPanel = ({ user, refetch }: RecapPanelProps) => {
                       type="button"
                       onClick={onCurriculumSubmit}
                     >
-                      {t("edit")}
+                      {t("recapPanel.edit")}
                     </LoadingButton>
                   </div>
-                  <TextSeparator text={t("editUser")} />
+                  <TextSeparator text={t("recapPanel.editUser")} />
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
                       <MigrateUserForm
@@ -252,7 +252,7 @@ export const RecapPanel = ({ user, refetch }: RecapPanelProps) => {
       <PaymentPart user={user} isAdmin />
       <div className="grid gap-6">
         <CardTitle className="flex flex-row w-full">
-          <span className="font-bold">{t("leftToPay")}</span>
+          <span className="font-bold">{t("recapPanel.leftToPay")}</span>
           <span className="ml-auto font-semibold">
             {format.number(remainingToPay, "euro")}
           </span>

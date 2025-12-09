@@ -42,7 +42,7 @@ export const PurchaseItem = ({
   isInterest = false,
 }: PurchaseItemProps) => {
   const tOnValidate = useTranslations("onValidate");
-  const t = useTranslations("purchaseItem");
+  const t = useTranslations("siarnaq");
   const format = useFormatter();
   const { toast } = useToast();
   const { refetch } = useUserPurchases(user.id);
@@ -189,14 +189,14 @@ export const onValidate = async (
         title: data
           ?.filter((purchase) => purchase.product_variant_id == purchaseid)
           .every((purchase) => purchase.validated)
-          ? t("validated")
-          : t("unvalidated"),
+          ? t("purchaseItem.validated")
+          : t("purchaseItem.unvalidated"),
         variant: "default",
       });
     });
   } catch {
     toast({
-      description: t("toastErrorDescription"),
+      description: t("purchaseItem.toastErrorDescription"),
       variant: "destructive",
     });
   } finally {

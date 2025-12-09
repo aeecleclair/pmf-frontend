@@ -17,7 +17,7 @@ export const SellerTabList = ({
   sellers,
   isAdmin,
 }: SellerTabListProps) => {
-  const t = useTranslations("productPart");
+  const t = useTranslations("siarnaq");
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -48,7 +48,7 @@ export const SellerTabList = ({
             className="w-full min-w-18"
             onClick={() => handleClick("cdradmin")}
           >
-            {t("admin")}
+            {t("productPart.admin")}
           </TabsTrigger>
           {(status.status == "online" || status.status === "onsite") && (
             <TabsTrigger
@@ -57,7 +57,7 @@ export const SellerTabList = ({
               className="w-full min-w-18"
               onClick={() => handleClick("cdrrecap")}
             >
-              {t("summary")}
+              {t("productPart.summary")}
             </TabsTrigger>
           )}
         </>

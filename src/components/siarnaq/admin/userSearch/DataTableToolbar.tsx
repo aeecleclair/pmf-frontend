@@ -22,13 +22,13 @@ export function DataTableToolbar<TData>({
   globalFilter,
   setGlobalFilter,
 }: DataTableToolbarProps<TData>) {
-  const t = useTranslations("dataTableToolbar");
+  const t = useTranslations("siarnaq");
   const { curriculums } = useCurriculums();
   return (
     <div className="flex items-center justify-between">
       <div className="flex flex-1 items-center space-x-2">
         <Input
-          placeholder={t("filter")}
+          placeholder={t("dataTableToolbar.filter")}
           value={globalFilter}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setGlobalFilter(event.target.value)
@@ -38,7 +38,7 @@ export function DataTableToolbar<TData>({
         {table.getColumn("curriculum") && (
           <DataTableFacetedFilter
             column={table.getColumn("curriculum")}
-            title={t("curriculum")}
+            title={t("dataTableToolbar.curriculum")}
             options={(
               curriculums.map((curriculum) => ({
                 value: curriculum.id,
@@ -46,7 +46,7 @@ export function DataTableToolbar<TData>({
               })) as { value: string; label: string }[]
             ).concat({
               value: "",
-              label: t("noCurriculum"),
+              label: t("dataTableToolbar.noCurriculum"),
             })}
           />
         )}

@@ -17,7 +17,7 @@ interface SellerTabProps {
 }
 
 export const StatusAccordionItem = ({ status }: SellerTabProps) => {
-  const t = useTranslations("statusAccordionItem");
+  const t = useTranslations("siarnaq");
   const { toast } = useToast();
   const { refetch: refetchStatus } = useStatus();
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -43,10 +43,10 @@ export const StatusAccordionItem = ({ status }: SellerTabProps) => {
   };
 
   const statusLabels = {
-    pending: t("pending"),
-    online: t("online"),
-    onsite: t("onsite"),
-    closed: t("closed"),
+    pending: t("statusAccordionItem.pending"),
+    online: t("statusAccordionItem.online"),
+    onsite: t("statusAccordionItem.onsite"),
+    closed: t("statusAccordionItem.closed"),
   };
 
   const nextStep: Record<CdrStatus, CdrStatus> = {
@@ -57,17 +57,19 @@ export const StatusAccordionItem = ({ status }: SellerTabProps) => {
   };
 
   const statusButtonLabel = {
-    pending: t("reinit"),
-    online: t("setOnline"),
-    onsite: t("onSiteButtonLabel"),
-    closed: t("close"),
+    pending: t("statusAccordionItem.reinit"),
+    online: t("statusAccordionItem.setOnline"),
+    onsite: t("statusAccordionItem.onSiteButtonLabel"),
+    closed: t("statusAccordionItem.close"),
   };
 
   return (
     <AccordionItem value="status">
       <AccordionTrigger>
         <div className="flex flex-col items-start justify-between">
-          <h3 className="text-lg font-semibold">{t("status")}</h3>
+          <h3 className="text-lg font-semibold">
+            {t("statusAccordionItem.status")}
+          </h3>
         </div>
       </AccordionTrigger>
       <AccordionContent className="space-y-2">

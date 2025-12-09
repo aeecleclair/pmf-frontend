@@ -22,9 +22,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
   return {
     locale,
     messages: {
-      ...(await import(`../translations/${locale}/common.json`)).default,
+      base: (await import(`../translations/${locale}/common.json`)).default,
       pmf: (await import(`../translations/${locale}/pmf.json`)).default,
-      siarnaq: (await import(`../translations/${locale}/siarnaq.json`)).default,
+      ...(await import(`../translations/${locale}/siarnaq.json`)).default,
     },
     formats,
   };

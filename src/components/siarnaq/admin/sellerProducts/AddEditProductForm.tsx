@@ -70,7 +70,7 @@ export const AddEditProductForm = ({
   productId,
   isEdit = false,
 }: AddEditProductFormProps) => {
-  const t = useTranslations("addEditProductForm");
+  const t = useTranslations("siarnaq");
   const format = useFormatter();
   const { toast } = useToast();
   const { products: constraint } = useProducts();
@@ -231,13 +231,13 @@ export const AddEditProductForm = ({
       <div className="flex flex-row gap-2 w-full">
         <StyledFormField
           form={form}
-          label={t("name_fr")}
+          label={t("addEditProductForm.name_fr")}
           id="name_fr"
           input={(field) => <Input {...field} />}
         />
         <StyledFormField
           form={form}
-          label={t("name_en")}
+          label={t("addEditProductForm.name_en")}
           id="name_en"
           input={(field) => <Input {...field} />}
         />
@@ -245,13 +245,13 @@ export const AddEditProductForm = ({
       <div className="flex flex-row gap-2">
         <StyledFormField
           form={form}
-          label={t("description_fr")}
+          label={t("addEditProductForm.description_fr")}
           id="description_fr"
           input={(field) => <Textarea {...field} />}
         />
         <StyledFormField
           form={form}
-          label={t("description_en")}
+          label={t("addEditProductForm.description_en")}
           id="description_en"
           input={(field) => <Textarea {...field} />}
         />
@@ -260,7 +260,7 @@ export const AddEditProductForm = ({
         <div className="grid gap-2">
           <StyledFormField
             form={form}
-            label={t("availability")}
+            label={t("addEditProductForm.availability")}
             id="available_online"
             input={(field) => (
               <RadioGroup
@@ -270,12 +270,14 @@ export const AddEditProductForm = ({
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="true" id="available_online" />
                   <Label htmlFor="available_online">
-                    {t("available_online")}
+                    {t("addEditProductForm.available_online")}
                   </Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="false" id="onsite" />
-                  <Label htmlFor="onsite">{t("onsite")}</Label>
+                  <Label htmlFor="onsite">
+                    {t("addEditProductForm.onsite")}
+                  </Label>
                 </div>
               </RadioGroup>
             )}
@@ -285,7 +287,7 @@ export const AddEditProductForm = ({
       {isAdmin && (
         <StyledFormField
           form={form}
-          label={t("related_membership")}
+          label={t("addEditProductForm.related_membership")}
           id="related_membership"
           input={(field) => (
             <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -308,19 +310,21 @@ export const AddEditProductForm = ({
       <Accordion type="multiple">
         <AccordionItem value="tickets">
           <AccordionTrigger>
-            <h3 className="text-primary hover:text-primary">{t("tickets")}</h3>
+            <h3 className="text-primary hover:text-primary">
+              {t("addEditProductForm.tickets")}
+            </h3>
           </AccordionTrigger>
           <AccordionContent className="grid gap-4">
             <div className="flex flex-row gap-2">
               <StyledFormField
                 form={form}
-                label={t("ticket_name")}
+                label={t("addEditProductForm.ticket_name")}
                 id="ticket_name"
                 input={(field) => <Input {...field} />}
               />
               <StyledFormField
                 form={form}
-                label={t("ticket_max_use")}
+                label={t("addEditProductForm.ticket_max_use")}
                 id="ticket_max_use"
                 input={(field) => <Input {...field} type="number" />}
               />
@@ -328,7 +332,7 @@ export const AddEditProductForm = ({
             <div className="flex flex-row gap-4">
               <StyledFormField
                 form={form}
-                label={t("ticket_expiration")}
+                label={t("addEditProductForm.ticket_expiration")}
                 id="ticket_expiration"
                 input={(field) => (
                   <DatePicker
@@ -346,15 +350,19 @@ export const AddEditProductForm = ({
                 className="w-[100px] self-end"
                 onClick={onAddTicket}
               >
-                {t("add")}
+                {t("addEditProductForm.add")}
               </LoadingButton>
             </div>
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>{t("ticket_name")}</TableHead>
-                  <TableHead>{t("ticket_max_use")}</TableHead>
-                  <TableHead>{t("ticket_expiration")}</TableHead>
+                  <TableHead>{t("addEditProductForm.ticket_name")}</TableHead>
+                  <TableHead>
+                    {t("addEditProductForm.ticket_max_use")}
+                  </TableHead>
+                  <TableHead>
+                    {t("addEditProductForm.ticket_expiration")}
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -387,14 +395,14 @@ export const AddEditProductForm = ({
         <AccordionItem value="conditions">
           <AccordionTrigger>
             <h3 className="text-primary hover:text-primary">
-              {t("conditions")}
+              {t("addEditProductForm.conditions")}
             </h3>
           </AccordionTrigger>
           <AccordionContent className="grid gap-4">
             <div className="flex flex-row gap-2 w-full">
               <StyledFormField
                 form={form}
-                label={t("product_constraints")}
+                label={t("addEditProductForm.product_constraints")}
                 id="product_constraints"
                 input={(field) => (
                   <MultiSelect
@@ -405,7 +413,7 @@ export const AddEditProductForm = ({
                           constraint.needs_validation
                       )
                       .map((constraint) => ({
-                        label: t("constraintName", {
+                        label: t("addEditProductForm.constraintName", {
                           constraint: constraint.name_fr,
                           seller:
                             sellers.find(
@@ -422,7 +430,7 @@ export const AddEditProductForm = ({
               />
               <StyledFormField
                 form={form}
-                label={t("document_constraints")}
+                label={t("addEditProductForm.document_constraints")}
                 id="document_constraints"
                 input={(field) => (
                   <MultiSelect
@@ -445,7 +453,7 @@ export const AddEditProductForm = ({
         <AccordionItem value="information">
           <AccordionTrigger>
             <h3 className="text-primary hover:text-primary">
-              {t("information")}
+              {t("addEditProductForm.information")}
             </h3>
           </AccordionTrigger>
           <AccordionContent className="grid gap-4">
@@ -459,7 +467,7 @@ export const AddEditProductForm = ({
                       <Input
                         {...field}
                         type="text"
-                        placeholder={t("question")}
+                        placeholder={t("addEditProductForm.question")}
                       />
                     </FormControl>
                   </FormItem>
@@ -476,7 +484,7 @@ export const AddEditProductForm = ({
                           checked={field.value}
                           onCheckedChange={field.onChange}
                         />
-                        <span>{t("selfResponse")}</span>
+                        <span>{t("addEditProductForm.selfResponse")}</span>
                       </label>
                     </FormControl>
                   </FormItem>
@@ -489,7 +497,7 @@ export const AddEditProductForm = ({
                 className="w-[100px]"
                 onClick={onAddData}
               >
-                {t("add")}
+                {t("addEditProductForm.add")}
               </LoadingButton>
             </div>
             <div className="grid gap-4 px-1">
@@ -499,7 +507,7 @@ export const AddEditProductForm = ({
                   <div className="flex items-center gap-2 ml-auto">
                     {field.can_user_answer && (
                       <span className="text-sm text-green-600 whitespace-nowrap font-bold">
-                        {t("userCanAnswer")}
+                        {t("addEditProductForm.userCanAnswer")}
                       </span>
                     )}
                     <LoadingButton
@@ -526,14 +534,14 @@ export const AddEditProductForm = ({
           disabled={isLoading}
           className="w-[100px]"
         >
-          {t("cancel")}
+          {t("addEditProductForm.cancel")}
         </Button>
         <LoadingButton
           isLoading={isLoading}
           className="w-[100px]"
           type="submit"
         >
-          {isEdit ? t("edit") : t("add")}
+          {isEdit ? t("addEditProductForm.edit") : t("addEditProductForm.add")}
         </LoadingButton>
       </div>
     </div>

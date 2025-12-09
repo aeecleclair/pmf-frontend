@@ -61,26 +61,26 @@ export const MigrateUserForm = ({
     return (year - index).toString();
   });
   */
-  const t = useTranslations("migrateUserForm");
+  const t = useTranslations("siarnaq");
 
   return (
     <div className="grid gap-6 mt-4">
       <StyledFormField
         form={form}
-        label={t("nickname")}
+        label={t("migrateUserForm.nickname")}
         id="nickname"
         input={(field) => <Input {...field} />}
       />
       <StyledFormField
         form={form}
-        label={t("eclEmail")}
+        label={t("migrateUserForm.eclEmail")}
         id="email"
         input={(field) => <Input {...field} type="email" />}
       />
       <div className="flex flex-row gap-2 w-full">
         <StyledFormField
           form={form}
-          label={t("floor")}
+          label={t("migrateUserForm.floor")}
           id="floor"
           input={(field) => (
             <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -150,14 +150,14 @@ export const MigrateUserForm = ({
           disabled={isLoading}
           className="w-[100px]"
         >
-          {t("cancel")}
+          {t("migrateUserForm.cancel")}
         </Button>
         <LoadingButton
           isLoading={isLoading}
           className="w-[100px]"
           type="submit"
         >
-          {t("edit")}
+          {t("migrateUserForm.edit")}
         </LoadingButton>
       </div>
     </div>

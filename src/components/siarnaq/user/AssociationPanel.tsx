@@ -53,7 +53,7 @@ export const AssociationPanel = ({
       </div>
       <nav className="grid gap-4 text-sm text-muted-foreground">
         <Link
-          href="/?sellerId=intro"
+          href="?sellerId=intro"
           className={`hover:text-primary ${
             firstSellerId === "intro" ? "font-semibold text-primary" : ""
           }`}
@@ -71,7 +71,7 @@ export const AssociationPanel = ({
             return (
               <Link
                 key={seller.id}
-                href={canClick ? `/?sellerId=${seller.id}` : "#"}
+                href={canClick ? `?sellerId=${seller.id}` : "#"}
                 className={`hover:text-primary ${
                   seller.id === firstSellerId
                     ? "font-semibold text-primary"
@@ -96,7 +96,7 @@ export const AssociationPanel = ({
             );
           })}
         <Link
-          href={canClick ? `/?sellerId=info` : "#"}
+          href={canClick ? `?sellerId=info` : "#"}
           className={`hover:text-primary ${
             firstSellerId === "info" ? "font-semibold text-primary" : ""
           } ${!canClick ? "cursor-not-allowed" : ""}`}
@@ -107,7 +107,7 @@ export const AssociationPanel = ({
           </div>
         </Link>
         <Link
-          href={canClick ? `/?sellerId=recap` : "#"}
+          href={canClick ? `?sellerId=recap` : "#"}
           className={`hover:text-primary ${
             firstSellerId === "recap" ? "font-semibold text-primary" : ""
           } ${!canClick ? "cursor-not-allowed" : ""}`}

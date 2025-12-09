@@ -47,7 +47,7 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
   const { toast } = useToast();
   const tZod = useTranslations("paymentFormSchema");
   const paymentFormSchema = _paymentFormSchema(tZod);
-  const t = useTranslations("paymentPart");
+  const t = useTranslations("siarnaq");
   const format = useFormatter();
   const { payments, total: totalPaid, refetch } = useUserPayments(user.id);
   const [isOpened, setIsOpened] = useState(false);
@@ -114,12 +114,12 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
     <div className="grid gap-2">
       <div>
         <CardTitle className="flex flex-row justify-between">
-          <span>{t("payments")}</span>
+          <span>{t("paymentPart.payments")}</span>
           {isAdmin && (
             <CustomDialog
               isOpened={isOpened}
               setIsOpened={setIsOpened}
-              title={t("addPayment")}
+              title={t("paymentPart.addPayment")}
               description={
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -127,7 +127,7 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
                       <div className="flex flex-row gap-2 w-full">
                         <StyledFormField
                           form={form}
-                          label={t("amount")}
+                          label={t("paymentPart.amount")}
                           id="total"
                           input={(field) => (
                             <CurrencyInput id="price" {...field} />
@@ -135,7 +135,7 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
                         />
                         <StyledFormField
                           form={form}
-                          label={t("paymentType")}
+                          label={t("paymentPart.paymentType")}
                           id="payment_type"
                           input={(field) => (
                             <Select
@@ -169,14 +169,14 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
                           disabled={isLoading}
                           className="w-[100px]"
                         >
-                          {t("cancel")}
+                          {t("paymentPart.cancel")}
                         </Button>
                         <LoadingButton
                           isLoading={isLoading}
                           className="w-[100px]"
                           type="submit"
                         >
-                          {t("add")}
+                          {t("paymentPart.add")}
                         </LoadingButton>
                       </div>
                     </div>
@@ -184,7 +184,7 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
                 </Form>
               }
             >
-              <Button className="w-[100px]">{t("add")}</Button>
+              <Button className="w-[100px]">{t("paymentPart.add")}</Button>
             </CustomDialog>
           )}
         </CardTitle>
@@ -203,14 +203,14 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
             ))}
             <Separator className="my-2" />
             <div className="flex flex-row w-full">
-              <span className="font-bold w-1/6">{t("total")}</span>
+              <span className="font-bold w-1/6">{t("paymentPart.total")}</span>
               <span className="ml-auto font-semibold">
                 {totalPaid && format.number(totalPaid, "euro")}
               </span>
             </div>
           </>
         ) : (
-          <div>{t("noPayment")}</div>
+          <div>{t("paymentPart.noPayment")}</div>
         )}
       </div>
     </div>

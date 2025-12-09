@@ -33,7 +33,7 @@ function getDisplayName(user: CoreUserSimple) {
 }
 
 export const AddUserWithCurriculum = () => {
-  const t = useTranslations("addUserWithCurriculum");
+  const t = useTranslations("siarnaq");
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,7 +43,6 @@ export const AddUserWithCurriculum = () => {
       setIsLoading(false);
       return;
     }
-    var error;
 
     const { error: patchError } =
       await postCdrUsersUserIdCurriculumsCurriculumId({
@@ -52,11 +51,11 @@ export const AddUserWithCurriculum = () => {
           curriculum_id: selectedCurriculum,
         },
       });
-    error = patchError;
+    const error = patchError;
 
     if (error) {
       toast({
-        description: (error as { detail: String }).detail,
+        description: error.detail,
         variant: "destructive",
       });
       setIsLoading(false);
@@ -90,16 +89,16 @@ export const AddUserWithCurriculum = () => {
         className="h-8"
       >
         <HiOutlinePlusCircle className="mr-2 h-4" />
-        {t("add")}
+        {t("addUserWithCurriculum.add")}
       </Button>
       <CustomDialog
         isOpened={isOpened}
         setIsOpened={setIsOpened}
-        title={t("addCurriculumToUser")}
+        title={t("addUserWithCurriculum.addCurriculumToUser")}
         description={
           <div className="grid gap-6 mt-4">
             <div className="grid gap-2">
-              <Label>{t("curriculum")}</Label>
+              <Label>{t("addUserWithCurriculum.curriculum")}</Label>
               <Select
                 onValueChange={setSelectedCurriculum}
                 defaultValue={selectedCurriculum}
@@ -119,12 +118,14 @@ export const AddUserWithCurriculum = () => {
               </Select>
             </div>
             <div className="grid gap-2">
-              <Label>{t("user")}</Label>
+              <Label>{t("addUserWithCurriculum.user")}</Label>
 
               <Input
                 type="text"
                 placeholder={
-                  selectedUser ? getDisplayName(selectedUser) : t("searchUser")
+                  selectedUser
+                    ? getDisplayName(selectedUser)
+                    : t("addUserWithCurriculum.searchUser")
                 }
                 onChange={(query: React.ChangeEvent<HTMLInputElement>) => {
                   setQuery(query.target.value);
@@ -165,7 +166,7 @@ export const AddUserWithCurriculum = () => {
                   disabled={isLoading}
                   className="w-[100px]"
                 >
-                  {t("cancel")}
+                  {t("addUserWithCurriculum.cancel")}
                 </Button>
                 <LoadingButton
                   isLoading={isLoading}
@@ -174,7 +175,7 @@ export const AddUserWithCurriculum = () => {
                   disabled={!selectedUser || !selectedCurriculum}
                   onClick={submit}
                 >
-                  {t("add")}
+                  {t("addUserWithCurriculum.add")}
                 </LoadingButton>
               </div>
             </div>

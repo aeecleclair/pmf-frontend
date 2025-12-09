@@ -2,7 +2,7 @@ import { Messages } from "next-intl";
 import z from "zod";
 
 export default function variantFormSchema(
-  t: (arg: keyof Messages["variantFormSchema"]) => string,
+  t: (arg: keyof Messages["variantFormSchema"]) => string
 ) {
   // useTranslations("variantFormSchema") (don't remove!)
   return z

@@ -64,7 +64,7 @@ export const VariantCardOptions = ({
 }: VariantCardOptionsProps) => {
   const tZod = useTranslations("variantFormSchema");
   const variantFormSchema = _variantFormSchema(tZod);
-  const t = useTranslations("variantCardOptions");
+  const t = useTranslations("siarnaq");
   const { toast } = useToast();
   const { data: productFields } = useSellerProductData(sellerId, productId);
   const [isEditDialogOpened, setIsEditDialogOpened] = useState(false);
@@ -146,7 +146,7 @@ export const VariantCardOptions = ({
     const diff = getModifiedFields(resolvedInitial, resolvedValues);
 
     if (Object.keys(diff).length === 0) {
-      toast({ description: t("noEdition") });
+      toast({ description: t("variantCardOptions.noEdition") });
       setIsLoading(false);
       setIsEditDialogOpened(false);
       return;
@@ -236,7 +236,7 @@ export const VariantCardOptions = ({
           <CustomDialog
             isOpened={isEditDialogOpened}
             setIsOpened={setIsEditDialogOpened}
-            title={t("editVariant")}
+            title={t("variantCardOptions.editVariant")}
             isFullWidth
             description={
               <Form {...form}>
@@ -254,7 +254,7 @@ export const VariantCardOptions = ({
             }
           >
             <Button className="w-full" variant="ghost">
-              {t("edit")}
+              {t("variantCardOptions.edit")}
               <ContextMenuShortcut>
                 <PencilIcon className="w-4 h-4" />
               </ContextMenuShortcut>
@@ -268,7 +268,7 @@ export const VariantCardOptions = ({
             onClick={toggleEnabled}
             isLoading={isLoading}
           >
-            {t("deactivate")}
+            {t("variantCardOptions.deactivate")}
             <ContextMenuShortcut>
               <StopIcon className="w-4 h-4" />
             </ContextMenuShortcut>
@@ -286,7 +286,7 @@ export const VariantCardOptions = ({
             userId={userId}
           >
             <Button className="w-full" variant="ghost">
-              {t("information")}
+              {t("variantCardOptions.information")}
               <ContextMenuShortcut>
                 <PencilIcon className="w-4 h-4" />
               </ContextMenuShortcut>
@@ -300,7 +300,7 @@ export const VariantCardOptions = ({
             onClick={toggleEnabled}
             isLoading={isLoading}
           >
-            {t("activate")}
+            {t("variantCardOptions.activate")}
             <ContextMenuShortcut>
               <PlayIcon className="w-4 h-4" />
             </ContextMenuShortcut>
@@ -310,11 +310,11 @@ export const VariantCardOptions = ({
           <CustomDialog
             isOpened={isRemoveDialogOpened}
             setIsOpened={setIsRemoveDialogOpened}
-            title={t("deleteVariant")}
+            title={t("variantCardOptions.deleteVariant")}
             isFullWidth
             description={
               <>
-                <div>{t("areYouSure")}</div>
+                <div>{t("variantCardOptions.areYouSure")}</div>
                 <div className="flex justify-end mt-2 space-x-4">
                   <Button
                     variant="outline"
@@ -322,7 +322,7 @@ export const VariantCardOptions = ({
                     disabled={isLoading}
                     className="w-[100px]"
                   >
-                    {t("cancel")}
+                    {t("variantCardOptions.cancel")}
                   </Button>
                   <LoadingButton
                     isLoading={isLoading}
@@ -330,7 +330,7 @@ export const VariantCardOptions = ({
                     variant="destructive"
                     onClick={removeVariant}
                   >
-                    {t("delete")}
+                    {t("variantCardOptions.delete")}
                   </LoadingButton>
                 </div>
               </>
@@ -340,7 +340,7 @@ export const VariantCardOptions = ({
               className="w-full text-destructive hover:text-destructive"
               variant="ghost"
             >
-              {t("delete")}
+              {t("variantCardOptions.delete")}
               <ContextMenuShortcut>
                 <TrashIcon className="w-4 h-4 text-destructive" />
               </ContextMenuShortcut>

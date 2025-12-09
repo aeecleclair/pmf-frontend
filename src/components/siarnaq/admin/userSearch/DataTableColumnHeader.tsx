@@ -29,8 +29,8 @@ export function DataTableColumnHeader<TData, TValue>({
   title,
   className,
 }: DataTableColumnHeaderProps<TData, TValue>) {
-  const t = useTranslations("dataTableColumnHeader");
-  const translatedTitle = t(title);
+  const t = useTranslations("siarnaq");
+  const translatedTitle = t(`dataTableColumnHeader.${title}`);
   if (!column.getCanSort()) {
     return <div className={cn(className)}>{translatedTitle}</div>;
   }
@@ -57,16 +57,16 @@ export function DataTableColumnHeader<TData, TValue>({
         <DropdownMenuContent align="start">
           <DropdownMenuItem onClick={() => column.toggleSorting(false)}>
             <ArrowUpIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-            {t("asc")}
+            {t("dataTableColumnHeader.asc")}
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => column.toggleSorting(true)}>
             <ArrowDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-            {t("desc")}
+            {t("dataTableColumnHeader.desc")}
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
             <EyeNoneIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-            {t("hide")}
+            {t("dataTableColumnHeader.hide")}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

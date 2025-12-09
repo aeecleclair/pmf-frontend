@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@tailwind utilities;
+@config "../../tailwind.config.ts";
 /* ---------------------------
    Variables CSS (light/dark)
 ---------------------------- */

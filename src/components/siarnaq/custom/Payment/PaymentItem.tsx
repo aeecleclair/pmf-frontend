@@ -35,7 +35,7 @@ export const PaymentItem = ({
   user,
   isAdmin,
 }: PaymentItemProps) => {
-  const t = useTranslations("paymentPart");
+  const t = useTranslations("siarnaq");
   const format = useFormatter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
@@ -93,7 +93,7 @@ export const PaymentItem = ({
         <CustomDialog
           isOpened={isOpened}
           setIsOpened={setIsOpened}
-          title={t("deletePayment")}
+          title={t("paymentPart.deletePayment")}
           description={
             <div className="grid gap-3">
               <span>
@@ -116,7 +116,7 @@ export const PaymentItem = ({
                   disabled={isLoading}
                   className="w-[100px]"
                 >
-                  {t("cancel")}
+                  {t("paymentPart.cancel")}
                 </Button>
                 <LoadingButton
                   isLoading={isLoading}
@@ -125,7 +125,7 @@ export const PaymentItem = ({
                   variant="destructive"
                   onClick={onDelete}
                 >
-                  {t("delete")}
+                  {t("paymentPart.delete")}
                 </LoadingButton>
               </div>
             </div>
