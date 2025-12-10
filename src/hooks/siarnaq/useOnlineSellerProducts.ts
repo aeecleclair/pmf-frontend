@@ -1,4 +1,4 @@
-import { useAuth } from "../useToken";
+import { useAuth } from "../useAuth";
 
 import { getCdrOnlineSellersSellerIdProductsOptions } from "@/api/@tanstack/react-query.gen";
 

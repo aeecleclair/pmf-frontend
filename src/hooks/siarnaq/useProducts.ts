@@ -1,7 +1,7 @@
 import { getCdrProductsOptions } from "@/api/@tanstack/react-query.gen";
 
 import { useQuery } from "@tanstack/react-query";
-import { useAuth } from "../useToken";
+import { useAuth } from "../useAuth";
 
 export const useProducts = () => {
   const { isTokenExpired } = useAuth();

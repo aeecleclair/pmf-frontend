@@ -53,7 +53,7 @@ const Login = () => {
           <span className="m-auto">{t("login.alreadyHaveMyECLAccount")}</span>
           <form>
             <div className="grid w-full items-center gap-4">
-              <MyECLButton />
+              <MyECLButton subdomain="rentree" />
             </div>
           </form>
           <TextSeparator text={t("login.or")} />

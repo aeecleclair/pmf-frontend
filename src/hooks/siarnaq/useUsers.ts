@@ -1,4 +1,4 @@
-import { useAuth } from "../useToken";
+import { useAuth } from "../useAuth";
 
 import { CdrUser, CdrUserPreview, getCdrUsers } from "@/api";
 import { useTokenStore } from "@/stores/token";

@@ -11,7 +11,7 @@ export default function Login() {
   return (
     <div>
       {t("title")}
-      <MyECLButton />
+      <MyECLButton subdomain="pmf" />
       <span>{t("register")}</span>
       <Button
         variant="outline"

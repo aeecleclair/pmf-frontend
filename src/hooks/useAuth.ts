@@ -8,7 +8,6 @@ import { useTokenStore } from "@/stores/token";
 import { BodyTokenAuthTokenPost, TokenResponse } from "@/api/types.gen";
 import { stringify } from "querystring";
 import axios from "axios";
-import { useLocale } from "next-intl";
 import { useWebsite } from "./useWebsite";
 
 const clientId: string = process.env.NEXT_PUBLIC_CLIENT_ID || "Challenger";
@@ -19,7 +18,6 @@ const scopes: string[] = ["API"];
 export const useAuth = () => {
   const pathname = usePathname();
   const { website } = useWebsite();
-  const locale = useLocale();
   const [isLoading, setIsLoading] = useState(false);
   const { token, setToken, refreshToken, setRefreshToken, userId } =
     useTokenStore();
@@ -142,7 +140,7 @@ export const useAuth = () => {
     setToken(null);
     setRefreshToken(null);
     setIsTokenQueried(false);
-    router.replace(`/${pathname.split("/")[1]}/login`);
+    router.replace(`/login`);
   }
 
   async function getTokenFromStorage(): Promise<string | null> {
@@ -152,9 +150,9 @@ export const useAuth = () => {
     if (token !== null) {
       setIsTokenQueried(true);
     } else {
-      if (pathname != `/${website}/${locale}/login`) {
+      if (!pathname.endsWith("/login")) {
         console.log("redirect to login", website);
-        router.replace(`/${website}/fr/login?redirect=${pathname}`);
+        router.replace(`/${website}/login?redirect=${pathname}`);
       }
     }
     setIsLoading(false);

@@ -1,7 +1,6 @@
 import { routing } from "@/i18n/routing";
 import { Suspense } from "react";
-import { Locale, NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
+import { Locale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import type { Metadata } from "next";

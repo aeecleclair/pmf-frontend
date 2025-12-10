@@ -1,10 +1,10 @@
 import { GetCdrOnlineSellersResponse } from "@/api";
-import { useRouter } from "@/i18n/navigation";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { useTranslations } from "next-intl";
 
 import { Button } from "../../ui/button";
+import { useRouter } from "next/navigation";
 
 interface PageIndicatorProps {
   currentSellerId: string;

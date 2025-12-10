@@ -14,7 +14,7 @@ import { useFormatter, useTranslations } from "next-intl";
 import { Card, CardContent, CardFooter, CardHeader } from "../../ui/card";
 
 export const RecapPanel = () => {
-  const t = useTranslations("recap");
+  const t = useTranslations("siarnaq");
   const format = useFormatter();
 
   const { userId } = useTokenStore();
@@ -38,7 +38,8 @@ export const RecapPanel = () => {
             <div className="flex items-center justify-around">
               {remainingToPay >= 0 && (
                 <div className="italic">
-                  {t("remainingToPay")} {format.number(remainingToPay, "euro")}
+                  {t("recap.remainingToPay")}{" "}
+                  {format.number(remainingToPay, "euro")}
                 </div>
               )}
               {purchases.length > 0 && remainingToPay > 0 && <PaymentButton />}

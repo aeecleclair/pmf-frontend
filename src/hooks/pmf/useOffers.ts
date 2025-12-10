@@ -1,5 +1,5 @@
 import { getPmfOffers } from "@/api";
-import { useAuth } from "@/hooks/useToken";
+import { useAuth } from "@/hooks/useAuth";
 
 import { useQuery } from "@tanstack/react-query";
 

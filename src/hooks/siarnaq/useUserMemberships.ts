@@ -1,4 +1,4 @@
-import { useAuth } from "../useToken";
+import { useAuth } from "../useAuth";
 
 import { getMembershipsUsersUserIdOptions } from "@/api/@tanstack/react-query.gen";
 

@@ -39,7 +39,7 @@ export const InfoPanel = () => {
           {t("info.cdrOnsiteTitle")}
         </h3>
         <div>
-          {t.rich("cdrOnsiteSubtitle", {
+          {t.rich("info.cdrOnsiteSubtitle", {
             mandatory: (c: string) => <span className="font-bold">{c}</span>,
           })}
         </div>
@@ -62,13 +62,13 @@ export const InfoPanel = () => {
           {t("info.cautionTitle")}
         </h3>
         <div>
-          {t.rich("cautionDescription", {
+          {t.rich("info.cautionDescription", {
             payable: (c: string) => <span className="italic">{c}</span>,
           })}
         </div>
-        <div>{t("cautionInstructions", { year: yearString })}</div>
+        <div>{t("info.cautionInstructions", { year: yearString })}</div>
         <div>
-          {t.rich("cautionInstructions2", {
+          {t.rich("info.cautionInstructions2", {
             link: () => (
               <Link
                 href="https://v2.swik.link/1XxsMUZ"
@@ -81,7 +81,7 @@ export const InfoPanel = () => {
           })}
         </div>
         <div>
-          {t.rich("cautionMandatory", {
+          {t.rich("info.cautionMandatory", {
             mandatory: (c: string) => <span className="font-bold">{c}</span>,
           })}
         </div>
@@ -91,7 +91,7 @@ export const InfoPanel = () => {
           <HiOutlineNewspaper className="h-4 w-4 mr-2" />
           {t("info.facebookTitle")}
         </h3>
-        <div>{t("facebook", { year: yearString })}</div>
+        <div>{t("info.facebook", { year: yearString })}</div>
         <div className="pl-10">
           {/* TODO: provide a clean link like https://www.facebook.com/groups/admis2024 */}
           <a
@@ -99,7 +99,7 @@ export const InfoPanel = () => {
             className="font-medium hover:underline underline-offset-4 flex flex-row items-center"
           >
             <HiOutlineLink className="h-4 w-4 mr-2" />
-            {t("group", { year: yearString })}
+            {t("info.group", { year: yearString })}
           </a>
         </div>
         {/* */}

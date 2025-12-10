@@ -1,21 +1,23 @@
 {
-  "TestPage": {
-    "Sample": "Français"
-  },
-  "Test2": {
-    "Sample": "test"
-  },
-  "metadata": {
-    "description": "Plateforme de PMF de Centrale Lyon",
-    "title": "PMFFFF"
-  },
-  "MyECLButton": {
-    "authenticate": "Se connecter avec MyECL"
-  },
-  "login": {
-    "title": "Connexion",
-    "student": "Élève",
-    "alumni": "Alumni",
-    "register": "Pas encore de compte ? S'inscrire :"
+  "pmf": {
+    "TestPage": {
+      "Sample": "Français"
+    },
+    "Test2": {
+      "Sample": "test"
+    },
+    "metadata": {
+      "description": "Plateforme de PMF de Centrale Lyon",
+      "title": "PMFFFF"
+    },
+    "MyECLButton": {
+      "authenticate": "Se connecter avec MyECL"
+    },
+    "login": {
+      "title": "Connexion",
+      "student": "Élève",
+      "alumni": "Alumni",
+      "register": "Pas encore de compte ? S'inscrire :"
+    }
   }
 }

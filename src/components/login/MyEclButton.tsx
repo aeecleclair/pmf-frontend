@@ -6,15 +6,13 @@ import { useCodeVerifierStore } from "@/stores/codeVerifier";
 import { useTokenStore } from "@/stores/token";
 
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 import * as auth from "oauth4webapi";
 
-const MyECLButton = () => {
-  const t = useTranslations("MyECLButton");
-  const pathname = usePathname();
-  const website = pathname.split("/")[1];
+const MyECLButton = ({ subdomain }: { subdomain: string }) => {
+  const t = useTranslations("base");
   const locale = useLocale();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -31,9 +29,13 @@ const MyECLButton = () => {
       .discoveryRequest(issuerUrl, { algorithm: "oauth2" })
       .then((response) => auth.processDiscoveryResponse(issuerUrl, response));
   }
-  const redirectUri = process.env.NEXT_PUBLIC_FRONTEND_URL
-    ? `${process.env.NEXT_PUBLIC_FRONTEND_URL}/${website}/${locale}/login`
-    : "";
+  let redirectUri = "";
+  if (process.env.NEXT_PUBLIC_FRONTEND_URL) {
+    const splitURL = process.env.NEXT_PUBLIC_FRONTEND_URL.split("://");
+    redirectUri = `${splitURL[0]}://${subdomain}.${splitURL[1]}/${locale}/login`;
+  } else {
+    redirectUri = "";
+  }
   const client: auth.Client = {
     client_id: process.env.NEXT_PUBLIC_CLIENT_ID ?? "",
     token_endpoint_auth_method: "none",
@@ -41,7 +43,7 @@ const MyECLButton = () => {
 
   if (code && !isLoading && typeof window !== "undefined" && codeVerifier) {
     login(new URL(window.location.href));
-    router.push(`/${website}/${locale}/login`);
+    router.push(`/${locale}/login`);
   }
 
   async function login(url: URL) {
@@ -109,7 +111,7 @@ const MyECLButton = () => {
   }
 
   if (token !== null) {
-    router.push(`/${website}/${locale}`);
+    router.push(`/${locale}`);
   }
 
   return (
@@ -120,7 +122,7 @@ const MyECLButton = () => {
         openSSO();
       }}
     >
-      {t("authenticate")}
+      {t("MyECLButton.authenticate")}
     </LoadingButton>
   );
 };
