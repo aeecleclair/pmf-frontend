@@ -12,7 +12,7 @@ import { useState } from "react";
 import * as auth from "oauth4webapi";
 
 const MyECLButton = ({ subdomain }: { subdomain: string }) => {
-  const t = useTranslations("base");
+  const t = useTranslations("common");
   const locale = useLocale();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);

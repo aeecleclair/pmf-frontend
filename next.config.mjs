@@ -1,14 +1,10 @@
 import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin({
-  experimental: {
-    createMessagesDeclaration: ["src/translations/fr/common.json", "src/translations/fr/pmf.json", "src/translations/fr/siarnaq.json"],
-  },
-});
+const withNextIntl = createNextIntlPlugin({});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     config.resolve.alias.canvas = false;
     return config;
   },

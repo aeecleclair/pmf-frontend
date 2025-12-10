@@ -11,10 +11,7 @@ import {
 } from "../../ui/dialog";
 import { JSX } from "react";
 
-const DialogStatus = {
-  SUCCESS: "SUCCESS",
-  ERROR: "ERROR",
-};
+type DialogStatus = "SUCCESS" | "ERROR";
 
 interface StatusDialogProps {
   isOpened: boolean;
@@ -23,7 +20,7 @@ interface StatusDialogProps {
   description: string | JSX.Element;
   width?: string;
   callback: () => void;
-  status?: keyof typeof DialogStatus;
+  status?: DialogStatus;
 }
 
 export const StatusDialog = ({
@@ -35,7 +32,7 @@ export const StatusDialog = ({
   callback,
   width = "w-[100px]",
 }: StatusDialogProps) => {
-  const t = useTranslations("statusDialog");
+  const t = useTranslations("common");
   function closeDialog(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
     callback();
@@ -67,7 +64,7 @@ export const StatusDialog = ({
         <DialogDescription>{description}</DialogDescription>
         <div className="flex justify-end mt-2 space-x-4">
           <Button variant="outline" onClick={closeDialog} className={width}>
-            {t("continue")}
+            {t("statusDialog.continue")}
           </Button>
         </div>
       </DialogContent>
