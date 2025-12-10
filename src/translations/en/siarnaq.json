@@ -1,0 +1,340 @@
+{
+  "addCurriculumButton": {
+    "add": "Add",
+    "curriculumName": "Curriculum name",
+    "error": "Error"
+  },
+  "addEditProductForm": {
+    "add": "Add",
+    "availability": "Availability",
+    "available_online": "Is available during the online Chaîne de Rentrée",
+    "cancel": "Cancel",
+    "conditions": "Conditions",
+    "constraintName": "{constraint} ({seller})",
+    "description_en": "Description (English)",
+    "description_fr": "Description (French)",
+    "document_constraints": "Signatures",
+    "edit": "Edit",
+    "information": "Additional information",
+    "name_en": "Name (English)",
+    "name_fr": "Name (French)",
+    "onsite": "Will only be available during the onsite Chaîne de Rentrée",
+    "product_constraints": "Constraints",
+    "question": "Question for users who take the product",
+    "related_membership": "Related membership",
+    "selfResponse": "Self-response",
+    "ticket_expiration": "Expiration date",
+    "ticket_max_use": "Maximum number of uses",
+    "ticket_name": "Ticket name",
+    "tickets": "Tickets",
+    "userCanAnswer": "The user can answer."
+  },
+  "addEditVariantForm": {
+    "add": "Add",
+    "allowed_curriculum": "Curriculum",
+    "cancel": "Cancel",
+    "description_en": "Description (English)",
+    "description_fr": "Description (French)",
+    "edit": "Edit",
+    "multiple": "Can be bought as many times as desired",
+    "name_en": "Name (English)",
+    "name_fr": "Name (French)",
+    "price": "Price",
+    "purchase": "Purchase",
+    "related_membership_added_duration": "Duration of membership added (format: 'AYBMCD' for A year(s), B month(s) and C day(s))",
+    "unique": "Can only be bought once"
+  },
+  "addProductAccordionItem": {
+    "interest": "Take note of the interest",
+    "newProduct": "New product"
+  },
+  "addUserWithCurriculum": {
+    "add": "Add",
+    "addCurriculumToUser": "Add curriculum to user",
+    "cancel": "Cancel",
+    "curriculum": "curriculum",
+    "searchUser": "Search user",
+    "user": "User"
+  },
+  "addingVariantCard": {
+    "addingVariant": "Add a variant"
+  },
+  "associationPanel": {
+    "BDE": "Student Association (AE)",
+    "BDS": "Student sports union (USE)",
+    "SDeC": "Handouts of lessons (SDeC)",
+    "WEI": "Orientation weekend (WEI)",
+    "associations": "Associations",
+    "information": "Useful informations",
+    "presentation": "Presentation",
+    "summary": "Summary"
+  },
+  "curriculumAccordionItem": {
+    "curriculum": "Curriculum"
+  },
+  "curriculumFormSchema": {
+    "name": "Please enter the name of the curriculum"
+  },
+  "customFieldsDialog": {
+    "cancel": "Cancel",
+    "title": "Additional information",
+    "validate": "Validate"
+  },
+  "dataTable": {
+    "noResult": "No result"
+  },
+  "dataTableColumnHeader": {
+    "asc": "Ascending",
+    "curriculum": "Curriculum",
+    "desc": "Descending",
+    "firstname": "Firstname",
+    "hide": "Hide",
+    "name": "Name",
+    "nickname": "Nickname",
+    "noCurriculum": "No curriculum",
+    "promo": "Promotion"
+  },
+  "dataTableFacetedFilter": {
+    "deleteFilters": "Delete filters",
+    "noResult": "No result",
+    "selected": "{size, number} selected"
+  },
+  "dataTablePagination": {
+    "byPage": "by page",
+    "goToFirstPage": "Go to first page",
+    "goToLastPage": "Go to last page",
+    "goToNextPage": "Go to next page",
+    "goToPreviousPage": "Go to previous page",
+    "pagination": "Page {number, number} of {total, number}",
+    "selected": "{size, number} selected"
+  },
+  "dataTableRowActions": {
+    "cancelMerge": "Cancel merge",
+    "deleteTeam": "Delete team",
+    "mergeWithTeam": "Merge with another team",
+    "openMenu": "Open menu",
+    "removeMember": "Remove member"
+  },
+  "dataTableToolbar": {
+    "curriculum": "Curriculum",
+    "filter": "Filter",
+    "noCurriculum": "No curriculum"
+  },
+  "dataTableViewOptions": {
+    "activateColumns": "Activate columns",
+    "columns": "Columns",
+    "curriculum": "Curriculum",
+    "firstname": "Firstname",
+    "name": "Name",
+    "nickname": "Nickname",
+    "promo": "Promotion"
+  },
+  "info": {
+    "cautionDescription": "If you are taking a place at the Integration Weekend (WEI), please provide a deposit cheque for €100 made out to « <payable>AEECL - WEI</payable> ».",
+    "cautionInstructions": "On the back, write \"First name Last name - WEI {year}\". This cheque will only be cashed in the event of damage to the WEI buses.",
+    "cautionInstructions2": "A second deposit for the WEI site is to be deposited on the following site: <link></link>. This is a deposit by bank imprint, so no amount will be debited unless damage is noted.",
+    "cautionMandatory": "Both deposits are <mandatory>mandatory</mandatory> to participate in the WEI.",
+    "cautionTitle": "Deposit for the WEI",
+    "cdrOnsiteDescription": "You'll be able to meet associations, express your interest in proposed activities and ask any questions you may have.",
+    "cdrOnsiteMandatoryWarning": "In the event of a major unavailability, please contact the Student Council (BDE) as soon as possible to find an alternative solution:",
+    "cdrOnsiteSubtitle": "Following this online Chaîne de Rentrée, you will be called in the onsite Chaîne de Rentrée: <mandatory>your presence at the onsite Chaîne de Rentrée is mandatory</mandatory> to validate your purchases. ",
+    "cdrOnsiteTitle": "Onsite Chaîne de Rentrée",
+    "downloadMyECLAndroid": "Download MyECL for Android",
+    "downloadMyECLiOS": "Download MyECL for iOS",
+    "element": "A Matrix instance is hosted on campus. This will enable you to communicate easily with other students in a secure, end-to-end encrypted way. To access it :",
+    "elementStep1": "Download Element-x application on your phone",
+    "elementStep2": "On the application choose \"Change account provider\" (\"Changer de fournisseur de compte\") then \"Continue\" (\"Continuer\")",
+    "elementStep3": "Enter our server URL:",
+    "elementStep4": "You can then log in with your MyECL account",
+    "elementTitle": "Element / Matrix instant messaging",
+    "facebook": "The majority of the campus' communication takes place via Facebook groups. New students can join the group 'Admis {year}' to make sure they don't miss any information:",
+    "facebookTitle": "Facebook group for new students",
+    "group": "Group for {year} successful students",
+    "information": "Useful information",
+    "myECL": "The MyECL application is essential to student life at Centrale, it is mandatory to pay during numerous events (especially at the bar) and it will allow you to access plenty of services (the events calendar, the schedule of the film club, room reservations, and so forth).",
+    "myECLTitle": "MyECL Application"
+  },
+  "introCarouselItem": {
+    "begin": "Next",
+    "contact": "If you have any problems or questions, please do not hesitate to contact the Student Council (Bureau Des Élèves): ",
+    "description": "This website allows you to join associations (student clubs), to pay the handouts of lessons and to take your ticket for the orientation weekend (WEI). This will save you precious time during the second part of the Chaîne de Rentrée which will take place in face-to-face. At the end of the process, you will be brought to pay online by credit card.",
+    "selectCurriculum": "To start, please select your curriculum:",
+    "validate": "Confirm",
+    "welcome": "Welcome to Centrale Lyon's associative Chaîne De Rentrée. "
+  },
+  "introPanel": {
+    "presentation": "Presentation",
+    "validate": "Validate"
+  },
+  "login": {
+    "alreadyHaveMyECLAccount": "Already have a MyECL account?",
+    "contact": "If you have any problems or questions, please do not hesitate to contact the Student Council (Bureau Des Élèves):",
+    "description": "Welcome to Centrale Lyon's associative Chaîne De Rentrée. This website, designed for new, current and gap-year students, will allow you to join associations and subscribe to the school's associative services.",
+    "or": "Or",
+    "promotion": "School year {year}",
+    "register": "Register",
+    "selectPromotion": "Please select your school year to create a MyECL account:",
+    "title": "Chaîne de rentrée {year}",
+    "usePersonalEmail": "If your student e-mail adress is not yet activated, you may use a personal one. You will have to change it as soon as possible."
+  },
+  "metadata": {
+    "description": "Centrale Lyon associative Back-to-School management platform",
+    "title": "Associative Back-to-school"
+  },
+  "migrateUserForm": {
+    "cancel": "Cancel",
+    "eclEmail": "Email of Centrale",
+    "edit": "Edit",
+    "floor": "Floor",
+    "nickname": "Nickname"
+  },
+  "migrateUserFormSchema": {
+    "email": "Please enter the email address for Centrale",
+    "phone": "Please enter a valid phone number",
+    "promo": "Please enter a valid school year"
+  },
+  "onValidate": {
+    "toastErrorDescription": "An error occurred while validating the purchase.",
+    "unvalidated": "Purchase unvalidated",
+    "validated": "Purchase validated"
+  },
+  "page": {
+    "license": "© <date></date> <eclair>ÉCLAIR</eclair>. All rights reserved.",
+    "madeByECLAIR": "Developed by ÉCLAIR",
+    "refusedDescription": "Your payment has been refused. You can retry, if the problem persists, please contact us.",
+    "refusedTitle": "Payment refused",
+    "succeededDescription": "Your payment has been made successfully",
+    "succeededTitle": "Payment made"
+  },
+  "paymentButton": {
+    "description": "You will be redirected to HelloAsso to proceed to payment. HelloAsso is a French company offering payment solutions for associations. It is financed exclusively by donations. By default, HelloAsso will propose you to make a donation (called 'contribution volontaire' or 'voluntary contribution'), you can refuse to do so without compromising the payment. If you choose to make a donation, only HelloAsso will benefit it.",
+    "pay": "Pay",
+    "title": "Information about the payment provider"
+  },
+  "paymentFormSchema": {
+    "paymentType": "Please specify the payment type",
+    "total": "Please enter a valid amount"
+  },
+  "paymentPart": {
+    "HelloAsso": "HelloAsso",
+    "add": "Add",
+    "addPayment": "Add a payment",
+    "amount": "Amount",
+    "archived": "Archived",
+    "areYouSure": "Are you sure you want to delete the payment of <name></name> for the amount of <amount></amount> made by <type></type>?",
+    "cancel": "Cancel",
+    "card": "Card",
+    "cash": "Cash",
+    "check": "Check",
+    "delete": "Delete",
+    "deletePayment": "Delete payment",
+    "noPayment": "No payment where made",
+    "paymentType": "Payment type",
+    "payments": "Fulfilled payments",
+    "total": "Total"
+  },
+  "productAccordion": {
+    "membershipAlreadyTaken": "You have already taken the membership to {membership} until {date}",
+    "mustBuy": "You must buy {products}"
+  },
+  "productAccordionOptions": {
+    "areYouSure": "Are you sure you want to delete this product?",
+    "cancel": "Cancel",
+    "customToast": "Impossible to delete",
+    "delete": "Delete",
+    "deleteProduct": "Delete product",
+    "edit": "Edit",
+    "editProduct": "Edit product",
+    "noEdition": "No changes detected."
+  },
+  "productFormSchema": {
+    "availableOnline": "Please enter the product availability",
+    "nameFR": "Please enter the French name of the product",
+    "noTicketExpiration": "Please enter the ticket expiration date",
+    "noTicketMaxUse": "Please enter the maximum number of uses for the ticket",
+    "noTicketName": "Please enter the ticket name",
+    "ticketMaxUseInt": "Please enter a integer number",
+    "ticketMaxUsePositive": "A ticket must be used at least once"
+  },
+  "productPanel": {
+    "BDE": "Student Association (AE)",
+    "BDS": "Student sports union (USE)",
+    "SDeC": "Handouts of lessons (SDeC)",
+    "WEI": "Orientation weekend (WEI)",
+    "noProductFound": "No product available",
+    "noSellerFound": "No seller found"
+  },
+  "productPart": {
+    "admin": "Admin",
+    "interestSummary": "Summary of interests",
+    "noProduct": "No product",
+    "summary": "Summary",
+    "toastErrorDescription": "An error occurred while validating the purchase.",
+    "total": "Total",
+    "unvalidated": "Some purchases are unvalidated",
+    "validateAll": "Validate all purchases",
+    "validated": "All the purchases are validated"
+  },
+  "purchaseItem": {
+    "missing": "Missing {products}"
+  },
+  "recap": {
+    "remainingToPay": "Remaining to pay:"
+  },
+  "recapPanel": {
+    "cancel": "Cancel",
+    "curriculum": "Curriculum",
+    "edit": "Edit",
+    "editCurriculum": "Edit curriculum",
+    "editUser": "Edit user",
+    "leftToPay": "Left to pay",
+    "noCurriculum": "No curriculum"
+  },
+  "sellerAccordionItem": {
+    "association": "Association"
+  },
+  "sellerTabContent": {
+    "cancel": "Cancel",
+    "export": "Export",
+    "exportData": "Export All Data",
+    "exportDataExplanation": "By clicking on Export, you're about to download all CDR data concerning this club until now (sells, interested people, ...) in an Excel document. Please do it only if necessary.",
+    "noProductFound": "No products found"
+  },
+  "statusAccordionItem": {
+    "close": "Close",
+    "closed": "Closed",
+    "onSiteButtonLabel": "Onsite",
+    "online": "Online",
+    "onsite": "Onsite",
+    "pending": "Pending",
+    "reinit": "Reset",
+    "setOnline": "Put online",
+    "status": "Status"
+  },
+  "topbar": {
+    "admin": "Seller view",
+    "logout": "Log out",
+    "status": "Status: {status, select, pending {pending} online {online} onsite {onsite} closed {closed} other {}}",
+    "user": "Buyer view",
+    "year": "Session: {year}"
+  },
+  "variantCardOptions": {
+    "activate": "Enable",
+    "areYouSure": "Are you sure you want to delete this variant?",
+    "cancel": "Cancel",
+    "deactivate": "Disable",
+    "delete": "Delete",
+    "deleteVariant": "Delete variant",
+    "edit": "Edit",
+    "editVariant": "Edit variant",
+    "information": "Information",
+    "noEdition": "No changes detected."
+  },
+  "variantFormSchema": {
+    "allowedCurriculum": "Please enter the authorized curriculum",
+    "nameFR": "Please enter the variant name",
+    "price": "Please enter the price of the product",
+    "relatedMembershipRequired": "This field is required for a membership product",
+    "unique": "Please enter the quantity of the product"
+  }
+}

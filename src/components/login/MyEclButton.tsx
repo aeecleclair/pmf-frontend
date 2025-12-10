@@ -2,18 +2,17 @@
 
 import { LoadingButton } from "../custom/LoadingButton";
 
-import { useRouter } from "@/i18n/navigation";
 import { useCodeVerifierStore } from "@/stores/codeVerifier";
 import { useTokenStore } from "@/stores/token";
 
 import { useLocale, useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 import * as auth from "oauth4webapi";
 
-const MyECLButton = () => {
-  const t = useTranslations("MyECLButton");
+const MyECLButton = ({ subdomain }: { subdomain: string }) => {
+  const t = useTranslations("common");
   const locale = useLocale();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +20,7 @@ const MyECLButton = () => {
   const searchParams = useSearchParams();
   const code = searchParams.get("code");
   const issuerUrl = new URL(
-    process.env.NEXT_PUBLIC_BACKEND_URL ?? "https://hyperion.myecl.fr",
+    process.env.NEXT_PUBLIC_BACKEND_URL ?? "https://hyperion.myecl.fr"
   );
   const { token, setToken, setRefreshToken } = useTokenStore();
 
@@ -30,9 +29,13 @@ const MyECLButton = () => {
       .discoveryRequest(issuerUrl, { algorithm: "oauth2" })
       .then((response) => auth.processDiscoveryResponse(issuerUrl, response));
   }
-  const redirectUri = process.env.NEXT_PUBLIC_FRONTEND_URL
-    ? `${process.env.NEXT_PUBLIC_FRONTEND_URL}/${locale}/login`
-    : "";
+  let redirectUri = "";
+  if (process.env.NEXT_PUBLIC_FRONTEND_URL) {
+    const splitURL = process.env.NEXT_PUBLIC_FRONTEND_URL.split("://");
+    redirectUri = `${splitURL[0]}://${subdomain}.${splitURL[1]}/${locale}/login`;
+  } else {
+    redirectUri = "";
+  }
   const client: auth.Client = {
     client_id: process.env.NEXT_PUBLIC_CLIENT_ID ?? "",
     token_endpoint_auth_method: "none",
@@ -40,7 +43,7 @@ const MyECLButton = () => {
 
   if (code && !isLoading && typeof window !== "undefined" && codeVerifier) {
     login(new URL(window.location.href));
-    router.push("/login");
+    router.push(`/${locale}/login`);
   }
 
   async function login(url: URL) {
@@ -50,7 +53,7 @@ const MyECLButton = () => {
       hyperionIssuer,
       client,
       url,
-      auth.skipStateCheck,
+      auth.skipStateCheck
     );
     if (auth.isOAuth2Error(params)) {
       throw new Error(); // Handle OAuth 2.0 redirect error
@@ -61,13 +64,13 @@ const MyECLButton = () => {
       client,
       params,
       redirectUri,
-      codeVerifier ?? "",
+      codeVerifier ?? ""
     );
 
     const result = await auth.processAuthorizationCodeOAuth2Response(
       hyperionIssuer,
       client,
-      response,
+      response
     );
     if (auth.isOAuth2Error(result)) {
       setIsLoading(false);
@@ -84,7 +87,7 @@ const MyECLButton = () => {
     const generatedCodeVerifier = auth.generateRandomCodeVerifier();
     setCodeVerifier(generatedCodeVerifier);
     const codeChallenge = await auth.calculatePKCECodeChallenge(
-      generatedCodeVerifier,
+      generatedCodeVerifier
     );
     const codeChallengeMethod = "S256";
 
@@ -96,7 +99,7 @@ const MyECLButton = () => {
     authorizationUrl.searchParams.set("code_challenge", codeChallenge);
     authorizationUrl.searchParams.set(
       "code_challenge_method",
-      codeChallengeMethod,
+      codeChallengeMethod
     );
     if (
       hyperionIssuer.code_challenge_methods_supported?.includes("S256") !== true
@@ -108,7 +111,7 @@ const MyECLButton = () => {
   }
 
   if (token !== null) {
-    router.push("/");
+    router.push(`/${locale}`);
   }
 
   return (
@@ -119,7 +122,7 @@ const MyECLButton = () => {
         openSSO();
       }}
     >
-      {t("authenticate")}
+      {t("MyECLButton.authenticate")}
     </LoadingButton>
   );
 };
