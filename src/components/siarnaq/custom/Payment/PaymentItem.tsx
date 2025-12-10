@@ -6,7 +6,7 @@ import {
   PaymentType,
   deleteCdrUsersUserIdPaymentsPaymentId,
 } from "@/api";
-import { CustomDialog } from "@/components/siarnaq/custom/CustomDialog";
+import { CustomDialog } from "@/components/custom/CustomDialog";
 import { LoadingButton } from "@/components/custom/LoadingButton";
 
 import { useFormatter, useTranslations } from "next-intl";

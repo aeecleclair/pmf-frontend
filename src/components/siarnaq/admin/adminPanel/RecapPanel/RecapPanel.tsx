@@ -9,7 +9,7 @@ import {
   patchCdrUsersUserIdCurriculumsCurriculumId,
   postCdrUsersUserIdCurriculumsCurriculumId,
 } from "@/api";
-import { CustomDialog } from "@/components/siarnaq/custom/CustomDialog";
+import { CustomDialog } from "@/components/custom/CustomDialog";
 import { LoadingButton } from "@/components/custom/LoadingButton";
 import { TextSeparator } from "@/components/siarnaq/custom/TextSeparator";
 import UserDisplayName from "@/components/siarnaq/custom/displayName";

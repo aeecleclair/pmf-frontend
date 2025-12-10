@@ -1,5 +1,5 @@
-import { HelloAssoButton } from "../custom/HelloAssoButton";
-import { WarningDialog } from "../custom/WarningDialog";
+import { HelloAssoButton } from "../../custom/HelloAssoButton";
+import { WarningDialog } from "../../custom/WarningDialog";
 
 import { usePaymentUrl } from "@/hooks/siarnaq/usePaymentUrl";
 import { useRouter } from "@/i18n/navigation";
@@ -10,7 +10,7 @@ import { useState } from "react";
 import { Button } from "../../ui/button";
 
 export const PaymentButton = () => {
-  const t = useTranslations("paymentButton");
+  const t = useTranslations("siarnaq");
   const [isOpened, setIsOpened] = useState(false);
   const { paymentUrl, isLoading, refetch } = usePaymentUrl();
   const router = useRouter();
@@ -23,11 +23,11 @@ export const PaymentButton = () => {
         isOpened={isOpened}
         setIsOpened={setIsOpened}
         isLoading={isLoading}
-        title={t("pay")}
+        title={t("paymentButton.pay")}
         description={
           <div>
-            <div className="my-2 font-semibold">{t("title")}</div>
-            <p>{t("description")}</p>
+            <div className="my-2 font-semibold">{t("paymentButton.title")}</div>
+            <p>{t("paymentButton.description")}</p>
           </div>
         }
         customButton={
@@ -36,11 +36,11 @@ export const PaymentButton = () => {
       />
       <Button
         className="col-span-4 ml-auto w-[100px]"
-        onClick={(_) => {
+        onClick={() => {
           setIsOpened(true);
         }}
       >
-        {t("pay")}
+        {t("paymentButton.pay")}
       </Button>
     </>
   );

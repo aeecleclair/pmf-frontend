@@ -1,15 +1,10 @@
-import { LoadingButton } from "./LoadingButton";
+import { LoadingButton } from "../siarnaq/custom/LoadingButton";
 
 import { DialogDescription } from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
 
-import { Button } from "../../ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "../../ui/dialog";
+import { Button } from "../ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { JSX } from "react";
 
 interface WarningDialogProps {
@@ -35,7 +30,7 @@ export const WarningDialog = ({
   width = "w-[100px]",
   customButton,
 }: WarningDialogProps) => {
-  const t = useTranslations("warningDialog");
+  const t = useTranslations("common");
   function closeDialog(event: React.MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
     setIsOpened(false);
@@ -63,7 +58,7 @@ export const WarningDialog = ({
             disabled={isLoading}
             className={width}
           >
-            {t("cancel")}
+            {t("warningDialog.cancel")}
           </Button>
           {customButton ?? (
             <LoadingButton

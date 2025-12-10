@@ -7,7 +7,7 @@ import {
   PaymentType,
   postCdrUsersUserIdPayments,
 } from "@/api";
-import { CustomDialog } from "@/components/siarnaq/custom/CustomDialog";
+import { CustomDialog } from "@/components/custom/CustomDialog";
 import { LoadingButton } from "@/components/custom/LoadingButton";
 import { StyledFormField } from "@/components/siarnaq/custom/StyledFormField";
 import _paymentFormSchema from "@/forms/siarnaq/paymentFormSchema";

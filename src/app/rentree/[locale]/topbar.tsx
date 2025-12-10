@@ -27,7 +27,6 @@ import {
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useWebsite } from "@/hooks/useWebsite";
 import { useMeUser } from "@/hooks/useMeUser";
 import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
 
@@ -96,7 +95,7 @@ function LocaleDropdown() {
   const locale = useLocale();
   const { localeStore, setLocaleStore } = useLocaleStore();
   const router = useRouter();
-  const { website } = useWebsite();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const sellerId = searchParams.get("sellerId") ?? "";
   if (!localeStore) setLocaleStore(locale);
@@ -108,7 +107,7 @@ function LocaleDropdown() {
 
   const onSetLocale = (l: string) => {
     if (l !== locale) {
-      router.push(`/${website}/${l}${sellerId ? `?sellerId=${sellerId}` : ""}`);
+      router.push(`/${l}${pathname}${sellerId ? `?sellerId=${sellerId}` : ""}`);
       setLocaleStore(l as Locale);
     }
   };

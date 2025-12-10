@@ -40,7 +40,7 @@ export const InfoPanel = () => {
         </h3>
         <div>
           {t.rich("info.cdrOnsiteSubtitle", {
-            mandatory: (c: string) => <span className="font-bold">{c}</span>,
+            mandatory: (chunks) => <span className="font-bold">{chunks}</span>,
           })}
         </div>
         <div>{t("info.cdrOnsiteDescription")}</div>
@@ -63,7 +63,7 @@ export const InfoPanel = () => {
         </h3>
         <div>
           {t.rich("info.cautionDescription", {
-            payable: (c: string) => <span className="italic">{c}</span>,
+            payable: (chunks) => <span className="italic">{chunks}</span>,
           })}
         </div>
         <div>{t("info.cautionInstructions", { year: yearString })}</div>
@@ -82,7 +82,7 @@ export const InfoPanel = () => {
         </div>
         <div>
           {t.rich("info.cautionMandatory", {
-            mandatory: (c: string) => <span className="font-bold">{c}</span>,
+            mandatory: (chunks) => <span className="font-bold">{chunks}</span>,
           })}
         </div>
 

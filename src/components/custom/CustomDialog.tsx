@@ -6,8 +6,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../../ui/dialog";
-import { ScrollArea } from "../../ui/scroll-area";
+} from "../ui/dialog";
+import { ScrollArea } from "../ui/scroll-area";
 
 interface CustomDialogProps {
   isOpened: boolean;

@@ -1,15 +1,16 @@
 "use client";
 
-import { LoadingButton } from "../custom/LoadingButton";
+import { LoadingButton } from "./LoadingButton";
 
 import { useCodeVerifierStore } from "@/stores/codeVerifier";
 import { useTokenStore } from "@/stores/token";
 
 import { useLocale, useTranslations } from "next-intl";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 import * as auth from "oauth4webapi";
+import { useRouter } from "@/i18n/navigation";
 
 const MyECLButton = ({ subdomain }: { subdomain: string }) => {
   const t = useTranslations("common");
@@ -43,7 +44,7 @@ const MyECLButton = ({ subdomain }: { subdomain: string }) => {
 
   if (code && !isLoading && typeof window !== "undefined" && codeVerifier) {
     login(new URL(window.location.href));
-    router.push(`/${locale}/login`);
+    router.push("/login");
   }
 
   async function login(url: URL) {
@@ -111,7 +112,7 @@ const MyECLButton = ({ subdomain }: { subdomain: string }) => {
   }
 
   if (token !== null) {
-    router.push(`/${locale}`);
+    router.push("/");
   }
 
   return (

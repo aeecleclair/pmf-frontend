@@ -21,7 +21,7 @@ import {
 import { useCdrUser } from "@/hooks/siarnaq/useCdrUser";
 
 export const ProductPanel = () => {
-  const t = useTranslations("productPanel");
+  const t = useTranslations("siarnaq");
   const { onlineSellers } = useOnlineSellers();
   const searchParams = useSearchParams();
   const firstSellerId =
@@ -74,14 +74,18 @@ export const ProductPanel = () => {
     );
   }
   const displaySellerName = (sellerName: string) =>
-    isInCustomSellerNames(sellerName) ? t(sellerName) : sellerName;
+    isInCustomSellerNames(sellerName)
+      ? t(`productPanel.${sellerName}`)
+      : sellerName;
 
   return (
     <div className="grid gap-6">
       <Card>
         <CardHeader>
           <CardTitle>
-            {seller ? displaySellerName(seller.name) : t("noSellerFound")}
+            {seller
+              ? displaySellerName(seller.name)
+              : t("productPanel.noSellerFound")}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -106,7 +110,9 @@ export const ProductPanel = () => {
               ))}
             </Accordion>
           ) : (
-            <h3 className="text-lg font-semibold">{t("noProductFound")}</h3>
+            <h3 className="text-lg font-semibold">
+              {t("productPanel.noProductFound")}
+            </h3>
           )}
         </CardContent>
         <CardFooter className="px-6 py-4">

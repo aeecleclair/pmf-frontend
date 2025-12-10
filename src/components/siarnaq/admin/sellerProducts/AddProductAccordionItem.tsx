@@ -6,7 +6,7 @@ import {
   postCdrSellersSellerIdProducts,
   postCdrSellersSellerIdProductsProductIdData,
 } from "@/api";
-import { CustomDialog } from "@/components/siarnaq/custom/CustomDialog";
+import { CustomDialog } from "@/components/custom/CustomDialog";
 import _productFormSchema from "@/forms/siarnaq/productFormSchema";
 import { useMemberships } from "@/hooks/siarnaq/useMemberships";
 import { useSellerProducts } from "@/hooks/siarnaq/useSellerProducts";

@@ -42,7 +42,9 @@ export const AssociationPanel = ({
     );
   }
   const displaySellerName = (sellerName: string) =>
-    isInCustomSellerNames(sellerName) ? t(sellerName) : sellerName;
+    isInCustomSellerNames(sellerName)
+      ? t(`productPanel.${sellerName}`)
+      : sellerName;
 
   return (
     <div>

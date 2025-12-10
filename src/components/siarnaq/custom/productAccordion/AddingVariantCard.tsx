@@ -1,5 +1,5 @@
 import { Card, CardContent } from "../../../ui/card";
-import { CustomDialog } from "../CustomDialog";
+import { CustomDialog } from "../../../custom/CustomDialog";
 import { AddEditVariantForm } from "./AddEditVariantForm";
 
 import {

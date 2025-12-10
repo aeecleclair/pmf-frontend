@@ -1,4 +1,4 @@
-import { CustomDialog } from "../CustomDialog";
+import { CustomDialog } from "../../../custom/CustomDialog";
 import { LoadingButton } from "../LoadingButton";
 import { Answer } from "../customFieldDialog/CustomFieldInput";
 import { CustomFieldsDialog } from "../customFieldDialog/CustomFieldsDialog";

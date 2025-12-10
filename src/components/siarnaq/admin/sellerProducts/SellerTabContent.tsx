@@ -7,7 +7,7 @@ import {
   SellerComplete,
   Status,
 } from "@/api";
-import { CustomDialog } from "@/components/siarnaq/custom/CustomDialog";
+import { CustomDialog } from "@/components/custom/CustomDialog";
 import { ProductAccordion } from "@/components/siarnaq/custom/productAccordion/ProductAccordion";
 import { useYear } from "@/hooks/siarnaq/useYear";
 import { useProductExpansionStore } from "@/stores/productExpansionStore";

@@ -1,6 +1,6 @@
 "use client";
 import { useMeUser } from "@/hooks/useMeUser";
-import TestPage from "@/components/user/TestPage";
+import TestPage from "@/components/pmf/user/TestPage";
 // import OffersPanel from "../../components/user/OffersPanel"
 
 export default function Page() {

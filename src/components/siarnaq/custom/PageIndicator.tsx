@@ -4,7 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { useTranslations } from "next-intl";
 
 import { Button } from "../../ui/button";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 
 interface PageIndicatorProps {
   currentSellerId: string;
@@ -15,7 +15,7 @@ export const PageIndicator = ({
   currentSellerId,
   onlineSellers,
 }: PageIndicatorProps) => {
-  const t = useTranslations("pageIndicator");
+  const t = useTranslations("common");
   const router = useRouter();
 
   const availablePagesIds = [
@@ -41,7 +41,7 @@ export const PageIndicator = ({
         }}
         disabled={pageIndex === 0}
       >
-        <span className="sr-only">{t("previousPage")}</span>
+        <span className="sr-only">{t("pageIndicator.previousPage")}</span>
         <ChevronLeftIcon className="h-4 w-4" />
       </Button>
       {availablePagesIds && pageIndex !== undefined && (
@@ -56,11 +56,11 @@ export const PageIndicator = ({
           if (!availablePagesIds || pageIndex === undefined) {
             return;
           }
-          router.replace(`/?sellerId=${availablePagesIds[pageIndex + 1]}`);
+          router.push(`/?sellerId=${availablePagesIds[pageIndex + 1]}`);
         }}
         disabled={pageIndex === (availablePagesIds?.length ?? 0) - 1}
       >
-        <span className="sr-only">{t("nextPage")}</span>
+        <span className="sr-only">{t("pageIndicator.nextPage")}</span>
         <ChevronRightIcon className="h-4 w-4" />
       </Button>
     </div>
