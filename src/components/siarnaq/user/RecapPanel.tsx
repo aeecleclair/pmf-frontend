@@ -4,7 +4,7 @@ import { ProductPart } from "../custom/Product/ProductPart";
 import { PaymentButton } from "./PaymentButton";
 
 import { useOnlineSellers } from "@/hooks/siarnaq/useOnlineSellers";
-import { useUser } from "@/hooks/useUser";
+import { useMeUser } from "@/hooks/useMeUser";
 import { useUserPayments } from "@/hooks/siarnaq/useUserPayments";
 import { useUserPurchases } from "@/hooks/siarnaq/useUserPurchases";
 import { useTokenStore } from "@/stores/token";
@@ -18,7 +18,7 @@ export const RecapPanel = () => {
   const format = useFormatter();
 
   const { userId } = useTokenStore();
-  const { user } = useUser(userId);
+  const { user } = useMeUser();
   const { purchases, total: totalToPay } = useUserPurchases(userId);
   const { total: totalPaid } = useUserPayments(userId);
 

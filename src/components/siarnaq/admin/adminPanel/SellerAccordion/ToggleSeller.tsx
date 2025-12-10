@@ -6,7 +6,7 @@ import {
   postCdrSellers,
 } from "@/api";
 import { LoadingButton } from "@/components/custom/LoadingButton";
-import { useGroups } from "@/hooks/siarnaq/useGroups";
+import { useGroups } from "@/hooks/useGroups";
 import { useSellers } from "@/hooks/siarnaq/useSellers";
 
 import { useState } from "react";

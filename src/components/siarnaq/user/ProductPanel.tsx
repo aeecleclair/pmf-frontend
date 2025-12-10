@@ -18,7 +18,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useCdrUser } from "@/hooks/siarnaq/useUser";
+import { useCdrUser } from "@/hooks/siarnaq/useCdrUser";
 
 export const ProductPanel = () => {
   const t = useTranslations("productPanel");

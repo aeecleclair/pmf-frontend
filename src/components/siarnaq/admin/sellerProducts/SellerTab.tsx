@@ -2,7 +2,6 @@ import { SellerTabContentList } from "./SellerTabContentList";
 import { SellerTabList } from "./SellerTabList";
 
 import { Status } from "@/api";
-import { useCoreUser } from "@/hooks/siarnaq/useCoreUser";
 import { useSellers } from "@/hooks/siarnaq/useSellers";
 import { useRouter } from "@/i18n/navigation";
 
@@ -10,13 +9,14 @@ import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { Tabs } from "@/components/ui/tabs";
+import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
 
 interface SellerTabProps {
   status: Status;
 }
 
 export const SellerTab = ({ status }: SellerTabProps) => {
-  const { isAdmin } = useCoreUser();
+  const isCdrAdmin = useIsCdrAdmin();
   const { sellers } = useSellers();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -24,7 +24,7 @@ export const SellerTab = ({ status }: SellerTabProps) => {
   const firstSellerId =
     searchParams.get("sellerId") ||
     sellers.at(0)?.id ||
-    (isAdmin ? "cdradmin" : "");
+    (isCdrAdmin ? "cdradmin" : "");
 
   useEffect(() => {
     if (!searchParams.get("sellerId") && sellers.length > 0 && firstSellerId) {
@@ -39,11 +39,15 @@ export const SellerTab = ({ status }: SellerTabProps) => {
     <div className="flex items-center justify-center p-6 min-w-96">
       {firstSellerId && (
         <Tabs defaultValue={firstSellerId} className="w-full">
-          <SellerTabList status={status} sellers={sellers} isAdmin={isAdmin} />
+          <SellerTabList
+            status={status}
+            sellers={sellers}
+            isAdmin={isCdrAdmin}
+          />
           <SellerTabContentList
             status={status}
             sellers={sellers}
-            isAdmin={isAdmin}
+            isAdmin={isCdrAdmin}
           />
         </Tabs>
       )}

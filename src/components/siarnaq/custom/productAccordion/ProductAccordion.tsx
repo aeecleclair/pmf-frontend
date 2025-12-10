@@ -22,7 +22,7 @@ import { ContextMenu, ContextMenuTrigger } from "@/components/ui/context-menu";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import { AppModulesCdrSchemasCdrProductComplete } from "@/api";
-import { useCdrUser } from "@/hooks/siarnaq/useUser";
+import { useCdrUser } from "@/hooks/siarnaq/useCdrUser";
 
 interface ProductAccordionProps {
   product: AppModulesCdrSchemasCdrProductComplete;

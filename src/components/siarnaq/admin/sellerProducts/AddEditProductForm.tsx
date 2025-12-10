@@ -11,7 +11,6 @@ import { LoadingButton } from "@/components/custom/LoadingButton";
 import { MultiSelect } from "@/components/siarnaq/custom/MultiSelect";
 import { StyledFormField } from "@/components/siarnaq/custom/StyledFormField";
 import _productFormSchema from "@/forms/siarnaq/productFormSchema";
-import { useCoreUser } from "@/hooks/siarnaq/useCoreUser";
 import { useMemberships } from "@/hooks/siarnaq/useMemberships";
 import { useProducts } from "@/hooks/siarnaq/useProducts";
 import { useSellerProductData } from "@/hooks/siarnaq/useSellerProductData";
@@ -52,6 +51,7 @@ import {
 } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
+import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
 
 interface AddEditProductFormProps {
   form: UseFormReturn<z.infer<ReturnType<typeof _productFormSchema>>>;
@@ -81,7 +81,7 @@ export const AddEditProductForm = ({
   const [isAddingLoading, setIsAddingLoading] = useState(false);
   const [isDeletingLoading, setIsDeletingLoading] = useState(false);
   const { memberships } = useMemberships();
-  const { isAdmin } = useCoreUser();
+  const isCdrAdmin = useIsCdrAdmin();
   //const [selectedMembership, setSelectedMembership] = useState<string>();
 
   function closeDialog(event: React.MouseEvent<HTMLButtonElement>) {
@@ -256,7 +256,7 @@ export const AddEditProductForm = ({
           input={(field) => <Textarea {...field} />}
         />
       </div>
-      {isAdmin && (
+      {isCdrAdmin && (
         <div className="grid gap-2">
           <StyledFormField
             form={form}
@@ -284,7 +284,7 @@ export const AddEditProductForm = ({
           />
         </div>
       )}
-      {isAdmin && (
+      {isCdrAdmin && (
         <StyledFormField
           form={form}
           label={t("addEditProductForm.related_membership")}

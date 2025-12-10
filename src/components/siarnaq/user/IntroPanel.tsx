@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 
 import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
 import { Carousel } from "../../ui/carousel";
-import { useCdrUser } from "@/hooks/siarnaq/useUser";
+import { useCdrUser } from "@/hooks/siarnaq/useCdrUser";
 
 export const IntroPanel = () => {
   const t = useTranslations("siarnaq");

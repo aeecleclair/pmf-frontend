@@ -3,8 +3,8 @@ import { RecapPanel } from "../adminPanel/RecapPanel/RecapPanel";
 import { SellerTabContent } from "./SellerTabContent";
 
 import { SellerComplete, Status } from "@/api";
+import { useCdrUser } from "@/hooks/siarnaq/useCdrUser";
 import { useSellerProducts } from "@/hooks/siarnaq/useSellerProducts";
-import { useUser } from "@/hooks/useUser";
 
 import { useSearchParams } from "next/navigation";
 
@@ -26,7 +26,7 @@ export const SellerTabContentList = ({
     isSeller ? activeSellerId : null
   );
   const userId = searchParams.get("userId");
-  const { user, refetch } = useUser(userId);
+  const { user, refetch } = useCdrUser(userId);
 
   if (activeSellerId === "cdradmin" && isAdmin) {
     return <AdminPanel sellers={sellers} status={status} />;

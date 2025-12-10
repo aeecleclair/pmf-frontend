@@ -1,7 +1,7 @@
 import { columns } from "./Columns";
 import { DataTable } from "./DataTable";
 
-import { useUsers } from "@/hooks/siarnaq/useUsers";
+import { useUsers } from "@/hooks/siarnaq/useCdrUsers";
 
 export const UserSearch = () => {
   const { users } = useUsers();

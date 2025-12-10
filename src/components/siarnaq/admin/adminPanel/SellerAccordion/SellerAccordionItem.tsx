@@ -1,7 +1,7 @@
 import { ToggleSeller } from "./ToggleSeller";
 
 import { SellerComplete } from "@/api";
-import { useGroups } from "@/hooks/siarnaq/useGroups";
+import { useGroups } from "@/hooks/useGroups";
 
 import { useTranslations } from "next-intl";
 

@@ -10,7 +10,7 @@ import { useTokenStore } from "@/stores/token";
 import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { useCdrUser } from "@/hooks/siarnaq/useUser";
+import { useCdrUser } from "@/hooks/siarnaq/useCdrUser";
 
 export default function Home() {
   const showSellerFeatureFlag = true;
@@ -76,7 +76,7 @@ export default function Home() {
             <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
               {t.rich("page.license", {
                 date: () => year,
-                eclair: (c: string) => (
+                eclair: (c: React.ReactNode) => (
                   <a
                     href="https://www.eclair.ec-lyon.fr/"
                     className="font-medium underline underline-offset-4"

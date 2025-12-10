@@ -2,7 +2,6 @@
 
 import { SellerTab } from "@/components/siarnaq/admin/sellerProducts/SellerTab";
 import { UserSearch } from "@/components/siarnaq/admin/userSearch/UserSearch";
-import { useCoreUser } from "@/hooks/siarnaq/useCoreUser";
 import { useSellers } from "@/hooks/siarnaq/useSellers";
 import { useStatus } from "@/hooks/siarnaq/useStatus";
 import { useRouter } from "@/i18n/navigation";
@@ -16,13 +15,16 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { useMeUser } from "@/hooks/useMeUser";
+import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
 
 const AdminPage = () => {
   const { setSize, size } = useSizeStore();
-  const { user, isAdmin } = useCoreUser();
+  const { user } = useMeUser();
   const { sellers } = useSellers();
   const router = useRouter();
   const { status } = useStatus();
+  const isCdrAdmin = useIsCdrAdmin();
 
   useEffect(() => {
     if (!user) return;
@@ -30,10 +32,10 @@ const AdminPage = () => {
     const isUserInASellerGroup = userGroups?.some((group) =>
       sellers.some((seller) => seller.group_id === group)
     );
-    if (!isAdmin && !isUserInASellerGroup) {
+    if (!isCdrAdmin && !isUserInASellerGroup) {
       router.push("/");
     }
-  }, [isAdmin, router, sellers, user]);
+  }, [isCdrAdmin, router, sellers, user]);
 
   useEffect(() => {
     if (status?.status) {
@@ -51,7 +53,7 @@ const AdminPage = () => {
         {status && (
           <Card>
             {status.status === "onsite" ||
-            (isAdmin && status.status === "online") ? (
+            (isCdrAdmin && status.status === "online") ? (
               <ResizablePanelGroup direction="horizontal">
                 <ResizablePanel defaultSize={100 - size} minSize={10}>
                   <UserSearch />

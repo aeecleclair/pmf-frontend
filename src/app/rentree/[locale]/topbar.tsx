@@ -1,6 +1,5 @@
 "use client";
 
-import { useCoreUser } from "@/hooks/siarnaq/useCoreUser";
 import { useSellers } from "@/hooks/siarnaq/useSellers";
 import { useStatus } from "@/hooks/siarnaq/useStatus";
 import { useYear } from "@/hooks/siarnaq/useYear";
@@ -29,6 +28,8 @@ import {
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useWebsite } from "@/hooks/useWebsite";
+import { useMeUser } from "@/hooks/useMeUser";
+import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
 
 export default function TopBar() {
   const t = useTranslations("siarnaq");
@@ -36,7 +37,8 @@ export default function TopBar() {
   const pathname = usePathname();
   const locale = useLocale();
   const router = useRouter();
-  const { user, isAdmin } = useCoreUser();
+  const { user } = useMeUser();
+  const isCdrAdmin = useIsCdrAdmin();
   const { sellers } = useSellers();
   const { year } = useYear();
   const { status } = useStatus();
@@ -58,7 +60,7 @@ export default function TopBar() {
         </div>
       )}
       <div className="flex gap-x-4">
-        {pathname === "/" && (isAdmin || isInASellerGroup) && (
+        {pathname === "/" && (isCdrAdmin || isInASellerGroup) && (
           <Button
             variant="secondary"
             onClick={() => router.push(`/${locale}/admin`)}

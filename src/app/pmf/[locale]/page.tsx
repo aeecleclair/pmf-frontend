@@ -1,12 +1,10 @@
 "use client";
-import { useTokenStore } from "@/stores/token";
-import { useUser } from "@/hooks/useUser";
+import { useMeUser } from "@/hooks/useMeUser";
 import TestPage from "@/components/user/TestPage";
 // import OffersPanel from "../../components/user/OffersPanel"
 
 export default function Page() {
-  const { userId } = useTokenStore();
-  const { user } = useUser(userId);
+  const { user } = useMeUser();
   console.log(user);
   return (
     <div>
