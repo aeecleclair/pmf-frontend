@@ -12,10 +12,6 @@ export function proxy(request: Request) {
   const host = request.headers.get("host")?.split(".")[0]; // Extraire le sous-domaine
   const url = new URL(request.url);
   const pathname = url.pathname;
-  console.log(
-    `Incoming request for host: ${host}, pathname: ${pathname}, query: ${url.search}`
-  );
-
   if (!host || !(host in SUBDOMAIN_ROUTES)) {
     // Si ce n'est pas un des sous-domaines cibles, on laisse Next.js gérer
     return NextResponse.next();
@@ -28,9 +24,6 @@ export function proxy(request: Request) {
   }
   // Modifier le pathname pour inclure la basePath
   url.pathname = basePath + url.pathname;
-  console.log(
-    `Rewriting request for subdomain "${host}" to: ${url.pathname}, query: ${url.search}`
-  );
 
   return NextResponse.rewrite(url);
 }
