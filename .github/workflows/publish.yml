@@ -19,7 +19,7 @@ jobs:
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
           \. "$HOME/.nvm/nvm.sh"
           nvm install 20
-          npm install @hey-api/openapi-ts^0.88.0
+          npm install @hey-api/openapi-ts@^0.88.0
 
       - name: Generate API
         run: |
