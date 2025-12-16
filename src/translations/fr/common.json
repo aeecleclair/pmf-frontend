@@ -1,0 +1,30 @@
+{
+  "HelloAssoButton": {
+    "payWithHA": "Payer avec <ha>HelloAsso</ha>"
+  },
+  "MyECLButton": {
+    "authenticate": "Se connecter avec MyECL"
+  },
+  "datePicker": {
+    "select": "Sélectionner une date"
+  },
+  "multiselect": {
+    "deselect": "Tout désélectionner",
+    "noItemFound": "Aucun objet trouvé.",
+    "search": "Recherche...",
+    "selectAll": "Tout sélectionner"
+  },
+  "pageIndicator": {
+    "nextPage": "Aller à la page suivante",
+    "previousPage": "Aller à la page précédente"
+  },
+  "statusDialog": {
+    "continue": "Continuer"
+  },
+  "toast": {
+    "error": "Erreur"
+  },
+  "warningDialog": {
+    "cancel": "Annuler"
+  }
+}

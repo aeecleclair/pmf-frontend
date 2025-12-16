@@ -2,6 +2,7 @@ import { routing } from "./routing";
 
 import { Formats, hasLocale } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
+
 export const formats = {
   number: {
     euro: {
@@ -17,11 +18,13 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const locale = hasLocale(routing.locales, requested)
     ? requested
     : routing.defaultLocale;
-  console.log('Requested locale:', requested);
-  console.log('Active locale:', locale);
   return {
     locale,
-    messages: (await import(`../translations/${locale}.json`)).default,
+    messages: {
+      common: (await import(`../translations/${locale}/common.json`)).default,
+      pmf: (await import(`../translations/${locale}/pmf.json`)).default,
+      siarnaq: (await import(`../translations/${locale}/siarnaq.json`)).default,
+    },
     formats,
   };
 });
