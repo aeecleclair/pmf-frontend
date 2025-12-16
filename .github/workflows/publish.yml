@@ -23,7 +23,7 @@ jobs:
 
       - name: Generate API
         run: |
-          sed -i 's|{{ NEXT_PUBLIC_BACKEND_URL }}|'"http://127.0.0.1:8000"'|g' openapi-ts.config.ts
+          sed -i 's|http://127.0.0.1:8000|'"$NEXT_PUBLIC_BACKEND_URL"'|g' openapi-ts.config.ts
           npm run generate
         env:
           NEXT_PUBLIC_BACKEND_URL: ${{ vars.NEXT_PUBLIC_BACKEND_URL }}
