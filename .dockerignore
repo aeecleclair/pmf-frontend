@@ -1,0 +1,14 @@
+# Node and Next ignores
+node_modules
+.next
+dist
+build
+.env.local
+.env.*
+.turbo
+coverage
+npm-debug.log
+yarn-error.log
+.git
+Dockerfile
+docker-compose*.yml
