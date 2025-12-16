@@ -14,6 +14,13 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v5
 
+      - name: Generate API
+        run: |
+          sed -i 's|{{ NEXT_PUBLIC_BACKEND_URL }}|'"http://127.0.0.1:8000"'|g' openapi-ts.config.ts
+          npm run generate
+        env:
+          NEXT_PUBLIC_BACKEND_URL: ${{ vars.NEXT_PUBLIC_BACKEND_URL }}
+
       - name: Docker metadata
         id: meta
         uses: docker/metadata-action@v5.8.0
