@@ -6,13 +6,13 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 
 export default function Login() {
-  const t = useTranslations("login");
+  const t = useTranslations("pmf");
   const router = useRouter();
   return (
     <div>
-      {t("title")}
+      {t("login.title")}
       <MyECLButton subdomain="pmf" />
-      <span>{t("register")}</span>
+      <span>{t("login.register")}</span>
       <Button
         variant="outline"
         size="lg"
@@ -23,7 +23,7 @@ export default function Login() {
           router.push(redirectUri);
         }}
       >
-        {t("student")}
+        {t("login.student")}
       </Button>
       <Button
         variant="outline"
@@ -36,7 +36,7 @@ export default function Login() {
           router.push(redirectUri);
         }}
       >
-        {t("alumni")}
+        {t("login.alumni")}
       </Button>
     </div>
   );

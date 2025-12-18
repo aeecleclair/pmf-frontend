@@ -7,6 +7,7 @@ import QueryProvider from "../../QueryProvider";
 
 import type { Metadata } from "next";
 import { AuthInterceptor } from "@/app/provider";
+import { ThemeProvider } from "./theme-provider";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -40,11 +41,18 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <AuthInterceptor>
-          <Suspense>
-            <QueryProvider>
-              <NextIntlClientProvider>{children}</NextIntlClientProvider>
-            </QueryProvider>
-          </Suspense>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            enableColorScheme={true}
+          >
+            <Suspense>
+              <QueryProvider>
+                <NextIntlClientProvider>{children}</NextIntlClientProvider>
+              </QueryProvider>
+            </Suspense>
+          </ThemeProvider>
         </AuthInterceptor>
       </body>
     </html>
