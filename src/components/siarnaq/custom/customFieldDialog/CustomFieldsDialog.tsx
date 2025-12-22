@@ -1,4 +1,4 @@
-import { Button } from "../../../ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -6,15 +6,15 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../../../ui/dialog";
-import { ScrollArea } from "../../../ui/scroll-area";
-import { LoadingButton } from "../LoadingButton";
+} from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Answer, CustomFieldInput } from "./CustomFieldInput";
 
 import { CustomDataFieldComplete } from "@/api";
 
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
+import { LoadingButton } from "@/components/common/LoadingButton";
 
 interface CustomFieldsDialogProps {
   isOpened: boolean;
@@ -48,7 +48,7 @@ export const CustomFieldsDialog = ({
     <Dialog open={isOpened} onOpenChange={setIsOpened}>
       {children && <DialogTrigger className="w-full">{children}</DialogTrigger>}
       <DialogContent
-        className="sm:max-w-[600px] m-0 p-0"
+        className="sm:max-w-150 m-0 p-0"
         onClick={(e) => e.stopPropagation()}
       >
         <ScrollArea className="max-h-[80vh] px-6">
@@ -76,13 +76,13 @@ export const CustomFieldsDialog = ({
                 variant="outline"
                 onClick={() => setIsOpened(false)}
                 disabled={isLoading}
-                className="w-[100px]"
+                className="w-25"
               >
                 {t("customFieldsDialog.cancel")}
               </Button>
               <LoadingButton
                 isLoading={isLoading}
-                className="w-[100px]"
+                className="w-25"
                 type="button"
                 onClick={() => onValidate(answers)}
               >

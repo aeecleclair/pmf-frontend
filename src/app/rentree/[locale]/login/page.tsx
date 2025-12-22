@@ -23,7 +23,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import MyECLButton from "@/components/custom/MyEclButton";
+import MyECLButton from "@/components/common/MyEclButton";
 
 const Login = () => {
   const t = useTranslations("siarnaq");

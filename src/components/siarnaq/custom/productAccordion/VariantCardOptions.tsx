@@ -1,7 +1,4 @@
-import { CustomDialog } from "../../../custom/CustomDialog";
-import { LoadingButton } from "../LoadingButton";
-import { Answer } from "../customFieldDialog/CustomFieldInput";
-import { CustomFieldsDialog } from "../customFieldDialog/CustomFieldsDialog";
+import { CustomDialog } from "@/components/common/CustomDialog";
 import { AddEditVariantForm } from "./AddEditVariantForm";
 
 import {
@@ -36,6 +33,9 @@ import {
   StopIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
+import { Answer } from "../customFieldDialog/CustomFieldInput";
+import { LoadingButton } from "@/components/common/LoadingButton";
+import { CustomFieldsDialog } from "../customFieldDialog/CustomFieldsDialog";
 
 interface VariantCardOptionsProps {
   variant: AppModulesCdrSchemasCdrProductVariantComplete;
@@ -62,7 +62,7 @@ export const VariantCardOptions = ({
   isInterestProduct = false,
   isMembershipProduct = false,
 }: VariantCardOptionsProps) => {
-  const tZod = useTranslations("variantFormSchema");
+  const tZod = useTranslations("siarnaq.variantFormSchema");
   const variantFormSchema = _variantFormSchema(tZod);
   const t = useTranslations("siarnaq");
   const { toast } = useToast();
@@ -320,13 +320,13 @@ export const VariantCardOptions = ({
                     variant="outline"
                     onClick={closeDialog}
                     disabled={isLoading}
-                    className="w-[100px]"
+                    className="w-25"
                   >
                     {t("variantCardOptions.cancel")}
                   </Button>
                   <LoadingButton
                     isLoading={isLoading}
-                    className="w-[100px]"
+                    className="w-25"
                     variant="destructive"
                     onClick={removeVariant}
                   >

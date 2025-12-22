@@ -26,20 +26,20 @@ export function DataTablePagination<TData>({
   const t = useTranslations("siarnaq");
   return (
     <div className="flex items-center justify-between px-2">
-      <div className="flex-1 text-sm text-muted-foreground min-w-[110px]">
+      <div className="flex-1 text-sm text-muted-foreground min-w-27.5">
         {t("dataTablePagination.selected", {
           size: table.getFilteredSelectedRowModel().rows.length,
         })}
       </div>
       <div className="flex items-center space-x-2 lg:space-x-3">
-        <div className="flex items-center space-x-2 min-w-[140px]">
+        <div className="flex items-center space-x-2 min-w-35">
           <Select
             value={`${table.getState().pagination.pageSize}`}
             onValueChange={(value) => {
               table.setPageSize(Number(value));
             }}
           >
-            <SelectTrigger className="h-8 w-[70px] min-w-[70px]">
+            <SelectTrigger className="h-8 w-17.5 min-w-17.5">
               <SelectValue placeholder={table.getState().pagination.pageSize} />
             </SelectTrigger>
             <SelectContent side="top">
@@ -54,7 +54,7 @@ export function DataTablePagination<TData>({
             {t("dataTablePagination.byPage")}
           </p>
         </div>
-        <div className="flex w-[100px] items-center justify-center text-sm font-medium">
+        <div className="flex w-25 items-center justify-center text-sm font-medium">
           {t("dataTablePagination.pagination", {
             number: table.getState().pagination.pageIndex + 1,
             total: table.getPageCount(),

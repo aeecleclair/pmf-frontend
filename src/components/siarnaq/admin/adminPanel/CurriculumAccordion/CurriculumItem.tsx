@@ -1,5 +1,5 @@
 import { CurriculumComplete, deleteCdrCurriculumsCurriculumId } from "@/api";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { useCurriculums } from "@/hooks/siarnaq/useCurriculums";
 
 import { useState } from "react";

@@ -1,4 +1,4 @@
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { StyledFormField } from "@/components/siarnaq/custom/StyledFormField";
 import _migrateUserFormSchema from "@/forms/siarnaq/migrateUserFormSchema";
 
@@ -148,15 +148,11 @@ export const MigrateUserForm = ({
           variant="outline"
           onClick={closeDialog}
           disabled={isLoading}
-          className="w-[100px]"
+          className="w-25"
         >
           {t("migrateUserForm.cancel")}
         </Button>
-        <LoadingButton
-          isLoading={isLoading}
-          className="w-[100px]"
-          type="submit"
-        >
+        <LoadingButton isLoading={isLoading} className="w-25" type="submit">
           {t("migrateUserForm.edit")}
         </LoadingButton>
       </div>

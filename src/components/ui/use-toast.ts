@@ -171,7 +171,7 @@ function _toast({ ...props }: Toast) {
 
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState);
-  const t = useTranslations("toast");
+  const t = useTranslations("common.toast");
 
   React.useEffect(() => {
     listeners.push(setState);

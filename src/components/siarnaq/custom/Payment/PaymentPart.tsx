@@ -1,18 +1,15 @@
-import { CurrencyInput } from "../CurrencyInput";
 import { PaymentItem } from "./PaymentItem";
-
 import {
   AppModulesCdrSchemasCdrPaymentBase,
   CdrUser,
   PaymentType,
   postCdrUsersUserIdPayments,
 } from "@/api";
-import { CustomDialog } from "@/components/custom/CustomDialog";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { CustomDialog } from "@/components/common/CustomDialog";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { StyledFormField } from "@/components/siarnaq/custom/StyledFormField";
 import _paymentFormSchema from "@/forms/siarnaq/paymentFormSchema";
 import { useUserPayments } from "@/hooks/siarnaq/useUserPayments";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFormatter, useTranslations } from "next-intl";
 import { useState } from "react";
@@ -24,7 +21,6 @@ import {
 } from "react-icons/hi2";
 import { HiOutlineBanknotes, HiOutlinePencilSquare } from "react-icons/hi2";
 import z from "zod";
-
 import { Button } from "@/components/ui/button";
 import { CardTitle } from "@/components/ui/card";
 import { Form } from "@/components/ui/form";
@@ -37,6 +33,7 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
+import { PriceInput } from "@/components/ui/priceInput";
 
 interface PaymentPartProps {
   user: CdrUser;
@@ -45,7 +42,7 @@ interface PaymentPartProps {
 
 export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
   const { toast } = useToast();
-  const tZod = useTranslations("paymentFormSchema");
+  const tZod = useTranslations("siarnaq.paymentFormSchema");
   const paymentFormSchema = _paymentFormSchema(tZod);
   const t = useTranslations("siarnaq");
   const format = useFormatter();
@@ -130,7 +127,7 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
                           label={t("paymentPart.amount")}
                           id="total"
                           input={(field) => (
-                            <CurrencyInput id="price" {...field} />
+                            <PriceInput id="price" {...field} />
                           )}
                         />
                         <StyledFormField
@@ -153,7 +150,7 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
                                   >
                                     <div className="flex items-center flex-row gap-2">
                                       {paymentIcon(PaymentType)}
-                                      {t(PaymentType)}
+                                      {t(`paymentPart.${PaymentType}`)}
                                     </div>
                                   </SelectItem>
                                 ))}
@@ -167,13 +164,13 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
                           variant="outline"
                           onClick={closeDialog}
                           disabled={isLoading}
-                          className="w-[100px]"
+                          className="w-25"
                         >
                           {t("paymentPart.cancel")}
                         </Button>
                         <LoadingButton
                           isLoading={isLoading}
-                          className="w-[100px]"
+                          className="w-25"
                           type="submit"
                         >
                           {t("paymentPart.add")}
@@ -184,7 +181,7 @@ export const PaymentPart = ({ user, isAdmin }: PaymentPartProps) => {
                 </Form>
               }
             >
-              <Button className="w-[100px]">{t("paymentPart.add")}</Button>
+              <Button className="w-25">{t("paymentPart.add")}</Button>
             </CustomDialog>
           )}
         </CardTitle>

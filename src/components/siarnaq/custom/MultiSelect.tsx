@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import * as React from "react";
 
-import { ScrollArea } from "../../ui/scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -43,7 +43,7 @@ function MultiSelect({
   canSearch = false,
   ...props
 }: MultiSelectProps) {
-  const t = useTranslations("multiselect");
+  const t = useTranslations("common");
   const [open, setOpen] = React.useState(false);
 
   const handleUnselect = (item: string) => {
@@ -100,8 +100,8 @@ function MultiSelect({
         <Command className={className}>
           {canSearch && (
             <>
-              <CommandInput placeholder={t("search")} />
-              <CommandEmpty>{t("noItemFound")}</CommandEmpty>
+              <CommandInput placeholder={t("multiselect.search")} />
+              <CommandEmpty>{t("multiselect.noItemFound")}</CommandEmpty>
             </>
           )}
           <ScrollArea className="h-64">
@@ -127,8 +127,8 @@ function MultiSelect({
                   )}
                 />
                 {selected.length === options.length
-                  ? t("deselect")
-                  : t("selectAll")}
+                  ? t("multiselect.deselect")
+                  : t("multiselect.selectAll")}
               </CommandItem>
               {options.map((option) => (
                 <CommandItem

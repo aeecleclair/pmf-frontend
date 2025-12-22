@@ -5,7 +5,7 @@ import {
   deleteCdrSellersSellerId,
   postCdrSellers,
 } from "@/api";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { useGroups } from "@/hooks/useGroups";
 import { useSellers } from "@/hooks/siarnaq/useSellers";
 

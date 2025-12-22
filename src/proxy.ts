@@ -6,25 +6,28 @@ import { NextResponse } from "next/server";
 const SUBDOMAIN_ROUTES = {
   rentree: "/rentree",
   pmf: "/pmf",
+  "raid-registering": "/raid-registering",
 };
 
 export function proxy(request: Request) {
   const host = request.headers.get("host")?.split(".")[0]; // Extraire le sous-domaine
   const url = new URL(request.url);
   const pathname = url.pathname;
+  console.log("Middleware invoked for host:", host, "and pathname:", pathname);
   if (!host || !(host in SUBDOMAIN_ROUTES)) {
     // Si ce n'est pas un des sous-domaines cibles, on laisse Next.js gérer
     return NextResponse.next();
   }
 
   const basePath = SUBDOMAIN_ROUTES[host as keyof typeof SUBDOMAIN_ROUTES];
+  console.log("Rewriting to basePath:", basePath);
   if (pathname.startsWith(basePath)) {
     // Si le chemin commence déjà par la basePath, on ne fait rien
     return NextResponse.next();
   }
   // Modifier le pathname pour inclure la basePath
   url.pathname = basePath + url.pathname;
-
+  console.log("Rewritten URL:", url.pathname);
   return NextResponse.rewrite(url);
 }
 

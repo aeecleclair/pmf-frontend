@@ -2,14 +2,14 @@ import { Messages } from "next-intl";
 import z from "zod";
 
 export default function variantFormSchema(
-  t: (arg: keyof Messages["variantFormSchema"]) => string
+  t: (key: any, values?: any) => string
 ) {
   // useTranslations("variantFormSchema") (don't remove!)
   return z
     .object({
       name_fr: z
         .string({
-          required_error: t("nameFR"),
+          error: t("nameFR"),
         })
         .min(1, {
           message: t("nameFR"),
@@ -23,16 +23,16 @@ export default function variantFormSchema(
         .optional(),
       price: z
         .string({
-          required_error: t("price"),
+          error: t("price"),
         })
         .min(0, {
           message: t("price"),
         }),
       unique: z.enum(["unique", "multiple"], {
-        required_error: t("unique"),
+        error: t("unique"),
       }),
       allowed_curriculum: z.array(z.string(), {
-        required_error: t("allowedCurriculum"),
+        error: t("allowedCurriculum"),
       }),
       isMembershipProduct: z.boolean(),
     })

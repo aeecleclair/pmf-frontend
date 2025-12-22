@@ -2,7 +2,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../../../ui/accordion";
+} from "@/components/ui/accordion";
 import { AddingVariantCard } from "./AddingVariantCard";
 import { ProductAccordionOptions } from "./ProductAccordionOptions";
 import { VariantCardWithOptions } from "./VariantCardWithOptions";
@@ -10,7 +10,7 @@ import { VariantCardWithOptions } from "./VariantCardWithOptions";
 import { useMemberships } from "@/hooks/siarnaq/useMemberships";
 import { useUserMemberships } from "@/hooks/siarnaq/useUserMemberships";
 import { useUserPurchases } from "@/hooks/siarnaq/useUserPurchases";
-import { useSizeStore } from "@/stores/SizeStore";
+import { useSizeStore } from "@/stores/siarnaq/SizeStore";
 import { useTranslation } from "@/translations/utils";
 
 import { useTranslations } from "next-intl";

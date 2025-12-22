@@ -7,7 +7,7 @@ import {
   postCdrSellersSellerIdProductsProductIdTickets,
 } from "@/api";
 import { DatePicker } from "@/components/siarnaq/custom/DatePicker";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { MultiSelect } from "@/components/siarnaq/custom/MultiSelect";
 import { StyledFormField } from "@/components/siarnaq/custom/StyledFormField";
 import _productFormSchema from "@/forms/siarnaq/productFormSchema";
@@ -347,7 +347,7 @@ export const AddEditProductForm = ({
                 variant="outline"
                 type="button"
                 isLoading={isAddingTicketLoading}
-                className="w-[100px] self-end"
+                className="w-25 self-end"
                 onClick={onAddTicket}
               >
                 {t("addEditProductForm.add")}
@@ -494,7 +494,7 @@ export const AddEditProductForm = ({
                 variant="outline"
                 type="button"
                 isLoading={isAddingLoading}
-                className="w-[100px]"
+                className="w-25"
                 onClick={onAddData}
               >
                 {t("addEditProductForm.add")}
@@ -532,15 +532,11 @@ export const AddEditProductForm = ({
           variant="outline"
           onClick={closeDialog}
           disabled={isLoading}
-          className="w-[100px]"
+          className="w-25"
         >
           {t("addEditProductForm.cancel")}
         </Button>
-        <LoadingButton
-          isLoading={isLoading}
-          className="w-[100px]"
-          type="submit"
-        >
+        <LoadingButton isLoading={isLoading} className="w-25" type="submit">
           {isEdit ? t("addEditProductForm.edit") : t("addEditProductForm.add")}
         </LoadingButton>
       </div>

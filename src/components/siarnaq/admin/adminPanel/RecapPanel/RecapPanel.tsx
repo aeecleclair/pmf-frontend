@@ -1,5 +1,5 @@
-import { PaymentPart } from "../../../custom/Payment/PaymentPart";
-import { ProductPart } from "../../../custom/Product/ProductPart";
+import { PaymentPart } from "@/components/siarnaq/custom/Payment/PaymentPart";
+import { ProductPart } from "@/components/siarnaq/custom/Product/ProductPart";
 import { MigrateUserForm } from "./MigrateUserForm";
 
 import {
@@ -9,8 +9,8 @@ import {
   patchCdrUsersUserIdCurriculumsCurriculumId,
   postCdrUsersUserIdCurriculumsCurriculumId,
 } from "@/api";
-import { CustomDialog } from "@/components/custom/CustomDialog";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { CustomDialog } from "@/components/common/CustomDialog";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { TextSeparator } from "@/components/siarnaq/custom/TextSeparator";
 import UserDisplayName from "@/components/siarnaq/custom/displayName";
 import _migrateUserFormSchema from "@/forms/siarnaq/migrateUserFormSchema";
@@ -45,7 +45,7 @@ interface RecapPanelProps {
 }
 
 export const RecapPanel = ({ user, refetch }: RecapPanelProps) => {
-  const tZod = useTranslations("migrateUserFormSchema");
+  const tZod = useTranslations("siarnaq.migrateUserFormSchema");
   const migrateUserFormSchema = _migrateUserFormSchema(tZod);
   const t = useTranslations("siarnaq");
   const format = useFormatter();
@@ -213,13 +213,13 @@ export const RecapPanel = ({ user, refetch }: RecapPanelProps) => {
                       variant="outline"
                       onClick={closeDialog}
                       disabled={isLoading}
-                      className="w-[100px]"
+                      className="w-25"
                     >
                       {t("recapPanel.cancel")}
                     </Button>
                     <LoadingButton
                       isLoading={isLoading}
-                      className="w-[100px]"
+                      className="w-25"
                       type="button"
                       onClick={onCurriculumSubmit}
                     >

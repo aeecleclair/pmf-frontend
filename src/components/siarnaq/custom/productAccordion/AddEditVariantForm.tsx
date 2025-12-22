@@ -1,5 +1,3 @@
-import { CurrencyInput } from "../CurrencyInput";
-import { LoadingButton } from "../LoadingButton";
 import { MultiSelect } from "../MultiSelect";
 import { StyledFormField } from "../StyledFormField";
 
@@ -15,6 +13,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
+import { PriceInput } from "@/components/ui/priceInput";
+import { LoadingButton } from "@/components/common/LoadingButton";
 
 interface AddEditVariantFormProps {
   form: UseFormReturn<z.infer<ReturnType<typeof _variantFormSchema>>>;
@@ -76,7 +76,7 @@ export const AddEditVariantForm = ({
             form={form}
             label={t("addEditVariantForm.price")}
             id="price"
-            input={(field) => <CurrencyInput id="price" {...field} />}
+            input={(field) => <PriceInput id="price" {...field} />}
           />
         )}
         <StyledFormField
@@ -139,15 +139,11 @@ export const AddEditVariantForm = ({
           variant="outline"
           onClick={closeDialog}
           disabled={isLoading}
-          className="w-[100px]"
+          className="w-25"
         >
           {t("addEditVariantForm.cancel")}
         </Button>
-        <LoadingButton
-          isLoading={isLoading}
-          className="w-[100px]"
-          type="submit"
-        >
+        <LoadingButton isLoading={isLoading} className="w-25" type="submit">
           {isEdit ? t("addEditVariantForm.edit") : t("addEditVariantForm.add")}
         </LoadingButton>
       </div>

@@ -1,5 +1,5 @@
 import { CdrStatus, Status, patchCdrStatus } from "@/api";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { useStatus } from "@/hooks/siarnaq/useStatus";
 
 import { useTranslations } from "next-intl";
@@ -83,7 +83,7 @@ export const StatusAccordionItem = ({ status }: SellerTabProps) => {
                 updateStatus(nextStep[status.status as keyof typeof nextStep])
               }
               isLoading={isLoading}
-              className="w-[130px]"
+              className="w-32.5"
             >
               {
                 statusButtonLabel[

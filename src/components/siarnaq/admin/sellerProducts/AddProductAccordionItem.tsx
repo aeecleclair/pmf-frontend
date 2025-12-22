@@ -6,7 +6,7 @@ import {
   postCdrSellersSellerIdProducts,
   postCdrSellersSellerIdProductsProductIdData,
 } from "@/api";
-import { CustomDialog } from "@/components/custom/CustomDialog";
+import { CustomDialog } from "@/components/common/CustomDialog";
 import _productFormSchema from "@/forms/siarnaq/productFormSchema";
 import { useMemberships } from "@/hooks/siarnaq/useMemberships";
 import { useSellerProducts } from "@/hooks/siarnaq/useSellerProducts";
@@ -31,7 +31,7 @@ export const AddProductAccordionItem = ({
   seller,
   refreshProduct,
 }: AddProductAccordionItemProps) => {
-  const tZod = useTranslations("productFormSchema");
+  const tZod = useTranslations("siarnaq.productFormSchema");
   const productFormSchema = _productFormSchema(tZod);
   const t = useTranslations("siarnaq");
   const { toast } = useToast();

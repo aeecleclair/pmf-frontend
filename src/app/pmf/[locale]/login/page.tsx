@@ -1,6 +1,6 @@
 "use client";
 
-import MyECLButton from "@/components/custom/MyEclButton";
+import MyECLButton from "@/components/common/MyEclButton";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";

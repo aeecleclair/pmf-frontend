@@ -36,7 +36,7 @@ export function DataTableRowActions<TData>({
           <span className="sr-only">{t("dataTableRowActions.openMenu")}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[180px]">
+      <DropdownMenuContent align="end" className="w-45">
         {row.getValue("second") === null ? (
           <DropdownMenuItem
             onClick={(e) => {
@@ -46,7 +46,7 @@ export function DataTableRowActions<TData>({
           >
             {row.getIsSelected()
               ? t("dataTableRowActions.cancelMerge")
-              : t("mergeWithTeam")}
+              : t("dataTableRowActions.mergeWithTeam")}
             <DropdownMenuShortcut>
               <MergeIcon className="h-4 w-4" />
             </DropdownMenuShortcut>

@@ -1,5 +1,4 @@
-import { PageIndicator } from "../custom/PageIndicator";
-
+import { PageIndicator } from "@/components/siarnaq/custom/PageIndicator";
 import { useOnlineSellers } from "@/hooks/siarnaq/useOnlineSellers";
 import { useYear } from "@/hooks/siarnaq/useYear";
 import { Link } from "@/i18n/navigation";
