@@ -1,5 +1,5 @@
 import { CurriculumBase, postCdrCurriculums } from "@/api";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import _curriculumFormSchema from "@/forms/siarnaq/curriculumFormSchema";
 import { useCurriculums } from "@/hooks/siarnaq/useCurriculums";
 
@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 
 export const AddCurriculumButton = () => {
-  const tZod = useTranslations("curriculumFormSchema");
+  const tZod = useTranslations("siarnaq.curriculumFormSchema");
   const curriculumFormSchema = _curriculumFormSchema(tZod);
   const t = useTranslations("siarnaq");
   const { toast } = useToast();
@@ -72,7 +72,7 @@ export const AddCurriculumButton = () => {
             variant="outline"
             type="submit"
             isLoading={isLoading}
-            className="w-[100px]"
+            className="w-25"
           >
             {t("addCurriculumButton.add")}
           </LoadingButton>

@@ -8,7 +8,7 @@ import { isValidPhoneNumber } from "libphonenumber-js";
 // const validEmailRegex = /^[\w\-.]*@etu(-enise)?\.ec-lyon\.fr$/;
 
 export default function migrateUserFormSchema(
-  t: (arg: keyof Messages["migrateUserFormSchema"]) => string
+  t: (key: any, values?: any) => string
 ) {
   // useTranslations("migrateUserFormSchema") (don't remove!)
   return z.object({

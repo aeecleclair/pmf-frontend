@@ -1,5 +1,4 @@
-import { CustomDialog } from "../../../custom/CustomDialog";
-import { LoadingButton } from "../LoadingButton";
+import { CustomDialog } from "@/components/common/CustomDialog";
 
 import {
   AppModulesCdrSchemasCdrProductComplete,
@@ -27,6 +26,7 @@ import { Form } from "@/components/ui/form";
 import { useToast } from "@/components/ui/use-toast";
 
 import { PencilIcon, TrashIcon } from "lucide-react";
+import { LoadingButton } from "@/components/common/LoadingButton";
 
 interface ProductAccordionOptionsProps {
   product: AppModulesCdrSchemasCdrProductComplete;
@@ -43,7 +43,7 @@ export const ProductAccordionOptions = ({
   canEdit,
   canRemove,
 }: ProductAccordionOptionsProps) => {
-  const tZod = useTranslations("productFormSchema");
+  const tZod = useTranslations("siarnaq.productFormSchema");
   const productFormSchema = _productFormSchema(tZod);
   const t = useTranslations("siarnaq");
   const { toast } = useToast();
@@ -213,13 +213,13 @@ export const ProductAccordionOptions = ({
                     variant="outline"
                     onClick={closeDialog}
                     disabled={isLoading}
-                    className="w-[100px]"
+                    className="w-25"
                   >
                     {t("productAccordionOptions.cancel")}
                   </Button>
                   <LoadingButton
                     isLoading={isLoading}
-                    className="w-[100px]"
+                    className="w-25"
                     variant="destructive"
                     onClick={removeProduct}
                   >

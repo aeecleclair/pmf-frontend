@@ -3,8 +3,8 @@ import {
   getUsersSearch,
   postCdrUsersUserIdCurriculumsCurriculumId,
 } from "@/api";
-import { CustomDialog } from "@/components/custom/CustomDialog";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { CustomDialog } from "@/components/common/CustomDialog";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { useCurriculums } from "@/hooks/siarnaq/useCurriculums";
 
 import { useTranslations } from "next-intl";
@@ -164,13 +164,13 @@ export const AddUserWithCurriculum = () => {
                   variant="outline"
                   onClick={() => setIsOpened(false)}
                   disabled={isLoading}
-                  className="w-[100px]"
+                  className="w-25"
                 >
                   {t("addUserWithCurriculum.cancel")}
                 </Button>
                 <LoadingButton
                   isLoading={isLoading}
-                  className="w-[100px]"
+                  className="w-25"
                   type="button"
                   disabled={!selectedUser || !selectedCurriculum}
                   onClick={submit}

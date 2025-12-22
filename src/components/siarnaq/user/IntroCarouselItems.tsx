@@ -1,5 +1,3 @@
-import { LoadingButton } from "../custom/LoadingButton";
-
 import { CdrUser, postCdrUsersUserIdCurriculumsCurriculumId } from "@/api";
 import { useCurriculums } from "@/hooks/siarnaq/useCurriculums";
 import { useOnlineSellers } from "@/hooks/siarnaq/useOnlineSellers";
@@ -8,13 +6,13 @@ import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
-import { Badge } from "../../ui/badge";
+import { Badge } from "@/components/ui/badge";
 import {
   CarouselContent,
   CarouselItem,
   Carousel,
   CarouselApi,
-} from "../../ui/carousel";
+} from "@/components/ui/carousel";
 import {
   Select,
   SelectContent,
@@ -22,11 +20,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../ui/select";
-import { useToast } from "../../ui/use-toast";
+} from "@/components/ui/select";
+import { useToast } from "@/components/ui/use-toast";
 
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import { LoadingButton } from "@/components/common/LoadingButton";
 
 interface IntroCarouselItemsProps {
   user: CdrUser;
@@ -71,7 +70,7 @@ export const IntroCarouselItems = ({
     <div key="curriculum" className="h-full gap-4 flex flex-col">
       <span>{t("introCarouselItem.selectCurriculum")}</span>
       <Select value={selectedCurriculum} onValueChange={setSelectedCurriculum}>
-        <SelectTrigger className="w-[300px] m-auto">
+        <SelectTrigger className="w-75 m-auto">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

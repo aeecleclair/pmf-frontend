@@ -1,5 +1,5 @@
-import { HelloAssoButton } from "../../custom/HelloAssoButton";
-import { WarningDialog } from "../../custom/WarningDialog";
+import { HelloAssoButton } from "@/components/common/HelloAssoButton";
+import { WarningDialog } from "@/components/common/WarningDialog";
 
 import { usePaymentUrl } from "@/hooks/siarnaq/usePaymentUrl";
 import { useRouter } from "@/i18n/navigation";
@@ -7,7 +7,7 @@ import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
-import { Button } from "../../ui/button";
+import { Button } from "@/components/ui/button";
 
 export const PaymentButton = () => {
   const t = useTranslations("siarnaq");
@@ -35,7 +35,7 @@ export const PaymentButton = () => {
         }
       />
       <Button
-        className="col-span-4 ml-auto w-[100px]"
+        className="col-span-4 ml-auto w-25"
         onClick={() => {
           setIsOpened(true);
         }}

@@ -5,7 +5,7 @@ import { UserSearch } from "@/components/siarnaq/admin/userSearch/UserSearch";
 import { useSellers } from "@/hooks/siarnaq/useSellers";
 import { useStatus } from "@/hooks/siarnaq/useStatus";
 import { useRouter } from "@/i18n/navigation";
-import { useSizeStore } from "@/stores/SizeStore";
+import { useSizeStore } from "@/stores/siarnaq/SizeStore";
 
 import { Suspense, useEffect } from "react";
 

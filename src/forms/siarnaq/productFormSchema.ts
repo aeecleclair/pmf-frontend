@@ -2,7 +2,7 @@ import { Messages } from "next-intl";
 import z from "zod";
 
 export default function productFormSchema(
-  t: (arg: keyof Messages["productFormSchema"]) => string,
+  t: (key: any, values?: any) => string
 ) {
   // useTranslations("productFormSchema") (don't remove!)
   return z
@@ -10,7 +10,7 @@ export default function productFormSchema(
       id: z.string().optional(),
       name_fr: z
         .string({
-          required_error: t("nameFR"),
+          error: t("nameFR"),
         })
         .min(1, {
           message: t("nameFR"),
@@ -20,7 +20,7 @@ export default function productFormSchema(
       description_en: z.string().optional(),
       related_membership: z.string().optional(),
       available_online: z.enum(["true", "false"], {
-        required_error: t("availableOnline"),
+        error: t("availableOnline"),
       }),
       data_field_name: z.string().optional(),
       data_field_can_user_answer: z.boolean().optional(),
@@ -30,7 +30,7 @@ export default function productFormSchema(
           can_user_answer: z.boolean(),
           id: z.string(),
           product_id: z.string(),
-        }),
+        })
       ),
       product_constraints: z.array(z.string()),
       document_constraints: z.array(z.string()),
@@ -43,7 +43,7 @@ export default function productFormSchema(
             const parsedValue = parseInt(value);
             return !isNaN(parsedValue) && parsedValue >= 1;
           },
-          { message: t("ticketMaxUsePositive") },
+          { message: t("ticketMaxUsePositive") }
         )
         .refine(
           (value) => {
@@ -51,7 +51,7 @@ export default function productFormSchema(
             const isInt = /^\d+$/.test(value);
             return isInt;
           },
-          { message: t("ticketMaxUseInt") },
+          { message: t("ticketMaxUseInt") }
         )
         .optional(),
       ticket_expiration: z.date().optional(),
@@ -61,7 +61,7 @@ export default function productFormSchema(
           id: z.string(),
           max_use: z.number(),
           expiration: z.date(),
-        }),
+        })
       ),
     })
     .superRefine((data, ctx) => {

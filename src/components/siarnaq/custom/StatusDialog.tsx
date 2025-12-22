@@ -2,13 +2,13 @@ import { DialogDescription } from "@radix-ui/react-dialog";
 import { useTranslations } from "next-intl";
 import { HiCheck, HiXMark } from "react-icons/hi2";
 
-import { Button } from "../../ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "../../ui/dialog";
+} from "@/components/ui/dialog";
 import { JSX } from "react";
 
 type DialogStatus = "SUCCESS" | "ERROR";
@@ -42,7 +42,7 @@ export const StatusDialog = ({
   return (
     <Dialog open={isOpened} onOpenChange={setIsOpened}>
       <DialogContent
-        className="sm:max-w-[600px]"
+        className="sm:max-w-150"
         onClick={(e) => e.stopPropagation()}
       >
         <DialogHeader>

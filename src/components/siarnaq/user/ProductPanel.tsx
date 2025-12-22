@@ -3,14 +3,14 @@ import { ProductAccordion } from "../custom/productAccordion/ProductAccordion";
 
 import { useOnlineSellerProducts } from "@/hooks/siarnaq/useOnlineSellerProducts";
 import { useOnlineSellers } from "@/hooks/siarnaq/useOnlineSellers";
-import { useProductExpansionStore } from "@/stores/productExpansionStore";
+import { useProductExpansionStore } from "@/stores/siarnaq/productExpansionStore";
 import { useTokenStore } from "@/stores/token";
 
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-import { Accordion } from "../../ui/accordion";
+import { Accordion } from "@/components/ui/accordion";
 import {
   Card,
   CardContent,

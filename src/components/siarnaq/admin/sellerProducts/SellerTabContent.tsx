@@ -7,10 +7,10 @@ import {
   SellerComplete,
   Status,
 } from "@/api";
-import { CustomDialog } from "@/components/custom/CustomDialog";
+import { CustomDialog } from "@/components/common/CustomDialog";
 import { ProductAccordion } from "@/components/siarnaq/custom/productAccordion/ProductAccordion";
 import { useYear } from "@/hooks/siarnaq/useYear";
-import { useProductExpansionStore } from "@/stores/productExpansionStore";
+import { useProductExpansionStore } from "@/stores/siarnaq/productExpansionStore";
 import { useTokenStore } from "@/stores/token";
 
 import { useTranslations } from "next-intl";
@@ -125,18 +125,10 @@ export const SellerTabContent = ({
               {t("sellerTabContent.exportDataExplanation")}
             </div>
             <div className="flex justify-end mt-2 space-x-4">
-              <Button
-                variant="outline"
-                onClick={closeDialog}
-                className="w-[100px]"
-              >
+              <Button variant="outline" onClick={closeDialog} className="w-25">
                 {t("sellerTabContent.cancel")}
               </Button>
-              <Button
-                className="w-[100px]"
-                type="button"
-                onClick={exportResult}
-              >
+              <Button className="w-25" type="button" onClick={exportResult}>
                 {t("sellerTabContent.export")}
               </Button>
             </div>
@@ -148,7 +140,7 @@ export const SellerTabContent = ({
           seller={seller}
           refreshProduct={refetchProducts}
         />
-        <Button className="w-[100px] m-4" onClick={() => setIsOpened(true)}>
+        <Button className="w-25 m-4" onClick={() => setIsOpened(true)}>
           {t("sellerTabContent.export")}
         </Button>
       </div>

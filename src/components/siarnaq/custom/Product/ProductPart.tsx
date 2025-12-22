@@ -1,4 +1,3 @@
-import { LoadingButton } from "../LoadingButton";
 import { PurchaseItem, onValidate } from "./PurchaseItem";
 
 import {
@@ -17,6 +16,7 @@ import { useState } from "react";
 import { CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
+import { LoadingButton } from "@/components/common/LoadingButton";
 
 interface ProductPartProps {
   user: CdrUser;
@@ -24,7 +24,7 @@ interface ProductPartProps {
 }
 
 export const ProductPart = ({ user, isAdmin }: ProductPartProps) => {
-  const tOnValidate = useTranslations("onValidate");
+  const tOnValidate = useTranslations("siarnaq.onValidate");
   const t = useTranslations("siarnaq");
   const format = useFormatter();
   const pathname = usePathname();

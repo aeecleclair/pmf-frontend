@@ -1,5 +1,5 @@
-import { Card, CardContent } from "../../../ui/card";
-import { CustomDialog } from "../../../custom/CustomDialog";
+import { Card, CardContent } from "@/components/ui/card";
+import { CustomDialog } from "@/components/common/CustomDialog";
 import { AddEditVariantForm } from "./AddEditVariantForm";
 
 import {
@@ -33,7 +33,7 @@ export const AddingVariantCard = ({
   isInterestProduct = false,
   isMembershipProduct = false,
 }: AddingVariantCardProps) => {
-  const tZod = useTranslations("variantFormSchema");
+  const tZod = useTranslations("siarnaq.variantFormSchema");
   const variantFormSchema = _variantFormSchema(tZod);
   const t = useTranslations("siarnaq");
   const { toast } = useToast();

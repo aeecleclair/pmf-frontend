@@ -11,7 +11,12 @@ import { useTokenStore } from "@/stores/token";
 
 import { useFormatter, useTranslations } from "next-intl";
 
-import { Card, CardContent, CardFooter, CardHeader } from "../../ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 
 export const RecapPanel = () => {
   const t = useTranslations("siarnaq");

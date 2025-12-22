@@ -1,5 +1,3 @@
-import { LoadingButton } from "../LoadingButton";
-
 import {
   AppModulesCdrSchemasCdrProductComplete,
   AppModulesCdrSchemasCdrProductVariantComplete,
@@ -19,6 +17,7 @@ import { HiCheck, HiOutlineExclamationCircle, HiXMark } from "react-icons/hi2";
 import { HiOutlineCheckBadge } from "react-icons/hi2";
 
 import { useToast } from "@/components/ui/use-toast";
+import { LoadingButton } from "@/components/common/LoadingButton";
 
 interface PurchaseItemProps {
   purchase: PurchaseReturn;
@@ -41,7 +40,6 @@ export const PurchaseItem = ({
   isAdmin,
   isInterest = false,
 }: PurchaseItemProps) => {
-  const tOnValidate = useTranslations("onValidate");
   const t = useTranslations("siarnaq");
   const format = useFormatter();
   const { toast } = useToast();
@@ -132,7 +130,7 @@ export const PurchaseItem = ({
                 setIsLoading,
                 refetch,
                 toast,
-                tOnValidate
+                t
               )
             }
           >
@@ -147,7 +145,7 @@ export const PurchaseItem = ({
       {displayWarning && (
         <div className="mt-1">
           <span className="text-red-500 font-semibold">
-            {t("missing", {
+            {t("purchaseItem.missing", {
               products: blockingConstraints
                 .map((product: ProductCompleteNoConstraint) =>
                   selectTranslation(product.name_en, product.name_fr)
@@ -170,7 +168,7 @@ export const onValidate = async (
     QueryObserverResult<PurchaseReturn[], HttpValidationError>
   >,
   toast: ReturnType<typeof useToast>["toast"],
-  t: (arg: keyof Messages["onValidate"]) => string
+  t: (key: any, values?: any) => string
 ) => {
   try {
     // useTranslations("onValidate") (don't remove!)
@@ -189,14 +187,14 @@ export const onValidate = async (
         title: data
           ?.filter((purchase) => purchase.product_variant_id == purchaseid)
           .every((purchase) => purchase.validated)
-          ? t("purchaseItem.validated")
-          : t("purchaseItem.unvalidated"),
+          ? t("onValidate.validated")
+          : t("onValidate.unvalidated"),
         variant: "default",
       });
     });
   } catch {
     toast({
-      description: t("purchaseItem.toastErrorDescription"),
+      description: t("onValidate.toastErrorDescription"),
       variant: "destructive",
     });
   } finally {

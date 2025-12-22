@@ -6,8 +6,8 @@ import {
   PaymentType,
   deleteCdrUsersUserIdPaymentsPaymentId,
 } from "@/api";
-import { CustomDialog } from "@/components/custom/CustomDialog";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { CustomDialog } from "@/components/common/CustomDialog";
+import { LoadingButton } from "@/components/common/LoadingButton";
 
 import { useFormatter, useTranslations } from "next-intl";
 import { useState } from "react";
@@ -84,7 +84,7 @@ export const PaymentItem = ({
     <div className="flex flex-row w-full items-center" key={payment.id}>
       <span className="font-bold w-full flex items-center">
         {paymentIcon(payment.payment_type)}
-        {t(payment.payment_type)}
+        {t(`paymentPart.${payment.payment_type}`)}
       </span>
       <span className="ml-auto font-semibold w-28 flex justify-end">
         {format.number(payment.total / 100, "euro")}
@@ -97,7 +97,7 @@ export const PaymentItem = ({
           description={
             <div className="grid gap-3">
               <span>
-                {t.rich("areYouSure", {
+                {t.rich("paymentPart.areYouSure", {
                   name: () => <UserDisplayName user={user} />,
                   amount: () => (
                     <span className="font-bold">
@@ -105,7 +105,9 @@ export const PaymentItem = ({
                     </span>
                   ),
                   type: () => (
-                    <span className="font-bold">{t(payment.payment_type)}</span>
+                    <span className="font-bold">
+                      {t(`paymentPart.${payment.payment_type}`)}
+                    </span>
                   ),
                 })}
               </span>
@@ -114,13 +116,13 @@ export const PaymentItem = ({
                   variant="outline"
                   onClick={closeDialog}
                   disabled={isLoading}
-                  className="w-[100px]"
+                  className="w-25"
                 >
                   {t("paymentPart.cancel")}
                 </Button>
                 <LoadingButton
                   isLoading={isLoading}
-                  className="w-[100px]"
+                  className="w-25"
                   type="button"
                   variant="destructive"
                   onClick={onDelete}

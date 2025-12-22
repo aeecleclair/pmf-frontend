@@ -1,4 +1,3 @@
-import { LoadingButton } from "./LoadingButton";
 import { Answer } from "./customFieldDialog/CustomFieldInput";
 import { CustomFieldsDialog } from "./customFieldDialog/CustomFieldsDialog";
 
@@ -18,20 +17,21 @@ import { useFormatter } from "next-intl";
 import { useEffect, useState } from "react";
 import { HiMinus, HiPlus } from "react-icons/hi2";
 
-import { Badge } from "../../ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
-import { Input } from "../../ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../../ui/tooltip";
-import { useToast } from "../../ui/use-toast";
+} from "@/components/ui/tooltip";
+import { useToast } from "@/components/ui/use-toast";
 import { useUserSellerPurchases } from "@/hooks/siarnaq/useUserSellerPurchases";
 import { useUserPurchases } from "@/hooks/siarnaq/useUserPurchases";
 import { useSellerProductData } from "@/hooks/siarnaq/useSellerProductData";
 import { useTranslation } from "@/translations/utils";
+import { LoadingButton } from "@/components/common/LoadingButton";
 
 interface VariantCardProps {
   variant: AppModulesCdrSchemasCdrProductVariantComplete;
@@ -227,7 +227,7 @@ export const VariantCard = ({
                     <div
                       className={cn(
                         "flex m-auto  w-full bg-white rounded-md bg-opacity-50",
-                        showDescription ? "h-[109px]" : "h-[93px]"
+                        showDescription ? "h-27.25" : "h-23.25"
                       )}
                     >
                       <ReloadIcon className="flex h-6 w-6 animate-spin m-auto" />
