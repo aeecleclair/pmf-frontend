@@ -4,10 +4,14 @@ import { Locale, NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import QueryProvider from "../../QueryProvider";
-
+import TopBar from "./topbar";
 import type { Metadata } from "next";
 import { AuthInterceptor } from "@/app/provider";
 import { ThemeProvider } from "./theme-provider";
+import Footer from "@/components/common/footer";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -39,7 +43,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   return (
     <html lang={locale}>
-      <body>
+      <body className={inter.className}>
         <AuthInterceptor>
           <ThemeProvider
             attribute="class"
@@ -49,7 +53,10 @@ export default async function LocaleLayout({
           >
             <Suspense>
               <QueryProvider>
-                <NextIntlClientProvider>{children}</NextIntlClientProvider>
+                <NextIntlClientProvider>
+                  <TopBar />
+                  {children}
+                </NextIntlClientProvider>
               </QueryProvider>
             </Suspense>
           </ThemeProvider>

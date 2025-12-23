@@ -14,6 +14,7 @@ import { Suspense } from "react";
 
 import { Toaster } from "@/components/ui/toaster";
 import QueryProvider from "@/app/QueryProvider";
+import Footer from "@/components/common/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

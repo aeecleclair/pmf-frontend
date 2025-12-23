@@ -26,5 +26,9 @@
   },
   "warningDialog": {
     "cancel": "Annuler"
+  },
+  "footer": {
+    "license": "© <date></date> <eclair>ÉCLAIR</eclair>. Tous droits réservés.",
+    "madeByECLAIR": "Développé par ÉCLAIR"
   }
 }
