@@ -14,6 +14,16 @@ RUN npm install --production
 FROM node:20-bullseye-slim AS builder
 WORKDIR /app
 
+# Déclarer les arguments de build
+ARG NEXT_PUBLIC_BACKEND_URL
+ARG NEXT_PUBLIC_CLIENT_ID
+ARG NEXT_PUBLIC_FRONTEND_URL
+
+# Les transformer en variables d'env pour le processus de build
+ENV NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL
+ENV NEXT_PUBLIC_CLIENT_ID=$NEXT_PUBLIC_CLIENT_ID
+ENV NEXT_PUBLIC_FRONTEND_URL=$NEXT_PUBLIC_FRONTEND_URL
+
 # Copy everything so the build can access source files
 COPY . .
 
