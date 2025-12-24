@@ -6,7 +6,6 @@ import {
   postCdrSellersSellerIdProductsProductIdData,
   postCdrSellersSellerIdProductsProductIdTickets,
 } from "@/api";
-import { DatePicker } from "@/components/siarnaq/custom/DatePicker";
 import { LoadingButton } from "@/components/common/LoadingButton";
 import { MultiSelect } from "@/components/siarnaq/custom/MultiSelect";
 import { StyledFormField } from "@/components/siarnaq/custom/StyledFormField";
@@ -52,6 +51,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
+import { DatePicker } from "@/components/common/DatePicker";
 
 interface AddEditProductFormProps {
   form: UseFormReturn<z.infer<ReturnType<typeof _productFormSchema>>>;
@@ -338,7 +338,7 @@ export const AddEditProductForm = ({
                   <DatePicker
                     date={field.value}
                     setDate={field.onChange}
-                    fromDate={new Date()}
+                    fromMonth={new Date(new Date().getFullYear(), 0)}
                     defaultDate={field.value || new Date()}
                   />
                 )}

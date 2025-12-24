@@ -178,11 +178,11 @@ export const VariantCard = ({
           <TooltipTrigger className="w-full">
             <Card
               className={cn(
-                "min-w-40 h-full",
+                "min-w-40 h-full gap-2 py-4",
                 selected
                   ? displayWarning
                     ? "border-destructive shadow-destructive/30 shadow-lg"
-                    : "shadow-lg border-selected"
+                    : "shadow-lg border-2"
                   : "shadow-lg",
                 !variant.enabled ? "text-muted-foreground" : "",
                 (isSelectable || (!isSelectable && selected)) &&
@@ -234,7 +234,7 @@ export const VariantCard = ({
                     </div>
                   </div>
                 )}
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-1 gap-4">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 px-4 gap-4">
                 {!isInterestProduct && (
                   <CardTitle
                     className={cn(
@@ -323,7 +323,7 @@ export const VariantCard = ({
                   </div>
                 )}
               </CardHeader>
-              <CardContent className="flex p-4 pt-0 mr-auto">
+              <CardContent className="flex px-4 mr-auto gap-2">
                 <div
                   className={cn(
                     "text-2xl font-bold",
