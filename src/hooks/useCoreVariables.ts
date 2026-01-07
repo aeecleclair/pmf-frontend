@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "./useAuth";
-import { getPermissionsOptions } from "@/api/@tanstack/react-query.gen";
+import { getVariablesOptions } from "@/api/@tanstack/react-query.gen";
 
-export const usePermissions = () => {
+export const useCoreVariables = () => {
   const { isTokenExpired } = useAuth();
   const query = useQuery({
-    ...getPermissionsOptions(),
+    ...getVariablesOptions(),
     enabled: !isTokenExpired(),
   });
 
   return {
-    permissions: query.data,
+    variables: query.data,
     ...query,
   };
 };

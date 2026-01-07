@@ -1,15 +1,15 @@
-import { possibleFloors } from "@/components/siarnaq/admin/adminPanel/RecapPanel/MigrateUserForm";
-
 import { Messages } from "next-intl";
 import z from "zod";
 
 import { isValidPhoneNumber } from "libphonenumber-js";
+import { useCoreVariables } from "@/hooks/useCoreVariables";
 
 // const validEmailRegex = /^[\w\-.]*@etu(-enise)?\.ec-lyon\.fr$/;
 
 export default function migrateUserFormSchema(
   t: (key: any, values?: any) => string
 ) {
+  const { variables } = useCoreVariables();
   // useTranslations("migrateUserFormSchema") (don't remove!)
   return z.object({
     nickname: z.string().optional(),
@@ -22,7 +22,9 @@ export default function migrateUserFormSchema(
       //   message: "Veuillez renseigner un email de Centrale",
       // })
       .optional(),
-    floor: z.enum(possibleFloors).optional(),
+    floor: variables?.main_activation_form.floor_choices
+      ? z.enum(variables?.main_activation_form.floor_choices).optional()
+      : z.string().optional(),
     birthday: z.date().optional(),
     phone: z
       .string()

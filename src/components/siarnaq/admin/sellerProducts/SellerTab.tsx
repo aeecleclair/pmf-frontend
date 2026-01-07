@@ -9,14 +9,14 @@ import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { Tabs } from "@/components/ui/tabs";
-import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
+import { useHasCdrPermission } from "@/hooks/siarnaq/useHasCdrPermission";
 
 interface SellerTabProps {
   status: Status;
 }
 
 export const SellerTab = ({ status }: SellerTabProps) => {
-  const isCdrAdmin = useIsCdrAdmin();
+  const hasCdrPermission = useHasCdrPermission();
   const { sellers } = useSellers();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -24,7 +24,7 @@ export const SellerTab = ({ status }: SellerTabProps) => {
   const firstSellerId =
     searchParams.get("sellerId") ||
     sellers.at(0)?.id ||
-    (isCdrAdmin ? "cdradmin" : "");
+    (hasCdrPermission.isCdrAdmin ? "cdradmin" : "");
 
   useEffect(() => {
     if (!searchParams.get("sellerId") && sellers.length > 0 && firstSellerId) {
@@ -42,12 +42,12 @@ export const SellerTab = ({ status }: SellerTabProps) => {
           <SellerTabList
             status={status}
             sellers={sellers}
-            isAdmin={isCdrAdmin}
+            isAdmin={hasCdrPermission.isCdrAdmin}
           />
           <SellerTabContentList
             status={status}
             sellers={sellers}
-            isAdmin={isCdrAdmin}
+            isAdmin={hasCdrPermission.isCdrAdmin}
           />
         </Tabs>
       )}

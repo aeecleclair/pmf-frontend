@@ -28,7 +28,7 @@ import {
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useMeUser } from "@/hooks/useMeUser";
-import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
+import { useHasCdrPermission } from "@/hooks/siarnaq/useHasCdrPermission";
 
 export default function TopBar() {
   const t = useTranslations("siarnaq");
@@ -37,7 +37,7 @@ export default function TopBar() {
   const locale = useLocale();
   const router = useRouter();
   const { user } = useMeUser();
-  const isCdrAdmin = useIsCdrAdmin();
+  const hasCdrPermission = useHasCdrPermission();
   const { sellers } = useSellers();
   const { year } = useYear();
   const { status } = useStatus();
@@ -59,15 +59,16 @@ export default function TopBar() {
         </div>
       )}
       <div className="flex gap-x-4">
-        {pathname === "/" && (isCdrAdmin || isInASellerGroup) && (
-          <Button
-            variant="secondary"
-            onClick={() => router.push(`/${locale}/admin`)}
-          >
-            <HiOutlineLibrary className="mr-2" />
-            {t("topbar.admin")}
-          </Button>
-        )}
+        {pathname === "/" &&
+          (hasCdrPermission.isCdrAdmin || isInASellerGroup) && (
+            <Button
+              variant="secondary"
+              onClick={() => router.push(`/${locale}/admin`)}
+            >
+              <HiOutlineLibrary className="mr-2" />
+              {t("topbar.admin")}
+            </Button>
+          )}
         {pathname === "/admin" && (
           <Button variant="secondary" onClick={() => router.push(`/${locale}`)}>
             <HiShoppingCart className="mr-2" />

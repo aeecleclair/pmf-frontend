@@ -11,21 +11,21 @@ import { DataTable } from "@/components/raid/admin/teams/DataTable";
 import { columns } from "@/components/raid/admin/teams/Columns";
 import { TopBar } from "@/components/raid/admin/TopBar";
 import { useTeams } from "@/hooks/raid/useTeams";
-import { useHasRaidPermission } from "@/hooks/raid/useIsRaidAdmin";
+import { useHasRaidPermission } from "@/hooks/raid/useHasRaidPermission";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { TeamSheet } from "@/components/raid/admin/teams/teamSheet/TeamSheet";
 import { useRouter } from "@/i18n/navigation";
 
 const Dashboard = () => {
-  const isAdmin = useHasRaidPermission();
+  const hasRaidPermission = useHasRaidPermission();
   const { teams } = useTeams();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isOpened, setIsOpened] = useState(false);
   const [teamId, setTeamId] = useState<string | null>(null);
 
-  if (!isAdmin.isRaidAdmin && typeof window !== "undefined") {
+  if (!hasRaidPermission.isRaidAdmin && typeof window !== "undefined") {
     const redirectUrl = new URL(window.location.href);
     const path = redirectUrl.pathname + redirectUrl.search;
     router.replace(`/?redirect=${path}`);

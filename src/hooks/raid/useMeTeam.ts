@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMeParticipant } from "./useMeParticipant";
 import { useToast } from "@/components/ui/use-toast";
-import { useHasRaidPermission } from "./useIsRaidAdmin";
+import { useHasRaidPermission } from "./useHasRaidPermission";
 import { useAuth } from "../useAuth";
 import { RaidTeamBase, RaidTeamUpdate } from "@/api";
 import {
@@ -15,7 +15,7 @@ export const useMeTeam = () => {
   const { userId, isTokenExpired } = useAuth();
   const { toast } = useToast();
   const { me } = useMeParticipant();
-  const isAdmin = useHasRaidPermission();
+  const hasRaidPermission = useHasRaidPermission();
   const queryClient = useQueryClient();
 
   const queryKey = getRaidParticipantsParticipantIdTeamQueryKey({
@@ -36,7 +36,7 @@ export const useMeTeam = () => {
     }),
     enabled:
       userId !== null &&
-      !isAdmin.isRaidAdmin &&
+      !hasRaidPermission.isRaidAdmin &&
       !isTokenExpired() &&
       me !== undefined,
     retry: 0,

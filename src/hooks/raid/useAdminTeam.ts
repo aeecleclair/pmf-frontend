@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "../useAuth";
-import { useHasRaidPermission } from "./useIsRaidAdmin";
+import { useHasRaidPermission } from "./useHasRaidPermission";
 import {
   deleteRaidTeamsTeamIdMutation,
   getRaidTeamsTeamIdOptions,
@@ -11,7 +11,7 @@ import {
 
 export const useAdminTeam = (teamId: string) => {
   const { isTokenExpired } = useAuth();
-  const isAdmin = useHasRaidPermission();
+  const hasRaidPermission = useHasRaidPermission();
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -24,7 +24,7 @@ export const useAdminTeam = (teamId: string) => {
       path: { team_id: teamId },
     }),
     retry: 3,
-    enabled: isAdmin.isRaidAdmin && !isTokenExpired(),
+    enabled: hasRaidPermission.isRaidAdmin && !isTokenExpired(),
   });
 
   const { mutate: mutateKickMember, isPending: isKickLoading } = useMutation({

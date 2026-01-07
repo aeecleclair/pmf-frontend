@@ -16,7 +16,7 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import { useMeUser } from "@/hooks/useMeUser";
-import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
+import { useHasCdrPermission } from "@/hooks/siarnaq/useHasCdrPermission";
 
 const AdminPage = () => {
   const { setSize, size } = useSizeStore();
@@ -24,7 +24,7 @@ const AdminPage = () => {
   const { sellers } = useSellers();
   const router = useRouter();
   const { status } = useStatus();
-  const isCdrAdmin = useIsCdrAdmin();
+  const hasCdrPermission = useHasCdrPermission();
 
   useEffect(() => {
     if (!user) return;
@@ -32,10 +32,10 @@ const AdminPage = () => {
     const isUserInASellerGroup = userGroups?.some((group) =>
       sellers.some((seller) => seller.group_id === group)
     );
-    if (!isCdrAdmin && !isUserInASellerGroup) {
+    if (!hasCdrPermission.isCdrAdmin && !isUserInASellerGroup) {
       router.push("/");
     }
-  }, [isCdrAdmin, router, sellers, user]);
+  }, [hasCdrPermission, router, sellers, user]);
 
   useEffect(() => {
     if (status?.status) {
@@ -53,7 +53,7 @@ const AdminPage = () => {
         {status && (
           <Card>
             {status.status === "onsite" ||
-            (isCdrAdmin && status.status === "online") ? (
+            (hasCdrPermission.isCdrAdmin && status.status === "online") ? (
               <ResizablePanelGroup direction="horizontal">
                 <ResizablePanel defaultSize={100 - size} minSize={10}>
                   <UserSearch />
