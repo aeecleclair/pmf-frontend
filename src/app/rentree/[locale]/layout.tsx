@@ -13,6 +13,7 @@ import { ThemeProvider } from "../../theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Outfit } from "next/font/google";
 import TopBar from "./topbar";
+import { PermissionGuard } from "@/app/permissionGuard";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -67,9 +68,11 @@ export default async function RootLayout({
             <Suspense fallback={<div>Loading...</div>}>
               <QueryProvider>
                 <NextIntlClientProvider locale={locale}>
-                  <TopBar />
-                  {children}
-                  <Toaster />
+                  <PermissionGuard permissionRequired="access_cdr">
+                    <TopBar />
+                    {children}
+                    <Toaster />
+                  </PermissionGuard>
                 </NextIntlClientProvider>
               </QueryProvider>
             </Suspense>

@@ -5,8 +5,8 @@ const RAID_ACCESS_PERMISSION = "access_raid";
 const RAID_ADMIN_PERMISSION = "manage_raid";
 
 export const useHasRaidPermission = () => {
-  const { user } = useMeUser();
-  const { permissions } = usePermissions();
+  const { user, isLoading: userLoading } = useMeUser();
+  const { permissions, isLoading: permLoading } = usePermissions();
 
   if (!user || !permissions) {
     return {
@@ -23,6 +23,7 @@ export const useHasRaidPermission = () => {
   );
 
   return {
+    isLoading: userLoading || permLoading,
     isRaidAdmin: Boolean(
       admin_permission &&
         (user.groups?.some((group) =>

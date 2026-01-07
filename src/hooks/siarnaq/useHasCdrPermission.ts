@@ -5,8 +5,8 @@ const CDR_ACCESS_PERMISSION = "access_cdr";
 const CDR_ADMIN_PERMISSION = "manage_cdr";
 
 export const useHasCdrPermission = () => {
-  const { user } = useMeUser();
-  const { permissions } = usePermissions();
+  const { user, isLoading: userLoading } = useMeUser();
+  const { permissions, isLoading: permLoading } = usePermissions();
 
   if (!user || !permissions) {
     return {
@@ -23,6 +23,7 @@ export const useHasCdrPermission = () => {
   );
 
   return {
+    isLoading: userLoading || permLoading,
     isCdrAdmin: Boolean(
       admin_permission &&
         (user.groups?.some((group) =>
