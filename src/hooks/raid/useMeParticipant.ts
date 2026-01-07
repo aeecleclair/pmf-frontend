@@ -1,6 +1,6 @@
 import { useToast } from "@/components/ui/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useIsRaidAdmin } from "./useIsRaidAdmin";
+import { useHasRaidPermission } from "./useIsRaidAdmin";
 import { useAuth } from "../useAuth";
 import { useParticipantStore } from "@/stores/raid/particpant";
 import { RaidParticipantBase, RaidParticipantUpdate } from "@/api";
@@ -14,7 +14,7 @@ import {
 export const useMeParticipant = () => {
   const { token, userId, isTokenExpired } = useAuth();
   const { toast } = useToast();
-  const isAdmin = useIsRaidAdmin();
+  const isAdmin = useHasRaidPermission();
   const queryClient = useQueryClient();
   const { participant, setParticipant } = useParticipantStore();
 
@@ -31,7 +31,11 @@ export const useMeParticipant = () => {
     ...getRaidParticipantsParticipantIdOptions({
       path: { participant_id: userId! },
     }),
-    enabled: userId !== null && !isAdmin && !isTokenExpired() && !participant,
+    enabled:
+      userId !== null &&
+      !isAdmin.isRaidAdmin &&
+      !isTokenExpired() &&
+      !participant,
     retry: 0,
   });
 

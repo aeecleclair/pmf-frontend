@@ -8,7 +8,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useSearchParams } from "next/navigation";
 import { useMeTeam } from "@/hooks/raid/useMeTeam";
 import { CreateParticipant } from "@/components/raid/home/CreateParticipant";
-import { useIsRaidAdmin } from "@/hooks/raid/useIsRaidAdmin";
+import { useHasRaidPermission } from "@/hooks/raid/useIsRaidAdmin";
 import { useMeParticipant } from "@/hooks/raid/useMeParticipant";
 import { useEffect, useState } from "react";
 import { useInviteTokenStore } from "@/stores/raid/inviteTokenStore";
@@ -26,7 +26,7 @@ const Home = () => {
   const { isTokenQueried, token } = useAuth();
   const { user } = useMeUser();
   const { me, isFetched, refetch } = useMeParticipant();
-  const isAdmin = useIsRaidAdmin();
+  const isAdmin = useHasRaidPermission();
   const {
     team,
     createTeam,
@@ -58,7 +58,7 @@ const Home = () => {
     router.replace("/login");
   }
 
-  if (isAdmin && typeof window !== "undefined") {
+  if (isAdmin.isRaidAdmin && typeof window !== "undefined") {
     const redirection = searchParams.get("redirect");
     if (redirection !== null) {
       router.replace(redirection);
