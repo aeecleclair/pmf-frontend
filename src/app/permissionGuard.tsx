@@ -15,9 +15,6 @@ export function PermissionGuard({ children, permissionRequired }: Props) {
   const pathname = usePathname();
   const { user, isLoading: userLoading } = useMeUser();
   const { permissions, isLoading: permLoading } = usePermissions();
-  console.log("User:", user);
-  console.log("Permissions:", permissions);
-  console.log(userLoading, permLoading);
 
   if (userLoading || permLoading) {
     return (
