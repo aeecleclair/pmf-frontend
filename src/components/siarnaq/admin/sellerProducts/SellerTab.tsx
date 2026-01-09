@@ -16,7 +16,7 @@ interface SellerTabProps {
 }
 
 export const SellerTab = ({ status }: SellerTabProps) => {
-  const hasCdrPermission = useHasCdrPermission();
+  const { isCdrAdmin } = useHasCdrPermission();
   const { sellers } = useSellers();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -24,7 +24,7 @@ export const SellerTab = ({ status }: SellerTabProps) => {
   const firstSellerId =
     searchParams.get("sellerId") ||
     sellers.at(0)?.id ||
-    (hasCdrPermission.isCdrAdmin ? "cdradmin" : "");
+    (isCdrAdmin ? "cdradmin" : "");
 
   useEffect(() => {
     if (!searchParams.get("sellerId") && sellers.length > 0 && firstSellerId) {
@@ -42,12 +42,12 @@ export const SellerTab = ({ status }: SellerTabProps) => {
           <SellerTabList
             status={status}
             sellers={sellers}
-            isAdmin={hasCdrPermission.isCdrAdmin}
+            isAdmin={isCdrAdmin}
           />
           <SellerTabContentList
             status={status}
             sellers={sellers}
-            isAdmin={hasCdrPermission.isCdrAdmin}
+            isAdmin={isCdrAdmin}
           />
         </Tabs>
       )}

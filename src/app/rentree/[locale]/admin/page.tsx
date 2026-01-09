@@ -24,7 +24,7 @@ const AdminPage = () => {
   const { sellers } = useSellers();
   const router = useRouter();
   const { status } = useStatus();
-  const hasCdrPermission = useHasCdrPermission();
+  const { isCdrAdmin } = useHasCdrPermission();
 
   useEffect(() => {
     if (!user) return;
@@ -32,10 +32,10 @@ const AdminPage = () => {
     const isUserInASellerGroup = userGroups?.some((group) =>
       sellers.some((seller) => seller.group_id === group)
     );
-    if (!hasCdrPermission.isCdrAdmin && !isUserInASellerGroup) {
+    if (!isCdrAdmin && !isUserInASellerGroup) {
       router.push("/");
     }
-  }, [hasCdrPermission, router, sellers, user]);
+  }, [isCdrAdmin, router, sellers, user]);
 
   useEffect(() => {
     if (status?.status) {
@@ -53,7 +53,7 @@ const AdminPage = () => {
         {status && (
           <Card>
             {status.status === "onsite" ||
-            (hasCdrPermission.isCdrAdmin && status.status === "online") ? (
+            (isCdrAdmin && status.status === "online") ? (
               <ResizablePanelGroup direction="horizontal">
                 <ResizablePanel defaultSize={100 - size} minSize={10}>
                   <UserSearch />

@@ -15,7 +15,7 @@ export const useMeTeam = () => {
   const { userId, isTokenExpired } = useAuth();
   const { toast } = useToast();
   const { me } = useMeParticipant();
-  const hasRaidPermission = useHasRaidPermission();
+  const { isRaidAdmin } = useHasRaidPermission();
   const queryClient = useQueryClient();
 
   const queryKey = getRaidParticipantsParticipantIdTeamQueryKey({
@@ -35,10 +35,7 @@ export const useMeTeam = () => {
       },
     }),
     enabled:
-      userId !== null &&
-      !hasRaidPermission.isRaidAdmin &&
-      !isTokenExpired() &&
-      me !== undefined,
+      userId !== null && !isRaidAdmin && !isTokenExpired() && me !== undefined,
     retry: 0,
   });
 

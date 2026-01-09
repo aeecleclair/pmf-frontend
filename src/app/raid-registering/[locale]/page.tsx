@@ -26,7 +26,7 @@ const Home = () => {
   const { isTokenQueried, token } = useAuth();
   const { user } = useMeUser();
   const { me, isFetched, refetch } = useMeParticipant();
-  const hasRaidPermission = useHasRaidPermission();
+  const { isRaidAdmin } = useHasRaidPermission();
   const {
     team,
     createTeam,
@@ -58,7 +58,7 @@ const Home = () => {
     router.replace("/login");
   }
 
-  if (hasRaidPermission.isRaidAdmin && typeof window !== "undefined") {
+  if (isRaidAdmin && typeof window !== "undefined") {
     const redirection = searchParams.get("redirect");
     if (redirection !== null) {
       router.replace(redirection);

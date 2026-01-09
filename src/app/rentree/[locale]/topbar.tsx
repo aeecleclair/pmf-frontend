@@ -37,7 +37,7 @@ export default function TopBar() {
   const locale = useLocale();
   const router = useRouter();
   const { user } = useMeUser();
-  const hasCdrPermission = useHasCdrPermission();
+  const { isCdrAdmin } = useHasCdrPermission();
   const { sellers } = useSellers();
   const { year } = useYear();
   const { status } = useStatus();
@@ -59,16 +59,15 @@ export default function TopBar() {
         </div>
       )}
       <div className="flex gap-x-4">
-        {pathname === "/" &&
-          (hasCdrPermission.isCdrAdmin || isInASellerGroup) && (
-            <Button
-              variant="secondary"
-              onClick={() => router.push(`/${locale}/admin`)}
-            >
-              <HiOutlineLibrary className="mr-2" />
-              {t("topbar.admin")}
-            </Button>
-          )}
+        {pathname === "/" && (isCdrAdmin || isInASellerGroup) && (
+          <Button
+            variant="secondary"
+            onClick={() => router.push(`/${locale}/admin`)}
+          >
+            <HiOutlineLibrary className="mr-2" />
+            {t("topbar.admin")}
+          </Button>
+        )}
         {pathname === "/admin" && (
           <Button variant="secondary" onClick={() => router.push(`/${locale}`)}>
             <HiShoppingCart className="mr-2" />

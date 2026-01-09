@@ -81,7 +81,7 @@ export const AddEditProductForm = ({
   const [isAddingLoading, setIsAddingLoading] = useState(false);
   const [isDeletingLoading, setIsDeletingLoading] = useState(false);
   const { memberships } = useMemberships();
-  const hasCdrPermission = useHasCdrPermission();
+  const { isCdrAdmin } = useHasCdrPermission();
   //const [selectedMembership, setSelectedMembership] = useState<string>();
 
   function closeDialog(event: React.MouseEvent<HTMLButtonElement>) {
@@ -256,7 +256,7 @@ export const AddEditProductForm = ({
           input={(field) => <Textarea {...field} />}
         />
       </div>
-      {hasCdrPermission.isCdrAdmin && (
+      {isCdrAdmin && (
         <div className="grid gap-2">
           <StyledFormField
             form={form}
@@ -284,7 +284,7 @@ export const AddEditProductForm = ({
           />
         </div>
       )}
-      {hasCdrPermission.isCdrAdmin && (
+      {isCdrAdmin && (
         <StyledFormField
           form={form}
           label={t("addEditProductForm.related_membership")}

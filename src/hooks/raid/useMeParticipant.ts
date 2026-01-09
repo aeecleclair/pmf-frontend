@@ -14,7 +14,7 @@ import {
 export const useMeParticipant = () => {
   const { token, userId, isTokenExpired } = useAuth();
   const { toast } = useToast();
-  const hasRaidPermission = useHasRaidPermission();
+  const { isRaidAdmin } = useHasRaidPermission();
   const queryClient = useQueryClient();
   const { participant, setParticipant } = useParticipantStore();
 
@@ -32,10 +32,7 @@ export const useMeParticipant = () => {
       path: { participant_id: userId! },
     }),
     enabled:
-      userId !== null &&
-      !hasRaidPermission.isRaidAdmin &&
-      !isTokenExpired() &&
-      !participant,
+      userId !== null && !isRaidAdmin && !isTokenExpired() && !participant,
     retry: 0,
   });
 

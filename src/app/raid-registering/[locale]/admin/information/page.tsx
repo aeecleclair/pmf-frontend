@@ -22,11 +22,11 @@ import { RaidExternalPrice } from "@/components/raid/admin/information/RaidExter
 import { useRouter } from "@/i18n/navigation";
 
 const InformationPage = () => {
-  const hasRaidPermission = useHasRaidPermission();
+  const { isRaidAdmin } = useHasRaidPermission();
   const router = useRouter();
   const { information } = useInformation();
 
-  if (!hasRaidPermission.isRaidAdmin && typeof window !== "undefined") {
+  if (!isRaidAdmin && typeof window !== "undefined") {
     const redirectUrl = new URL(window.location.href);
     const path = redirectUrl.pathname + redirectUrl.search;
     router.replace(`/?redirect=${path}`);

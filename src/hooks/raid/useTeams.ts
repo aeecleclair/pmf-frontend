@@ -12,7 +12,7 @@ import { useToast } from "@/components/ui/use-toast";
 export const useTeams = () => {
   const { isTokenExpired } = useAuth();
   const { toast } = useToast();
-  const hasRaidPermission = useHasRaidPermission();
+  const { isRaidAdmin } = useHasRaidPermission();
 
   const queryClient = useQueryClient();
   const teamsQueryKey = getRaidTeamsQueryKey({});
@@ -24,7 +24,7 @@ export const useTeams = () => {
   } = useQuery({
     ...getRaidTeamsOptions({}),
     retry: 3,
-    enabled: hasRaidPermission.isRaidAdmin && !isTokenExpired(),
+    enabled: isRaidAdmin && !isTokenExpired(),
   });
 
   const { mutate: mutateDeleteAllTeams, isPending: isDeletionLoading } =

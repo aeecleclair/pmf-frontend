@@ -18,14 +18,14 @@ import { TeamSheet } from "@/components/raid/admin/teams/teamSheet/TeamSheet";
 import { useRouter } from "@/i18n/navigation";
 
 const Dashboard = () => {
-  const hasRaidPermission = useHasRaidPermission();
+  const { isRaidAdmin } = useHasRaidPermission();
   const { teams } = useTeams();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isOpened, setIsOpened] = useState(false);
   const [teamId, setTeamId] = useState<string | null>(null);
 
-  if (!hasRaidPermission.isRaidAdmin && typeof window !== "undefined") {
+  if (!isRaidAdmin && typeof window !== "undefined") {
     const redirectUrl = new URL(window.location.href);
     const path = redirectUrl.pathname + redirectUrl.search;
     router.replace(`/?redirect=${path}`);

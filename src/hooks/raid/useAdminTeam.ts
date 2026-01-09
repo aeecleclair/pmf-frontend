@@ -11,7 +11,7 @@ import {
 
 export const useAdminTeam = (teamId: string) => {
   const { isTokenExpired } = useAuth();
-  const hasRaidPermission = useHasRaidPermission();
+  const { isRaidAdmin } = useHasRaidPermission();
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -24,7 +24,7 @@ export const useAdminTeam = (teamId: string) => {
       path: { team_id: teamId },
     }),
     retry: 3,
-    enabled: hasRaidPermission.isRaidAdmin && !isTokenExpired(),
+    enabled: isRaidAdmin && !isTokenExpired(),
   });
 
   const { mutate: mutateKickMember, isPending: isKickLoading } = useMutation({

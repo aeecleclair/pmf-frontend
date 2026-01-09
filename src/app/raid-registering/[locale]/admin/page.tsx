@@ -12,7 +12,7 @@ import { RaidParticipant } from "@/api";
 import { useRouter } from "@/i18n/navigation";
 
 const Dashboard = () => {
-  const hasRaidPermission = useHasRaidPermission();
+  const { isRaidAdmin } = useHasRaidPermission();
   const { teams, isLoading } = useTeams();
   const { information } = useInformation();
   const router = useRouter();
@@ -82,7 +82,7 @@ const Dashboard = () => {
     },
   ];
 
-  if (!hasRaidPermission.isRaidAdmin && typeof window !== "undefined") {
+  if (!isRaidAdmin && typeof window !== "undefined") {
     router.replace("/?redirect=/admin");
   }
 
