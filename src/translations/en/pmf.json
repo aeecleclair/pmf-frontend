@@ -1,10 +1,4 @@
 {
-  "TestPage": {
-    "Sample": "English"
-  },
-  "Test2": {
-    "Sample": "igirisu"
-  },
   "metadata": {
     "description": "Plateform of PMF of Centrale Lyon",
     "title": "PMFFFF"
@@ -20,5 +14,8 @@
   },
   "topbar": {
     "logout": "Log out"
+  },
+  "offersPanel": {
+    "title": "Offers"
   }
 }

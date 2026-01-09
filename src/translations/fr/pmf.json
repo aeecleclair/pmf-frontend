@@ -1,10 +1,4 @@
 {
-  "TestPage": {
-    "Sample": "Français"
-  },
-  "Test2": {
-    "Sample": "test"
-  },
   "metadata": {
     "description": "Plateforme de PMF de Centrale Lyon",
     "title": "PMFFFF"
@@ -20,5 +14,8 @@
   },
   "topbar": {
     "logout": "Se déconnecter"
+  },
+  "offersPanel": {
+    "title": "Offres"
   }
 }

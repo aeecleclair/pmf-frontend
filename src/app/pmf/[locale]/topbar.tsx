@@ -23,6 +23,7 @@ import { useTokenStore } from "@/stores/token";
 
 export default function TopBar() {
     const t = useTranslations("pmf");
+    const pathname = usePathname();
     const { setToken, setRefreshToken } = useTokenStore();
 
     return (
@@ -31,16 +32,18 @@ export default function TopBar() {
                 <LocaleDropdown />
                 <ThemeToggle />
             </div>
-            <Button
-                variant="secondary"
-                onClick={() => {
-                    setRefreshToken(null)
-                    setToken(null);
-                }}
-            >
-                <ExitIcon className="mr-2" />
-                {t("topbar.logout")}
-            </Button>
+            {["/", "/admin"].includes(pathname) && (
+                <Button
+                    variant="secondary"
+                    onClick={() => {
+                        setRefreshToken(null);
+                        setToken(null);
+                    }}
+                >
+                    <ExitIcon className="mr-2" />
+                    {t("topbar.logout")}
+                </Button>
+            )}
         </div>
     );
 }

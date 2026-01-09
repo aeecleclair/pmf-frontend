@@ -1,25 +1,18 @@
+import { OfferSimple } from "@/api";
 import { useOffers } from "@/hooks/pmf/useOffers";
-
-interface Offer {
-  author_id: string;
-  company_name: string;
-  title: string;
-  description: string;
-  offer_type: string;
-  location: string;
-  location_type: string;
-  start_date: string;
-  end_date: string;
-  duration: number;
-  id: string;
-}
+import { useTranslations } from "next-intl";
 
 export default function OffersPanel() {
-  //   const { offers } = useOffers();
+  const t = useTranslations("pmf");
+  const { offers } = useOffers();
 
-  return ({
-    offers.map((offer: Offer) => (
-      <p>offre {offer.title}</p>
-    ))
-  });
+  if (!offers) return null;
+  return (
+    <div className="items-center border">
+      <p className="text-4xl font-bold items-center">{t("offersPanel.title")}</p>
+      {offers.map((offer: OfferSimple) => (
+        <p key={offer.id}>offre {offer.title}</p>
+      ))}
+    </div>
+  );
 };
