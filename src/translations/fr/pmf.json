@@ -17,5 +17,13 @@
   },
   "offersPanel": {
     "title": "Offres"
+  },
+  "addOfferButton": {
+    "toastErrorDescription": "erreur",
+    "offerTitle": "Intitulé de l'offre",
+    "offerCompanyName": "Nom de l'entreprise",
+    "offerDescription": "Description de l'offre",
+    "offerLocation": "Adresse",
+    "add": "Publier l'offre"
   }
 }
