@@ -15,6 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useCoreVariables } from "@/hooks/useCoreVariables";
 
 interface MigrateUserFormProps {
   form: UseFormReturn<z.infer<ReturnType<typeof _migrateUserFormSchema>>>;
@@ -22,33 +23,6 @@ interface MigrateUserFormProps {
   setIsOpened: (value: boolean) => void;
   closeDialog: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-
-export const possibleFloors = [
-  "Autre",
-  "Adoma",
-  "Exte",
-  "T1",
-  "T2",
-  "T3",
-  "T4",
-  "T56",
-  "U1",
-  "U2",
-  "U3",
-  "U4",
-  "U56",
-  "V1",
-  "V2",
-  "V3",
-  "V45",
-  "V6",
-  "X1",
-  "X2",
-  "X3",
-  "X4",
-  "X5",
-  "X6",
-] as const;
 
 export const MigrateUserForm = ({
   form,
@@ -62,6 +36,8 @@ export const MigrateUserForm = ({
   });
   */
   const t = useTranslations("siarnaq");
+
+  const { variables } = useCoreVariables();
 
   return (
     <div className="grid gap-6 mt-4">
@@ -82,22 +58,28 @@ export const MigrateUserForm = ({
           form={form}
           label={t("migrateUserForm.floor")}
           id="floor"
-          input={(field) => (
-            <Select onValueChange={field.onChange} defaultValue={field.value}>
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent side="top">
-                {possibleFloors.map((floor) => (
-                  <SelectItem key={floor} value={floor}>
-                    <div className="flex items-center flex-row gap-2">
-                      {floor}
-                    </div>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          )}
+          input={(field) =>
+            variables?.main_activation_form.floor_choices ? (
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent side="top">
+                  {variables?.main_activation_form.floor_choices.map(
+                    (floor) => (
+                      <SelectItem key={floor} value={floor}>
+                        <div className="flex items-center flex-row gap-2">
+                          {floor}
+                        </div>
+                      </SelectItem>
+                    )
+                  )}
+                </SelectContent>
+              </Select>
+            ) : (
+              <Input {...field} />
+            )
+          }
         />
         {/* <StyledFormField
           form={form}

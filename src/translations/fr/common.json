@@ -14,6 +14,10 @@
     "search": "Recherche...",
     "selectAll": "Tout sélectionner"
   },
+  "notAuthorized": {
+    "title": "Vous n'êtes pas autorisé à accéder à cette page.",
+    "errorCode": "403 - Accès Refusé"
+  },
   "pageIndicator": {
     "nextPage": "Aller à la page suivante",
     "previousPage": "Aller à la page précédente"

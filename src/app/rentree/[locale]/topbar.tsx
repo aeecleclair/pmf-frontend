@@ -28,7 +28,7 @@ import {
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useMeUser } from "@/hooks/useMeUser";
-import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
+import { useHasCdrPermission } from "@/hooks/siarnaq/useHasCdrPermission";
 
 export default function TopBar() {
   const t = useTranslations("siarnaq");
@@ -37,7 +37,7 @@ export default function TopBar() {
   const locale = useLocale();
   const router = useRouter();
   const { user } = useMeUser();
-  const isCdrAdmin = useIsCdrAdmin();
+  const { isCdrAdmin } = useHasCdrPermission();
   const { sellers } = useSellers();
   const { year } = useYear();
   const { status } = useStatus();

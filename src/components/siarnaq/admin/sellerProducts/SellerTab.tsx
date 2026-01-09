@@ -9,14 +9,14 @@ import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import { Tabs } from "@/components/ui/tabs";
-import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
+import { useHasCdrPermission } from "@/hooks/siarnaq/useHasCdrPermission";
 
 interface SellerTabProps {
   status: Status;
 }
 
 export const SellerTab = ({ status }: SellerTabProps) => {
-  const isCdrAdmin = useIsCdrAdmin();
+  const { isCdrAdmin } = useHasCdrPermission();
   const { sellers } = useSellers();
   const searchParams = useSearchParams();
   const router = useRouter();

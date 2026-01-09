@@ -50,7 +50,7 @@ import {
 } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
+import { useHasCdrPermission } from "@/hooks/siarnaq/useHasCdrPermission";
 import { DatePicker } from "@/components/common/DatePicker";
 
 interface AddEditProductFormProps {
@@ -81,7 +81,7 @@ export const AddEditProductForm = ({
   const [isAddingLoading, setIsAddingLoading] = useState(false);
   const [isDeletingLoading, setIsDeletingLoading] = useState(false);
   const { memberships } = useMemberships();
-  const isCdrAdmin = useIsCdrAdmin();
+  const { isCdrAdmin } = useHasCdrPermission();
   //const [selectedMembership, setSelectedMembership] = useState<string>();
 
   function closeDialog(event: React.MouseEvent<HTMLButtonElement>) {

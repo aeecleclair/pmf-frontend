@@ -4,7 +4,7 @@ import { TeamInfoCard } from "@/components/raid/home/teamCard/TeamInfoCard";
 import { TopBar } from "@/components/raid/admin/TopBar";
 import { TeamsPreview } from "@/components/raid/admin/TeamsPreview";
 import { StatsView } from "@/components/raid/admin/StatsView";
-import { useIsRaidAdmin } from "@/hooks/raid/useIsRaidAdmin";
+import { useHasRaidPermission } from "@/hooks/raid/useHasRaidPermission";
 import { useTeams } from "@/hooks/raid/useTeams";
 import { formatDate, getDaysLeft } from "@/lib/dateFormat";
 import { useInformation } from "@/hooks/raid/useInformation";
@@ -12,7 +12,7 @@ import { RaidParticipant } from "@/api";
 import { useRouter } from "@/i18n/navigation";
 
 const Dashboard = () => {
-  const isAdmin = useIsRaidAdmin();
+  const { isRaidAdmin } = useHasRaidPermission();
   const { teams, isLoading } = useTeams();
   const { information } = useInformation();
   const router = useRouter();
@@ -82,7 +82,7 @@ const Dashboard = () => {
     },
   ];
 
-  if (!isAdmin && typeof window !== "undefined") {
+  if (!isRaidAdmin && typeof window !== "undefined") {
     router.replace("/?redirect=/admin");
   }
 

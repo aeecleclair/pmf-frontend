@@ -16,7 +16,7 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import { useMeUser } from "@/hooks/useMeUser";
-import { useIsCdrAdmin } from "@/hooks/siarnaq/useIsCdrAdmin";
+import { useHasCdrPermission } from "@/hooks/siarnaq/useHasCdrPermission";
 
 const AdminPage = () => {
   const { setSize, size } = useSizeStore();
@@ -24,7 +24,7 @@ const AdminPage = () => {
   const { sellers } = useSellers();
   const router = useRouter();
   const { status } = useStatus();
-  const isCdrAdmin = useIsCdrAdmin();
+  const { isCdrAdmin } = useHasCdrPermission();
 
   useEffect(() => {
     if (!user) return;

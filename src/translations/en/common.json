@@ -14,6 +14,10 @@
     "search": "Search...",
     "selectAll": "Select all"
   },
+  "notAuthorized": {
+    "title": "You are not authorized to access this page.",
+    "errorCode": "403 - Access Denied"
+  },
   "pageIndicator": {
     "nextPage": "Go to next page",
     "previousPage": "Go to previous page"

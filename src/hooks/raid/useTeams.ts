@@ -5,14 +5,14 @@ import {
   postRaidTeamsMergeMutation,
 } from "@/api/@tanstack/react-query.gen";
 import { useAuth } from "../useAuth";
-import { useIsRaidAdmin } from "./useIsRaidAdmin";
+import { useHasRaidPermission } from "./useHasRaidPermission";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 
 export const useTeams = () => {
   const { isTokenExpired } = useAuth();
   const { toast } = useToast();
-  const isAdmin = useIsRaidAdmin();
+  const { isRaidAdmin } = useHasRaidPermission();
 
   const queryClient = useQueryClient();
   const teamsQueryKey = getRaidTeamsQueryKey({});
@@ -24,7 +24,7 @@ export const useTeams = () => {
   } = useQuery({
     ...getRaidTeamsOptions({}),
     retry: 3,
-    enabled: isAdmin && !isTokenExpired(),
+    enabled: isRaidAdmin && !isTokenExpired(),
   });
 
   const { mutate: mutateDeleteAllTeams, isPending: isDeletionLoading } =
