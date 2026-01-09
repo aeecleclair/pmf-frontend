@@ -17,5 +17,8 @@
     "student": "Élève",
     "alumni": "Alumni",
     "register": "Pas encore de compte ? S'inscrire :"
+  },
+  "topbar": {
+    "logout": "Se déconnecter"
   }
 }
