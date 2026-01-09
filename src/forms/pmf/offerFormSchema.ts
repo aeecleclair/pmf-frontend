@@ -1,5 +1,4 @@
 import z from "zod";
-import { describe } from "zod/v4/core";
 
 
 export default function offerFormSchema(
