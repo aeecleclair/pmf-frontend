@@ -3,7 +3,7 @@ import { describe } from "zod/v4/core";
 
 
 export default function offerFormSchema(
-    t: (arg: keyof Messages["curriculumFormSchema"]) => string,
+    t: (arg: keyof Messages["offerFormSchema"]) => string,
 ) {
     return z.object({
         company_name: z.string(),
