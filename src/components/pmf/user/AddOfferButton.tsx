@@ -1,6 +1,6 @@
 import { CoreUser, OfferBase } from "@/api";
 import { postPmfOfferMutation } from "@/api/@tanstack/react-query.gen";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
