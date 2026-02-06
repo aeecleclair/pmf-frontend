@@ -1,13 +1,7 @@
 {
-  "TestPage": {
-    "Sample": "English"
-  },
-  "Test2": {
-    "Sample": "igirisu"
-  },
   "metadata": {
     "description": "Plateform of PMF of Centrale Lyon",
-    "title": "PMFFFF"
+    "title": "Piston mon frère"
   },
   "MyECLButton": {
     "authenticate": "Log in with MyECL"
@@ -17,5 +11,11 @@
     "student": "Student",
     "alumni": "Alumni",
     "register": "Don't have an account yet? Register:"
+  },
+  "topbar": {
+    "logout": "Log out"
+  },
+  "offersPanel": {
+    "title": "Offers"
   }
 }
