@@ -1,12 +1,13 @@
 import { CoreUser, OfferBase } from "@/api";
 import { postPmfOfferMutation } from "@/api/@tanstack/react-query.gen";
-import { LoadingButton } from "@/components/custom/LoadingButton";
+import { LoadingButton } from "@/components/common/LoadingButton";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import _offerFormSchema from "@/forms/pmf/offerFormSchema";
 import { useOffers } from "@/hooks/pmf/useOffers";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -24,14 +25,16 @@ export const AddOfferButton = () => {
         defaultValues: {},
     })
     async function onSubmit(values: z.infer<typeof offerFormSchema>) {
+        console.log('test')
         setIsLoading(true);
         const body: OfferBase = {
             ...values,
         };
-        const { error } = await postPmfOfferMutation({
+        const postPmfOffer = useMutation(postPmfOfferMutation());
+        await postPmfOffer.mutateAsync({
             body: body
         });
-        if (error) {
+        if (postPmfOffer.isError) {
             toast({
                 description: t("addOfferButton.toastErrorDescription"),
                 variant: "destructive",
